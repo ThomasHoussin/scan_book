@@ -3,17 +3,17 @@
     "marker2": {
       "scans": {
         "pages": 16,
-        "cer_global": 0.14936349029786183,
-        "cer_median": 0.0013795025826563814,
+        "cer_global": 0.15137483096340615,
+        "cer_median": 0.0022345266206292213,
         "cer_max": 1.0,
-        "wer_median": 0.007814397435274689,
+        "wer_median": 0.012988214896558187,
         "accent_edits": 0,
-        "inserted_words": 7,
+        "inserted_words": 3,
         "omitted_blocks": 1,
         "by_book": {
           "Les veilleurs": 0.003037712084166852,
-          "Le Lion Vert": 0.00508702807840008,
-          "Le Livre Noir": 0.00704757110495847,
+          "Le Lion Vert": 0.003920400972656444,
+          "Le Livre Noir": 0.022183665881769735,
           "Les Figures": 1.0
         }
       },
@@ -39,18 +39,18 @@
     "marker2-force": {
       "scans": {
         "pages": 16,
-        "cer_global": 0.004984962715774729,
-        "cer_median": 0.0013795025826563814,
+        "cer_global": 0.0077654386755726754,
+        "cer_median": 0.0024571446081626137,
         "cer_max": 0.025606469002695417,
-        "wer_median": 0.007814397435274689,
+        "wer_median": 0.012988214896558187,
         "accent_edits": 15,
-        "inserted_words": 7,
+        "inserted_words": 3,
         "omitted_blocks": 0,
         "by_book": {
           "Les veilleurs": 0.003037712084166852,
-          "Le Lion Vert": 0.00518677372699616,
-          "Le Livre Noir": 0.006921721620941354,
-          "Les Figures": 0.005955757231990925
+          "Le Lion Vert": 0.00401965163019205,
+          "Le Livre Noir": 0.022059734787458173,
+          "Les Figures": 0.011144025955706023
         }
       },
       "olmocr": {
@@ -75,18 +75,18 @@
     "haiku": {
       "scans": {
         "pages": 16,
-        "cer_global": 0.0025336793968607093,
-        "cer_median": 0.00013007284079084288,
+        "cer_global": 0.004056878252673851,
+        "cer_median": 0.0003068425897514575,
         "cer_max": 0.0091273374888691,
-        "wer_median": 0.0008183306055646482,
+        "wer_median": 0.0018450184501845018,
         "accent_edits": 14,
         "inserted_words": 16,
         "omitted_blocks": 0,
         "by_book": {
           "Les veilleurs": 0.001555901311402534,
-          "Le Lion Vert": 0.00244376839060396,
+          "Le Lion Vert": 0.006153540767207583,
           "Le Livre Noir": 0.0,
-          "Les Figures": 0.007515598411798071
+          "Les Figures": 0.00747637184370151
         }
       },
       "olmocr": {
@@ -111,18 +111,18 @@
     "luna": {
       "scans": {
         "pages": 16,
-        "cer_global": 0.005046759774234746,
-        "cer_median": 0.0010158506749774797,
+        "cer_global": 0.005450149571773962,
+        "cer_median": 0.0010108689636063404,
         "cer_max": 0.01954177897574124,
-        "wer_median": 0.004140539803707742,
+        "wer_median": 0.004111040118371053,
         "accent_edits": 22,
-        "inserted_words": 7,
+        "inserted_words": 6,
         "omitted_blocks": 0,
         "by_book": {
           "Les veilleurs": 0.002815440468252204,
-          "Le Lion Vert": 0.00463817265971772,
-          "Le Livre Noir": 0.0003775484520513465,
-          "Les Figures": 0.015740215541690302
+          "Le Lion Vert": 0.005657287479529552,
+          "Le Livre Noir": 0.0003717932829346883,
+          "Les Figures": 0.015658061785865426
         }
       },
       "olmocr": {
@@ -613,14 +613,14 @@
     },
     "lion-vert-0007": {
       "marker2": {
-        "ref_chars": 4285,
-        "ref_words": 692,
-        "hyp_words": 692,
-        "cer": 0.0011668611435239206,
-        "wer": 0.0072254335260115606,
+        "ref_chars": 4310,
+        "ref_words": 694,
+        "hyp_words": 694,
+        "cer": 0.012761020881670533,
+        "wer": 0.012968299711815562,
         "accent_edits": 0,
-        "inserted_words": 0,
-        "deleted_words": 0,
+        "inserted_words": 2,
+        "deleted_words": 2,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -633,14 +633,14 @@
         }
       },
       "marker2-force": {
-        "ref_chars": 4285,
-        "ref_words": 692,
-        "hyp_words": 692,
-        "cer": 0.0011668611435239206,
-        "wer": 0.0072254335260115606,
+        "ref_chars": 4310,
+        "ref_words": 694,
+        "hyp_words": 694,
+        "cer": 0.012761020881670533,
+        "wer": 0.012968299711815562,
         "accent_edits": 0,
-        "inserted_words": 0,
-        "deleted_words": 0,
+        "inserted_words": 2,
+        "deleted_words": 2,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -653,14 +653,14 @@
         }
       },
       "haiku": {
-        "ref_chars": 4285,
-        "ref_words": 692,
+        "ref_chars": 4310,
+        "ref_words": 694,
         "hyp_words": 692,
-        "cer": 0.0007001166861143524,
-        "wer": 0.004335260115606936,
+        "cer": 0.0064965197215777265,
+        "wer": 0.007204610951008645,
         "accent_edits": 2,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 2,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -674,14 +674,14 @@
         }
       },
       "luna": {
-        "ref_chars": 4285,
-        "ref_words": 692,
-        "hyp_words": 692,
-        "cer": 0.002333722287047841,
-        "wer": 0.011560693641618497,
+        "ref_chars": 4310,
+        "ref_words": 694,
+        "hyp_words": 694,
+        "cer": 0.013921113689095127,
+        "wer": 0.01729106628242075,
         "accent_edits": 3,
-        "inserted_words": 0,
-        "deleted_words": 0,
+        "inserted_words": 2,
+        "deleted_words": 2,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -706,13 +706,13 @@
     },
     "lion-vert-0008": {
       "marker2": {
-        "ref_chars": 3844,
-        "ref_words": 611,
+        "ref_chars": 3894,
+        "ref_words": 615,
         "hyp_words": 616,
-        "cer": 0.014568158168574402,
-        "wer": 0.01800327332242226,
+        "cer": 0.0017976373908577298,
+        "wer": 0.013008130081300813,
         "accent_edits": 0,
-        "inserted_words": 5,
+        "inserted_words": 1,
         "deleted_words": 0,
         "omitted_blocks": 0,
         "illisible": 0,
@@ -726,13 +726,13 @@
         }
       },
       "marker2-force": {
-        "ref_chars": 3844,
-        "ref_words": 611,
+        "ref_chars": 3894,
+        "ref_words": 615,
         "hyp_words": 616,
-        "cer": 0.014568158168574402,
-        "wer": 0.01800327332242226,
+        "cer": 0.0017976373908577298,
+        "wer": 0.013008130081300813,
         "accent_edits": 0,
-        "inserted_words": 5,
+        "inserted_words": 1,
         "deleted_words": 0,
         "omitted_blocks": 0,
         "illisible": 0,
@@ -746,14 +746,14 @@
         }
       },
       "haiku": {
-        "ref_chars": 3844,
-        "ref_words": 611,
-        "hyp_words": 611,
-        "cer": 0.00026014568158168577,
-        "wer": 0.0016366612111292963,
+        "ref_chars": 3894,
+        "ref_words": 615,
+        "hyp_words": 613,
+        "cer": 0.00667693888032871,
+        "wer": 0.004878048780487805,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 2,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -767,13 +767,13 @@
         }
       },
       "luna": {
-        "ref_chars": 3844,
-        "ref_words": 611,
-        "hyp_words": 614,
-        "cer": 0.009365244536940686,
-        "wer": 0.019639934533551555,
+        "ref_chars": 3894,
+        "ref_words": 615,
+        "hyp_words": 616,
+        "cer": 0.003338469440164355,
+        "wer": 0.01951219512195122,
         "accent_edits": 2,
-        "inserted_words": 3,
+        "inserted_words": 1,
         "deleted_words": 0,
         "omitted_blocks": 0,
         "illisible": 0,
@@ -799,13 +799,13 @@
     },
     "lion-vert-0010": {
       "marker2": {
-        "ref_chars": 4171,
-        "ref_words": 657,
+        "ref_chars": 4196,
+        "ref_words": 659,
         "hyp_words": 658,
-        "cer": 0.006713018460800768,
-        "wer": 0.0091324200913242,
+        "cer": 0.0009532888465204957,
+        "wer": 0.007587253414264037,
         "accent_edits": 0,
-        "inserted_words": 2,
+        "inserted_words": 0,
         "deleted_words": 1,
         "omitted_blocks": 0,
         "illisible": 0,
@@ -819,13 +819,13 @@
         }
       },
       "marker2-force": {
-        "ref_chars": 4171,
-        "ref_words": 657,
+        "ref_chars": 4196,
+        "ref_words": 659,
         "hyp_words": 658,
-        "cer": 0.006713018460800768,
-        "wer": 0.0091324200913242,
+        "cer": 0.0009532888465204957,
+        "wer": 0.007587253414264037,
         "accent_edits": 0,
-        "inserted_words": 2,
+        "inserted_words": 0,
         "deleted_words": 1,
         "omitted_blocks": 0,
         "illisible": 0,
@@ -839,14 +839,14 @@
         }
       },
       "haiku": {
-        "ref_chars": 4171,
-        "ref_words": 657,
+        "ref_chars": 4196,
+        "ref_words": 659,
         "hyp_words": 657,
-        "cer": 0.0004795013186286262,
-        "wer": 0.0030441400304414,
+        "cer": 0.006434699714013346,
+        "wer": 0.006069802731411229,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 2,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -860,13 +860,13 @@
         }
       },
       "luna": {
-        "ref_chars": 4171,
-        "ref_words": 657,
-        "hyp_words": 658,
-        "cer": 0.004795013186286262,
-        "wer": 0.0076103500761035,
+        "ref_chars": 4196,
+        "ref_words": 659,
+        "hyp_words": 659,
+        "cer": 0.003336510962821735,
+        "wer": 0.009104704097116844,
         "accent_edits": 2,
-        "inserted_words": 1,
+        "inserted_words": 0,
         "deleted_words": 0,
         "omitted_blocks": 0,
         "illisible": 0,
@@ -1171,14 +1171,14 @@
     },
     "livre-noir-0018": {
       "marker2": {
-        "ref_chars": 1542,
-        "ref_words": 238,
+        "ref_chars": 1575,
+        "ref_words": 245,
         "hyp_words": 238,
-        "cer": 0.0012970168612191958,
-        "wer": 0.008403361344537815,
+        "cer": 0.022222222222222223,
+        "wer": 0.036734693877551024,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 7,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1191,14 +1191,14 @@
         }
       },
       "marker2-force": {
-        "ref_chars": 1542,
-        "ref_words": 238,
+        "ref_chars": 1575,
+        "ref_words": 245,
         "hyp_words": 238,
-        "cer": 0.0012970168612191958,
-        "wer": 0.008403361344537815,
+        "cer": 0.022222222222222223,
+        "wer": 0.036734693877551024,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 7,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1211,9 +1211,9 @@
         }
       },
       "haiku": {
-        "ref_chars": 1542,
-        "ref_words": 238,
-        "hyp_words": 238,
+        "ref_chars": 1575,
+        "ref_words": 245,
+        "hyp_words": 245,
         "cer": 0.0,
         "wer": 0.0,
         "accent_edits": 0,
@@ -1232,9 +1232,9 @@
         }
       },
       "luna": {
-        "ref_chars": 1542,
-        "ref_words": 238,
-        "hyp_words": 238,
+        "ref_chars": 1575,
+        "ref_words": 245,
+        "hyp_words": 245,
         "cer": 0.0,
         "wer": 0.0,
         "accent_edits": 0,
@@ -1264,14 +1264,14 @@
     },
     "livre-noir-0029": {
       "marker2": {
-        "ref_chars": 1368,
-        "ref_words": 219,
+        "ref_chars": 1401,
+        "ref_words": 226,
         "hyp_words": 219,
-        "cer": 0.0014619883040935672,
-        "wer": 0.0091324200913242,
+        "cer": 0.024982155603140613,
+        "wer": 0.03982300884955752,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 7,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1284,14 +1284,14 @@
         }
       },
       "marker2-force": {
-        "ref_chars": 1368,
-        "ref_words": 219,
+        "ref_chars": 1401,
+        "ref_words": 226,
         "hyp_words": 219,
-        "cer": 0.0014619883040935672,
-        "wer": 0.0091324200913242,
+        "cer": 0.024982155603140613,
+        "wer": 0.03982300884955752,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 7,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1304,9 +1304,9 @@
         }
       },
       "haiku": {
-        "ref_chars": 1368,
-        "ref_words": 219,
-        "hyp_words": 219,
+        "ref_chars": 1401,
+        "ref_words": 226,
+        "hyp_words": 226,
         "cer": 0.0,
         "wer": 0.0,
         "accent_edits": 0,
@@ -1325,9 +1325,9 @@
         }
       },
       "luna": {
-        "ref_chars": 1368,
-        "ref_words": 219,
-        "hyp_words": 219,
+        "ref_chars": 1401,
+        "ref_words": 226,
+        "hyp_words": 226,
         "cer": 0.0,
         "wer": 0.0,
         "accent_edits": 0,
@@ -1357,14 +1357,14 @@
     },
     "livre-noir-0046": {
       "marker2": {
-        "ref_chars": 2785,
-        "ref_words": 448,
+        "ref_chars": 2811,
+        "ref_words": 454,
         "hyp_words": 441,
-        "cer": 0.015439856373429085,
-        "wer": 0.017857142857142856,
+        "cer": 0.02454642475987193,
+        "wer": 0.030837004405286344,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 7,
+        "deleted_words": 13,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1377,14 +1377,14 @@
         }
       },
       "marker2-force": {
-        "ref_chars": 2785,
-        "ref_words": 448,
+        "ref_chars": 2811,
+        "ref_words": 454,
         "hyp_words": 442,
-        "cer": 0.015080789946140035,
-        "wer": 0.013392857142857142,
+        "cer": 0.024190679473496977,
+        "wer": 0.02643171806167401,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 6,
+        "deleted_words": 12,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1397,9 +1397,9 @@
         }
       },
       "haiku": {
-        "ref_chars": 2785,
-        "ref_words": 448,
-        "hyp_words": 448,
+        "ref_chars": 2811,
+        "ref_words": 454,
+        "hyp_words": 454,
         "cer": 0.0,
         "wer": 0.0,
         "accent_edits": 0,
@@ -1418,11 +1418,11 @@
         }
       },
       "luna": {
-        "ref_chars": 2785,
-        "ref_words": 448,
-        "hyp_words": 449,
-        "cer": 0.0010771992818671453,
-        "wer": 0.004464285714285714,
+        "ref_chars": 2811,
+        "ref_words": 454,
+        "hyp_words": 455,
+        "cer": 0.0010672358591248667,
+        "wer": 0.004405286343612335,
         "accent_edits": 1,
         "inserted_words": 1,
         "deleted_words": 0,
@@ -1450,14 +1450,14 @@
     },
     "livre-noir-0062": {
       "marker2": {
-        "ref_chars": 1922,
-        "ref_words": 305,
+        "ref_chars": 1953,
+        "ref_words": 311,
         "hyp_words": 305,
-        "cer": 0.004682622268470343,
-        "wer": 0.006557377049180328,
+        "cer": 0.02048131080389145,
+        "wer": 0.02572347266881029,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 6,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1470,14 +1470,14 @@
         }
       },
       "marker2-force": {
-        "ref_chars": 1922,
-        "ref_words": 305,
+        "ref_chars": 1953,
+        "ref_words": 311,
         "hyp_words": 305,
-        "cer": 0.004682622268470343,
-        "wer": 0.006557377049180328,
+        "cer": 0.02048131080389145,
+        "wer": 0.02572347266881029,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 0,
+        "deleted_words": 6,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1490,9 +1490,9 @@
         }
       },
       "haiku": {
-        "ref_chars": 1922,
-        "ref_words": 305,
-        "hyp_words": 305,
+        "ref_chars": 1953,
+        "ref_words": 311,
+        "hyp_words": 311,
         "cer": 0.0,
         "wer": 0.0,
         "accent_edits": 0,
@@ -1511,9 +1511,9 @@
         }
       },
       "luna": {
-        "ref_chars": 1922,
-        "ref_words": 305,
-        "hyp_words": 305,
+        "ref_chars": 1953,
+        "ref_words": 311,
+        "hyp_words": 311,
         "cer": 0.0,
         "wer": 0.0,
         "accent_edits": 0,
@@ -1543,14 +1543,14 @@
     },
     "figures-0098": {
       "marker2": {
-        "ref_chars": 7052,
-        "ref_words": 1161,
+        "ref_chars": 7089,
+        "ref_words": 1167,
         "hyp_words": 0,
         "cer": 1.0,
         "wer": 1.0,
         "accent_edits": 0,
         "inserted_words": 0,
-        "deleted_words": 1161,
+        "deleted_words": 1167,
         "omitted_blocks": 1,
         "illisible": 0,
         "missing": false,
@@ -1563,14 +1563,14 @@
         }
       },
       "marker2-force": {
-        "ref_chars": 7052,
-        "ref_words": 1161,
+        "ref_chars": 7089,
+        "ref_words": 1167,
         "hyp_words": 1160,
-        "cer": 0.005955757231990925,
-        "wer": 0.03273040482342808,
+        "cer": 0.011144025955706023,
+        "wer": 0.037703513281919454,
         "accent_edits": 13,
         "inserted_words": 0,
-        "deleted_words": 1,
+        "deleted_words": 7,
         "omitted_blocks": 0,
         "illisible": 0,
         "missing": false,
@@ -1583,11 +1583,11 @@
         }
       },
       "haiku": {
-        "ref_chars": 7052,
-        "ref_words": 1161,
-        "hyp_words": 1159,
-        "cer": 0.007515598411798071,
-        "wer": 0.025839793281653745,
+        "ref_chars": 7089,
+        "ref_words": 1167,
+        "hyp_words": 1165,
+        "cer": 0.00747637184370151,
+        "wer": 0.02570694087403599,
         "accent_edits": 4,
         "inserted_words": 1,
         "deleted_words": 3,
@@ -1604,11 +1604,11 @@
         }
       },
       "luna": {
-        "ref_chars": 7052,
-        "ref_words": 1161,
-        "hyp_words": 1160,
-        "cer": 0.015740215541690302,
-        "wer": 0.04995693367786391,
+        "ref_chars": 7089,
+        "ref_words": 1167,
+        "hyp_words": 1166,
+        "cer": 0.015658061785865426,
+        "wer": 0.049700085689802914,
         "accent_edits": 5,
         "inserted_words": 0,
         "deleted_words": 1,
@@ -1643,10 +1643,10 @@
         "passed": 1,
         "results": [
           {
-            "id": "1_787572",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
+            "id": "1_126739",
+            "type": "absent",
+            "passed": true,
+            "explanation": ""
           },
           {
             "id": "1_298389",
@@ -1655,22 +1655,22 @@
             "explanation": "'before' text 'During your trip to S.A....' not found with max_l_dist 0"
           },
           {
-            "id": "1_36225",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'one Law Here must Be Repealed. as we are...' with threshold 0.9661016949152542 but best match ratio was 0.898"
-          },
-          {
             "id": "1_680487",
             "type": "present",
             "passed": false,
             "explanation": "Expected 'as we are deprived of Voting for whoever...' with threshold 1.0 but best match ratio was 0.926"
           },
           {
-            "id": "1_126739",
-            "type": "absent",
-            "passed": true,
-            "explanation": ""
+            "id": "1_36225",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'one Law Here must Be Repealed. as we are...' with threshold 0.9661016949152542 but best match ratio was 0.898"
+          },
+          {
+            "id": "1_787572",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
           }
         ],
         "meta": {
@@ -1687,10 +1687,10 @@
         "passed": 1,
         "results": [
           {
-            "id": "1_787572",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
+            "id": "1_126739",
+            "type": "absent",
+            "passed": true,
+            "explanation": ""
           },
           {
             "id": "1_298389",
@@ -1699,22 +1699,22 @@
             "explanation": "'before' text 'During your trip to S.A....' not found with max_l_dist 0"
           },
           {
-            "id": "1_36225",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'one Law Here must Be Repealed. as we are...' with threshold 0.9661016949152542 but best match ratio was 0.898"
-          },
-          {
             "id": "1_680487",
             "type": "present",
             "passed": false,
             "explanation": "Expected 'as we are deprived of Voting for whoever...' with threshold 1.0 but best match ratio was 0.926"
           },
           {
-            "id": "1_126739",
-            "type": "absent",
-            "passed": true,
-            "explanation": ""
+            "id": "1_36225",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'one Law Here must Be Repealed. as we are...' with threshold 0.9661016949152542 but best match ratio was 0.898"
+          },
+          {
+            "id": "1_787572",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
           }
         ],
         "meta": {
@@ -1731,10 +1731,10 @@
         "passed": 2,
         "results": [
           {
-            "id": "1_787572",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
+            "id": "1_126739",
+            "type": "absent",
+            "passed": true,
+            "explanation": ""
           },
           {
             "id": "1_298389",
@@ -1743,22 +1743,22 @@
             "explanation": "'before' text 'During your trip to S.A....' not found with max_l_dist 0"
           },
           {
-            "id": "1_36225",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "1_680487",
             "type": "present",
             "passed": false,
             "explanation": "Expected 'as we are deprived of Voting for whoever...' with threshold 1.0 but best match ratio was 0.956"
           },
           {
-            "id": "1_126739",
-            "type": "absent",
+            "id": "1_36225",
+            "type": "present",
             "passed": true,
             "explanation": ""
+          },
+          {
+            "id": "1_787572",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
           }
         ],
         "meta": {
@@ -1776,10 +1776,10 @@
         "passed": 2,
         "results": [
           {
-            "id": "1_787572",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
+            "id": "1_126739",
+            "type": "absent",
+            "passed": true,
+            "explanation": ""
           },
           {
             "id": "1_298389",
@@ -1788,22 +1788,22 @@
             "explanation": "'after' text 'to Eastern or Bangor Pa I would Like to ...' not found with max_l_dist 0"
           },
           {
-            "id": "1_36225",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "1_680487",
             "type": "present",
             "passed": false,
             "explanation": "Expected 'as we are deprived of Voting for whoever...' with threshold 1.0 but best match ratio was 0.971"
           },
           {
-            "id": "1_126739",
-            "type": "absent",
+            "id": "1_36225",
+            "type": "present",
             "passed": true,
             "explanation": ""
+          },
+          {
+            "id": "1_787572",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
           }
         ],
         "meta": {
@@ -1832,28 +1832,28 @@
         "passed": 0,
         "results": [
           {
-            "id": "12_643052",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.950"
-          },
-          {
-            "id": "12_898662",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.973"
-          },
-          {
             "id": "12_370663",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'Am simply a railroad man, a locomotive e...' not found with max_l_dist 0"
           },
           {
+            "id": "12_643052",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.950"
+          },
+          {
             "id": "12_287370",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'connected with the sale of it and have n...' not found with max_l_dist 0"
+          },
+          {
+            "id": "12_898662",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.973"
           }
         ],
         "meta": {
@@ -1870,28 +1870,28 @@
         "passed": 0,
         "results": [
           {
-            "id": "12_643052",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.950"
-          },
-          {
-            "id": "12_898662",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.945"
-          },
-          {
             "id": "12_370663",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'Am simply a railroad man, a locomotive e...' not found with max_l_dist 0"
           },
           {
+            "id": "12_643052",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.950"
+          },
+          {
             "id": "12_287370",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'connected with the sale of it and have n...' not found with max_l_dist 0"
+          },
+          {
+            "id": "12_898662",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.945"
           }
         ],
         "meta": {
@@ -1908,28 +1908,28 @@
         "passed": 2,
         "results": [
           {
-            "id": "12_643052",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "12_898662",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "12_370663",
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'I am not in any way connected with the s...' not found with max_l_dist 0"
           },
           {
+            "id": "12_643052",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "12_287370",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'connected with the sale of it and have n...' not found with max_l_dist 0"
+          },
+          {
+            "id": "12_898662",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
           }
         ],
         "meta": {
@@ -1947,28 +1947,28 @@
         "passed": 2,
         "results": [
           {
-            "id": "12_643052",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "12_898662",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "12_370663",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'Am simply a railroad man, a locomotive e...' not found with max_l_dist 0"
           },
           {
+            "id": "12_643052",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "12_287370",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'connected with the sale of it and have n...' not found with max_l_dist 0"
+          },
+          {
+            "id": "12_898662",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
           }
         ],
         "meta": {
@@ -2003,6 +2003,12 @@
             "explanation": "Expected 'Clsip L.l....' with threshold 1.0 but best match ratio was 0.700"
           },
           {
+            "id": "27_823694",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Willow Brook Running and Driving Park...' with threshold 0.972972972972973 but best match ratio was 0.946"
+          },
+          {
             "id": "27_871722",
             "type": "present",
             "passed": false,
@@ -2013,12 +2019,6 @@
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'FRANK J. Dion...' not found with max_l_dist 1"
-          },
-          {
-            "id": "27_823694",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'Willow Brook Running and Driving Park...' with threshold 0.972972972972973 but best match ratio was 0.946"
           }
         ],
         "meta": {
@@ -2041,6 +2041,12 @@
             "explanation": "Expected 'Clsip L.l....' with threshold 1.0 but best match ratio was 0.700"
           },
           {
+            "id": "27_823694",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Willow Brook Running and Driving Park...' with threshold 0.972972972972973 but best match ratio was 0.892"
+          },
+          {
             "id": "27_871722",
             "type": "present",
             "passed": false,
@@ -2051,12 +2057,6 @@
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'FRANK J. Dion...' not found with max_l_dist 1"
-          },
-          {
-            "id": "27_823694",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'Willow Brook Running and Driving Park...' with threshold 0.972972972972973 but best match ratio was 0.892"
           }
         ],
         "meta": {
@@ -2079,6 +2079,12 @@
             "explanation": "Expected 'Clsip L.l....' with threshold 1.0 but best match ratio was 0.700"
           },
           {
+            "id": "27_823694",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "27_871722",
             "type": "present",
             "passed": false,
@@ -2089,12 +2095,6 @@
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'FRANK J. Dion...' not found with max_l_dist 1"
-          },
-          {
-            "id": "27_823694",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
           }
         ],
         "meta": {
@@ -2118,6 +2118,12 @@
             "explanation": "Expected 'Clsip L.l....' with threshold 1.0 but best match ratio was 0.700"
           },
           {
+            "id": "27_823694",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "27_871722",
             "type": "present",
             "passed": true,
@@ -2128,12 +2134,6 @@
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'FRANK J. Dion...' not found with max_l_dist 1"
-          },
-          {
-            "id": "27_823694",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
           }
         ],
         "meta": {
@@ -2279,30 +2279,6 @@
         "passed": 1,
         "results": [
           {
-            "id": "37_500785",
-            "type": "order",
-            "passed": false,
-            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
-          },
-          {
-            "id": "37_564816",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "37_410156",
-            "type": "order",
-            "passed": false,
-            "explanation": "Could not find a location where 'I have been looking for that promised vi...' appears before 'Holt is very much pleased and is, I hope...'."
-          },
-          {
-            "id": "37_273626",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
-          },
-          {
             "id": "37_413457",
             "type": "present",
             "passed": false,
@@ -2313,6 +2289,30 @@
             "type": "present",
             "passed": false,
             "explanation": "Expected 'Hunt's school begins on the 15th of Janu...' with threshold 0.9838709677419355 but best match ratio was 0.823"
+          },
+          {
+            "id": "37_273626",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_410156",
+            "type": "order",
+            "passed": false,
+            "explanation": "Could not find a location where 'I have been looking for that promised vi...' appears before 'Holt is very much pleased and is, I hope...'."
+          },
+          {
+            "id": "37_564816",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_500785",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
           }
         ],
         "meta": {
@@ -2329,30 +2329,6 @@
         "passed": 1,
         "results": [
           {
-            "id": "37_500785",
-            "type": "order",
-            "passed": false,
-            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
-          },
-          {
-            "id": "37_564816",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "37_410156",
-            "type": "order",
-            "passed": false,
-            "explanation": "Could not find a location where 'I have been looking for that promised vi...' appears before 'Holt is very much pleased and is, I hope...'."
-          },
-          {
-            "id": "37_273626",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
-          },
-          {
             "id": "37_413457",
             "type": "present",
             "passed": false,
@@ -2363,6 +2339,30 @@
             "type": "present",
             "passed": false,
             "explanation": "Expected 'Hunt's school begins on the 15th of Janu...' with threshold 0.9838709677419355 but best match ratio was 0.823"
+          },
+          {
+            "id": "37_273626",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_410156",
+            "type": "order",
+            "passed": false,
+            "explanation": "Could not find a location where 'I have been looking for that promised vi...' appears before 'Holt is very much pleased and is, I hope...'."
+          },
+          {
+            "id": "37_564816",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_500785",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
           }
         ],
         "meta": {
@@ -2379,13 +2379,19 @@
         "passed": 4,
         "results": [
           {
-            "id": "37_500785",
-            "type": "order",
-            "passed": false,
-            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
+            "id": "37_413457",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
           },
           {
-            "id": "37_564816",
+            "id": "37_634834",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_273626",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -2397,22 +2403,16 @@
             "explanation": "Could not find a location where 'I have been looking for that promised vi...' appears before 'Holt is very much pleased and is, I hope...'."
           },
           {
-            "id": "37_273626",
+            "id": "37_564816",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "37_413457",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "37_634834",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
+            "id": "37_500785",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
           }
         ],
         "meta": {
@@ -2430,30 +2430,6 @@
         "passed": 1,
         "results": [
           {
-            "id": "37_500785",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'we have had such beautiful weather this ...' not found with max_l_dist 0"
-          },
-          {
-            "id": "37_564816",
-            "type": "order",
-            "passed": false,
-            "explanation": "'after' text 'looking for that promised visit we have ...' not found with max_l_dist 1"
-          },
-          {
-            "id": "37_410156",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'I have been looking for that promised vi...' not found with max_l_dist 0"
-          },
-          {
-            "id": "37_273626",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
-          },
-          {
             "id": "37_413457",
             "type": "present",
             "passed": true,
@@ -2464,6 +2440,30 @@
             "type": "present",
             "passed": false,
             "explanation": "Expected 'Hunt's school begins on the 15th of Janu...' with threshold 0.9838709677419355 but best match ratio was 0.952"
+          },
+          {
+            "id": "37_273626",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_410156",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'I have been looking for that promised vi...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_564816",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'looking for that promised visit we have ...' not found with max_l_dist 1"
+          },
+          {
+            "id": "37_500785",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'we have had such beautiful weather this ...' not found with max_l_dist 0"
           }
         ],
         "meta": {
@@ -2492,13 +2492,13 @@
         "passed": 5,
         "results": [
           {
-            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -2536,13 +2536,13 @@
         "passed": 5,
         "results": [
           {
-            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -2580,13 +2580,13 @@
         "passed": 5,
         "results": [
           {
-            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -2625,13 +2625,13 @@
         "passed": 5,
         "results": [
           {
-            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -2822,10 +2822,10 @@
         "passed": 3,
         "results": [
           {
-            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
             "type": "table",
-            "passed": true,
-            "explanation": ""
+            "passed": false,
+            "explanation": "Found cells matching '18-29 (464; 70.6%)' but relationships were not satisfied: No left heading found for cell at (5, 1)"
           },
           {
             "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_03",
@@ -2834,10 +2834,10 @@
             "explanation": "Found cells matching '1 (67; 10.2%)' but relationships were not satisfied: No left heading found for cell at (7, 1)"
           },
           {
-            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
             "type": "table",
-            "passed": false,
-            "explanation": "Found cells matching '18-29 (464; 70.6%)' but relationships were not satisfied: No left heading found for cell at (5, 1)"
+            "passed": true,
+            "explanation": ""
           },
           {
             "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_04",
@@ -2866,10 +2866,10 @@
         "passed": 3,
         "results": [
           {
-            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
             "type": "table",
-            "passed": true,
-            "explanation": ""
+            "passed": false,
+            "explanation": "Found cells matching '18-29 (464; 70.6%)' but relationships were not satisfied: No left heading found for cell at (5, 1)"
           },
           {
             "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_03",
@@ -2878,10 +2878,10 @@
             "explanation": "Found cells matching '1 (67; 10.2%)' but relationships were not satisfied: No left heading found for cell at (7, 1)"
           },
           {
-            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
             "type": "table",
-            "passed": false,
-            "explanation": "Found cells matching '18-29 (464; 70.6%)' but relationships were not satisfied: No left heading found for cell at (5, 1)"
+            "passed": true,
+            "explanation": ""
           },
           {
             "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_04",
@@ -2910,7 +2910,7 @@
         "passed": 5,
         "results": [
           {
-            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -2922,7 +2922,7 @@
             "explanation": ""
           },
           {
-            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -2955,10 +2955,10 @@
         "passed": 3,
         "results": [
           {
-            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
             "type": "table",
-            "passed": true,
-            "explanation": ""
+            "passed": false,
+            "explanation": "No cell matching '18-29 (464; 70.6%)' found in any table with threshold 1.0"
           },
           {
             "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_03",
@@ -2967,10 +2967,10 @@
             "explanation": "No cell matching '1 (67; 10.2%)' found in any table with threshold 1.0"
           },
           {
-            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
             "type": "table",
-            "passed": false,
-            "explanation": "No cell matching '18-29 (464; 70.6%)' found in any table with threshold 1.0"
+            "passed": true,
+            "explanation": ""
           },
           {
             "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_04",
@@ -3011,13 +3011,13 @@
         "passed": 2,
         "results": [
           {
-            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3037,13 +3037,13 @@
         "passed": 2,
         "results": [
           {
-            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3063,13 +3063,13 @@
         "passed": 2,
         "results": [
           {
-            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3090,13 +3090,13 @@
         "passed": 2,
         "results": [
           {
-            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3128,13 +3128,13 @@
         "passed": 5,
         "results": [
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3146,7 +3146,7 @@
             "explanation": ""
           },
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3172,13 +3172,13 @@
         "passed": 5,
         "results": [
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3190,7 +3190,7 @@
             "explanation": ""
           },
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3216,13 +3216,13 @@
         "passed": 5,
         "results": [
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3234,7 +3234,7 @@
             "explanation": ""
           },
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3261,13 +3261,13 @@
         "passed": 5,
         "results": [
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
             "type": "table",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3279,7 +3279,7 @@
             "explanation": ""
           },
           {
-            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
             "type": "table",
             "passed": true,
             "explanation": ""
@@ -3317,12 +3317,6 @@
         "passed": 3,
         "results": [
           {
-            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_5f6bfd65",
             "type": "order",
             "passed": true,
@@ -3339,6 +3333,12 @@
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'The other $8,000 ($20,000 â€\" $12,000) o...' not found with max_l_dist 1"
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
           }
         ],
         "meta": {
@@ -3355,12 +3355,6 @@
         "passed": 3,
         "results": [
           {
-            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_5f6bfd65",
             "type": "order",
             "passed": true,
@@ -3377,6 +3371,12 @@
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'The other $8,000 ($20,000 â€\" $12,000) o...' not found with max_l_dist 1"
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
           }
         ],
         "meta": {
@@ -3393,12 +3393,6 @@
         "passed": 3,
         "results": [
           {
-            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_5f6bfd65",
             "type": "order",
             "passed": true,
@@ -3415,6 +3409,12 @@
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'The other $8,000 ($20,000 â€\" $12,000) o...' not found with max_l_dist 1"
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
           }
         ],
         "meta": {
@@ -3432,12 +3432,6 @@
         "passed": 3,
         "results": [
           {
-            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_5f6bfd65",
             "type": "order",
             "passed": true,
@@ -3454,6 +3448,12 @@
             "type": "order",
             "passed": false,
             "explanation": "'after' text 'The other $8,000 ($20,000 â€\" $12,000) o...' not found with max_l_dist 1"
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
           }
         ],
         "meta": {
@@ -3482,12 +3482,6 @@
         "passed": 4,
         "results": [
           {
-            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3a1d12ca",
             "type": "order",
             "passed": true,
@@ -3495,6 +3489,12 @@
           },
           {
             "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3d6676d4",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3520,12 +3520,6 @@
         "passed": 4,
         "results": [
           {
-            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3a1d12ca",
             "type": "order",
             "passed": true,
@@ -3533,6 +3527,12 @@
           },
           {
             "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3d6676d4",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3558,12 +3558,6 @@
         "passed": 4,
         "results": [
           {
-            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3a1d12ca",
             "type": "order",
             "passed": true,
@@ -3571,6 +3565,12 @@
           },
           {
             "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3d6676d4",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3597,12 +3597,6 @@
         "passed": 4,
         "results": [
           {
-            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3a1d12ca",
             "type": "order",
             "passed": true,
@@ -3610,6 +3604,12 @@
           },
           {
             "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3d6676d4",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3647,16 +3647,16 @@
         "passed": 0,
         "results": [
           {
-            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
-          },
-          {
             "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_2975ba06",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'Die abfallpolitische Einordnung wurde vo...' not found with max_l_dist 1"
+          },
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
           }
         ],
         "meta": {
@@ -3673,16 +3673,16 @@
         "passed": 0,
         "results": [
           {
-            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
-          },
-          {
             "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_2975ba06",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'Die abfallpolitische Einordnung wurde vo...' not found with max_l_dist 1"
+          },
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
           }
         ],
         "meta": {
@@ -3699,16 +3699,16 @@
         "passed": 0,
         "results": [
           {
-            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
-          },
-          {
             "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_2975ba06",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'Die abfallpolitische Einordnung wurde vo...' not found with max_l_dist 1"
+          },
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
           }
         ],
         "meta": {
@@ -3726,16 +3726,16 @@
         "passed": 0,
         "results": [
           {
-            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
-            "type": "order",
-            "passed": false,
-            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
-          },
-          {
             "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_2975ba06",
             "type": "order",
             "passed": false,
             "explanation": "'before' text 'Die abfallpolitische Einordnung wurde vo...' not found with max_l_dist 1"
+          },
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
           }
         ],
         "meta": {
@@ -3764,25 +3764,25 @@
         "passed": 4,
         "results": [
           {
-            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_b9f4fa82",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
             "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_29e9ce7e",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3802,25 +3802,25 @@
         "passed": 4,
         "results": [
           {
-            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_b9f4fa82",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
             "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_29e9ce7e",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3840,25 +3840,25 @@
         "passed": 4,
         "results": [
           {
-            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_b9f4fa82",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
             "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_29e9ce7e",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3879,25 +3879,25 @@
         "passed": 4,
         "results": [
           {
-            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
-            "type": "order",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_b9f4fa82",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
             "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_29e9ce7e",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3929,13 +3929,13 @@
         "passed": 4,
         "results": [
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3947,7 +3947,7 @@
             "explanation": ""
           },
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3967,13 +3967,13 @@
         "passed": 4,
         "results": [
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -3985,7 +3985,7 @@
             "explanation": ""
           },
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -4005,13 +4005,13 @@
         "passed": 4,
         "results": [
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -4023,7 +4023,7 @@
             "explanation": ""
           },
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -4044,13 +4044,13 @@
         "passed": 4,
         "results": [
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
             "type": "order",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -4062,7 +4062,7 @@
             "explanation": ""
           },
           {
-            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
             "type": "order",
             "passed": true,
             "explanation": ""
@@ -4211,36 +4211,6 @@
         "passed": 12,
         "results": [
           {
-            "id": "13_pg475_pg1_text_02",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_08",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_03",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_09",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "13_pg475_pg1_text_04",
             "type": "present",
             "passed": true,
@@ -4265,19 +4235,49 @@
             "explanation": ""
           },
           {
-            "id": "13_pg475_pg1_text_00",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "13_pg475_pg1_text_06",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
+            "id": "13_pg475_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "13_pg475_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_09",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4297,36 +4297,6 @@
         "passed": 12,
         "results": [
           {
-            "id": "13_pg475_pg1_text_02",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_08",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_03",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_09",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "13_pg475_pg1_text_04",
             "type": "present",
             "passed": true,
@@ -4351,19 +4321,49 @@
             "explanation": ""
           },
           {
-            "id": "13_pg475_pg1_text_00",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "13_pg475_pg1_text_06",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
+            "id": "13_pg475_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "13_pg475_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_09",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4383,36 +4383,6 @@
         "passed": 12,
         "results": [
           {
-            "id": "13_pg475_pg1_text_02",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_08",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_03",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_09",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "13_pg475_pg1_text_04",
             "type": "present",
             "passed": true,
@@ -4437,19 +4407,49 @@
             "explanation": ""
           },
           {
-            "id": "13_pg475_pg1_text_00",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "13_pg475_pg1_text_06",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
+            "id": "13_pg475_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "13_pg475_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_09",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4470,36 +4470,6 @@
         "passed": 12,
         "results": [
           {
-            "id": "13_pg475_pg1_text_02",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_08",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_03",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "13_pg475_pg1_text_09",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "13_pg475_pg1_text_04",
             "type": "present",
             "passed": true,
@@ -4524,19 +4494,49 @@
             "explanation": ""
           },
           {
-            "id": "13_pg475_pg1_text_00",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "13_pg475_pg1_text_06",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
+            "id": "13_pg475_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "13_pg475_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_09",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4568,19 +4568,13 @@
         "passed": 9,
         "results": [
           {
-            "id": "17_pg17_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg17_pg1_text_02",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg17_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_04",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4598,7 +4592,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_03",
+            "id": "17_pg17_pg1_text_06",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4616,7 +4610,13 @@
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_04",
+            "id": "17_pg17_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_02",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4636,19 +4636,13 @@
         "passed": 9,
         "results": [
           {
-            "id": "17_pg17_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg17_pg1_text_02",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg17_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_04",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4666,7 +4660,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_03",
+            "id": "17_pg17_pg1_text_06",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4684,7 +4678,13 @@
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_04",
+            "id": "17_pg17_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_02",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4704,19 +4704,13 @@
         "passed": 9,
         "results": [
           {
-            "id": "17_pg17_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg17_pg1_text_02",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg17_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_04",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4734,7 +4728,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_03",
+            "id": "17_pg17_pg1_text_06",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4752,7 +4746,13 @@
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_04",
+            "id": "17_pg17_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_02",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4773,19 +4773,13 @@
         "passed": 8,
         "results": [
           {
-            "id": "17_pg17_pg1_text_06",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'In 1851 the Governor-General insists tha...' with threshold 0.9917695473251029 but best match ratio was 0.971"
-          },
-          {
-            "id": "17_pg17_pg1_text_02",
+            "id": "17_pg17_pg1_text_01",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_01",
+            "id": "17_pg17_pg1_text_04",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4803,10 +4797,10 @@
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_03",
+            "id": "17_pg17_pg1_text_06",
             "type": "present",
-            "passed": true,
-            "explanation": ""
+            "passed": false,
+            "explanation": "Expected 'In 1851 the Governor-General insists tha...' with threshold 0.9917695473251029 but best match ratio was 0.971"
           },
           {
             "id": "17_pg17_pg1_text_00",
@@ -4821,7 +4815,13 @@
             "explanation": ""
           },
           {
-            "id": "17_pg17_pg1_text_04",
+            "id": "17_pg17_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_02",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4853,84 +4853,6 @@
         "passed": 38,
         "results": [
           {
-            "id": "17_pg2_pg1_text_00",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_86",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_17",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
-          },
-          {
-            "id": "17_pg2_pg1_text_28",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_88",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_43",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_65",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_16",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_27",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_41",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_61",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_01",
             "type": "present",
             "passed": true,
@@ -4955,13 +4877,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_30",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_80",
+            "id": "17_pg2_pg1_text_65",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4973,7 +4889,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_69",
+            "id": "17_pg2_pg1_text_30",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -4985,19 +4901,19 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_24",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_12",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_51",
+            "id": "17_pg2_pg1_text_24",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_97",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5009,13 +4925,13 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_10",
+            "id": "17_pg2_pg1_text_51",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_97",
+            "id": "17_pg2_pg1_text_10",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5033,19 +4949,19 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_49",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_83",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_74",
+            "id": "17_pg2_pg1_text_49",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_86",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5082,6 +4998,90 @@
           },
           {
             "id": "17_pg2_pg1_text_56",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_17",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
+          },
+          {
+            "id": "17_pg2_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_74",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_88",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_69",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_28",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_43",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_16",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_80",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_27",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_41",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_61",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5101,84 +5101,6 @@
         "passed": 38,
         "results": [
           {
-            "id": "17_pg2_pg1_text_00",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_86",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_17",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
-          },
-          {
-            "id": "17_pg2_pg1_text_28",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_88",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_43",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_65",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_16",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_27",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_41",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_61",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_01",
             "type": "present",
             "passed": true,
@@ -5203,13 +5125,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_30",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_80",
+            "id": "17_pg2_pg1_text_65",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5221,7 +5137,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_69",
+            "id": "17_pg2_pg1_text_30",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5233,19 +5149,19 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_24",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_12",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_51",
+            "id": "17_pg2_pg1_text_24",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_97",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5257,13 +5173,13 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_10",
+            "id": "17_pg2_pg1_text_51",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_97",
+            "id": "17_pg2_pg1_text_10",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5281,19 +5197,19 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_49",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_83",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_74",
+            "id": "17_pg2_pg1_text_49",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_86",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5330,6 +5246,90 @@
           },
           {
             "id": "17_pg2_pg1_text_56",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_17",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
+          },
+          {
+            "id": "17_pg2_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_74",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_88",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_69",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_28",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_43",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_16",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_80",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_27",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_41",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_61",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5349,84 +5349,6 @@
         "passed": 38,
         "results": [
           {
-            "id": "17_pg2_pg1_text_00",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_86",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_17",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
-          },
-          {
-            "id": "17_pg2_pg1_text_28",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_88",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_43",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_65",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_16",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_27",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_41",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_61",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_01",
             "type": "present",
             "passed": true,
@@ -5451,13 +5373,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_30",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_80",
+            "id": "17_pg2_pg1_text_65",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5469,7 +5385,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_69",
+            "id": "17_pg2_pg1_text_30",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5481,19 +5397,19 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_24",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_12",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_51",
+            "id": "17_pg2_pg1_text_24",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_97",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5505,13 +5421,13 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_10",
+            "id": "17_pg2_pg1_text_51",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_97",
+            "id": "17_pg2_pg1_text_10",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5529,19 +5445,19 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_49",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_83",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_74",
+            "id": "17_pg2_pg1_text_49",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_86",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5578,6 +5494,90 @@
           },
           {
             "id": "17_pg2_pg1_text_56",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_17",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
+          },
+          {
+            "id": "17_pg2_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_74",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_88",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_69",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_28",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_43",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_16",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_80",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_27",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_41",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_61",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5598,84 +5598,6 @@
         "passed": 38,
         "results": [
           {
-            "id": "17_pg2_pg1_text_00",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_86",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_17",
-            "type": "present",
-            "passed": false,
-            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.970"
-          },
-          {
-            "id": "17_pg2_pg1_text_28",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_88",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_43",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_65",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_16",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_27",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_41",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_61",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_01",
             "type": "present",
             "passed": true,
@@ -5700,13 +5622,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_30",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg2_pg1_text_80",
+            "id": "17_pg2_pg1_text_65",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5718,7 +5634,7 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_69",
+            "id": "17_pg2_pg1_text_30",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5730,19 +5646,19 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_24",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_12",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_51",
+            "id": "17_pg2_pg1_text_24",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_97",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5754,13 +5670,13 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_10",
+            "id": "17_pg2_pg1_text_51",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_97",
+            "id": "17_pg2_pg1_text_10",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5778,19 +5694,19 @@
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_49",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
             "id": "17_pg2_pg1_text_83",
             "type": "present",
             "passed": true,
             "explanation": ""
           },
           {
-            "id": "17_pg2_pg1_text_74",
+            "id": "17_pg2_pg1_text_49",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_86",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5827,6 +5743,90 @@
           },
           {
             "id": "17_pg2_pg1_text_56",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_17",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.970"
+          },
+          {
+            "id": "17_pg2_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_74",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_88",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_69",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_28",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_43",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_16",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_80",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_27",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_41",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_61",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5858,6 +5858,30 @@
         "passed": 7,
         "results": [
           {
+            "id": "17_pg4_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "17_pg4_pg1_text_00",
             "type": "present",
             "passed": true,
@@ -5871,30 +5895,6 @@
           },
           {
             "id": "17_pg4_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_08",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_11",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_09",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5914,6 +5914,30 @@
         "passed": 7,
         "results": [
           {
+            "id": "17_pg4_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "17_pg4_pg1_text_00",
             "type": "present",
             "passed": true,
@@ -5927,30 +5951,6 @@
           },
           {
             "id": "17_pg4_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_08",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_11",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_09",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -5970,6 +5970,30 @@
         "passed": 7,
         "results": [
           {
+            "id": "17_pg4_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "17_pg4_pg1_text_00",
             "type": "present",
             "passed": true,
@@ -5983,30 +6007,6 @@
           },
           {
             "id": "17_pg4_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_08",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_11",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_09",
             "type": "present",
             "passed": true,
             "explanation": ""
@@ -6027,6 +6027,30 @@
         "passed": 7,
         "results": [
           {
+            "id": "17_pg4_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
             "id": "17_pg4_pg1_text_00",
             "type": "present",
             "passed": true,
@@ -6040,30 +6064,6 @@
           },
           {
             "id": "17_pg4_pg1_text_06",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_07",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_08",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_11",
-            "type": "present",
-            "passed": true,
-            "explanation": ""
-          },
-          {
-            "id": "17_pg4_pg1_text_09",
             "type": "present",
             "passed": true,
             "explanation": ""

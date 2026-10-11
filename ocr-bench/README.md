@@ -33,8 +33,9 @@ Marker tourne en mode auto (pas de `force_ocr`) : les entrées sont des images, 
 ## Scores
 
 - **Jeu A** : CER et WER (rapidfuzz) après normalisation identique pour tous (NFC, apostrophes/guillemets, ligatures,
-  œ→oe, traits d'union entre lettres retirés, Markdown/HTML retiré, espaces). L'en-tête courant et le numéro de page
-  (`reference/<id>.furniture.txt`) sont **exclus du score** : inutiles pour l'index. Indicateurs annexes : erreurs
+  œ→oe, traits d'union entre lettres retirés, Markdown/HTML retiré, espaces). Seuls le titre du livre répété en
+  en-tête et le numéro de page (`reference/<id>.furniture.txt`) sont **exclus du score**, car ils sont inutiles pour l'index.
+  Les titres de chapitre, de section ou de lettre (qui parle, quelle école de magie…) sont gardés et comptés. Indicateurs annexes : erreurs
   d'accent, mots ajoutés, blocs omis (≥ 8 mots).
 - **Jeu B** : taux de tests officiels réussis (`olmocr.bench.tests`), moyenne des catégories comme olmOCR-bench ;
   une sortie vide échoue à tous ses tests.

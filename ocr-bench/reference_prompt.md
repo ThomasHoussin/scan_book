@@ -22,11 +22,13 @@ Règles de transcription :
 - Orthographe, accents, majuscules et ponctuation exactement comme imprimés (fautes comprises).
 - Texte brut, sans Markdown. Pour un tableau, une ligne par rangée, cellules séparées par des espaces.
 - Une ou deux lettres masquées (reliure, tache) : écris le mot complet le plus probable, sans marque.
-- N'écris PAS l'en-tête courant (titre du livre/chapitre répété en haut de page) ni le numéro de page.
+- N'écris PAS le numéro de page ni un en-tête courant qui ne répète que le titre du livre (« Les Veilleurs »).
+  Garde en revanche tout titre qui apporte du sens : chapitre, section, lieu, personnage qui parle
+  (« Le Livre Noir - La Kabbale Noire », « Les confidences du Duc de Saint-Amand »).
 
 Écris avec l'outil Write :
 1. `{bench}/reference/{id}.txt` : la transcription.
-2. `{bench}/reference/{id}.furniture.txt` : l'en-tête courant et le numéro de page, exactement comme imprimés,
+2. `{bench}/reference/{id}.furniture.txt` : le titre du livre en en-tête et le numéro de page, exactement comme imprimés,
    un par ligne (fichier vide s'il n'y en a pas).
 
 Réponds ensuite en une ou deux phrases : difficultés rencontrées, passages où les trois transcriptions
