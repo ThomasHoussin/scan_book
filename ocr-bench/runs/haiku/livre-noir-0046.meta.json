@@ -1,0 +1,8 @@
+{
+  "engine": "haiku",
+  "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+  "seconds": 34.96,
+  "agent_tokens": 36332,
+  "chars": 2864,
+  "status": "ok"
+}

@@ -1,0 +1,13 @@
+{
+  "config": {
+    "output_format": "markdown",
+    "disable_image_extraction": true,
+    "force_ocr": true
+  },
+  "marker": "2.0.0",
+  "surya": "0.22.1",
+  "torch": "2.11.0+cu128",
+  "device": "NVIDIA GeForce RTX 5070 Ti",
+  "model_load_seconds": 0.43,
+  "warmup_seconds": 219.11
+}

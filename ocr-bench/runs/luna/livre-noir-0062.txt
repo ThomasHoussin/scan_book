@@ -1,0 +1,38 @@
+Le Livre Noir - La Nécromancie
+
+Silence
+
+Effet : certains morts souffrent du « babillage constant » de leurs voisins de
+cercueil. Ce sort permet de leur accorder un peu de tranquillité, réduisant le
+vacarme des conversations à un bruit de fond presque imperceptible. L’esprit
+est toujours libre, s’il le désire, de se concentrer pour capter une discussion
+précise et peut y participer sans difficultés. Ce sort est assez peu employé,
+tout simplement parce que les morts qui demandent à en bénéficier sont très
+rares. Par ailleurs, les Selenim n’accèdent pas à toutes les demandes. Le
+silence, même relatif, a souvent des effets imprévus et délétères sur le psy-
+chisme des morts.
+
+Coût : 2 points
+Durée : permanent, ou jusqu’à ce que le Selenim décide de le rompre.
+
+Chant de l’âme torturée
+
+Effet : ce sort a plusieurs usages, variant de l’utile à l’abominable selon la
+personnalité du nécromant. En le lançant, le Selenim libère une partie du KS
+résiduel de l’esprit, qui « brûle » dans un hurlement que nombre de nécro-
+mants trouvent particulièrement musical. Le mort peut se retrouver réduit à
+un état végétatif, ou être tout simplement purgé de ses traumatismes les plus
+douloureux, selon le désir du Selenim. Certains en font un outil de purifica-
+tion, grâce auquel leurs morts se libèrent de leurs souvenirs les plus pesants.
+D’autres préfèrent, égoïstement, organiser des « concerts de souffrances »,
+détruisant des dizaines de morts pour obtenir l’aria de douleur la plus pure.
+Enfin, une minorité emploie ce sort comme signal d’alarme (en le combinant
+avec Déclenchement conditionnel, voir plus bas), ou tout simplement comme
+« élément d’ambiance », comme contrepoint à la Pavane de leur cimetière.
+
+Coût : 3 points de KLN par point de KS à détruire. Il est impossible de brû-
+ler ainsi plus de la moitié du KS résiduel d’un esprit.
+Durée : le lancement prend trois actions par point de KS à détruire, et les
+effets se prolongent pendant cinq minutes par point de KS détruit.
+
+63

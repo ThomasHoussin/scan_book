@@ -1,0 +1,35 @@
+veilleurs-0037: déjà fait
+veilleurs-0045: ok 18.51s 3089 car.
+veilleurs-0046: ok 15.26s 3193 car.
+veilleurs-0064: ok 21.99s 3056 car.
+veilleurs-0065: ok 17.74s 2881 car.
+lion-vert-0007: ok 24.18s 4355 car.
+lion-vert-0008: ok 25.48s 3970 car.
+lion-vert-0010: ok 37.38s 4269 car.
+lion-vert-0050: ok 32.36s 4569 car.
+lion-vert-0066: ok 21.68s 3316 car.
+livre-noir-0003: ok 5.33s 336 car.
+livre-noir-0018: ok 12.62s 1621 car.
+livre-noir-0029: ok 13.02s 1520 car.
+livre-noir-0046: ok 26.02s 2869 car.
+livre-noir-0062: ok 13.99s 1991 car.
+olmocr-old_scans-1: ok 14.91s 697 car.
+olmocr-old_scans-12: ok 14.51s 503 car.
+olmocr-old_scans-27: ok 6.74s 375 car.
+olmocr-old_scans-36: ok 16.56s 2266 car.
+olmocr-old_scans-37: ok 24.37s 325 car.
+olmocr-table_tests-426498e3ff09ea806b6ec1c32a693344ebdc_pg2: ok 16.93s 3849 car.
+olmocr-table_tests-7e850300cc7a63925214ffea6856992511f5_pg7_pg1: ok 11.82s 3065 car.
+olmocr-table_tests-9c38972000c33231df815ece46cba559b5b4_pg17: déjà fait
+olmocr-table_tests-d22cfda9b7cf678a7996008fb8faa82209fe_pg10: ok 13.96s 2687 car.
+olmocr-table_tests-f86995c31dc26c1805d2ba57b3695f4730df_pg3_pg1: ok 11.39s 2249 car.
+olmocr-multi_column-0083fb2109e58be50aec2eca07fcbfe1230b_page_5_pg1: ok 16.47s 6317 car.
+olmocr-multi_column-01566a951fd40f8c1a4b8190cc3d0f93c393_page_4_pg1: ok 13.21s 5903 car.
+olmocr-multi_column-028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4_pg1: ok 19.59s 3912 car.
+olmocr-multi_column-02a3e23da54b82c414d272051b0b5d8f44d8_page_12_pg1: ok 16.7s 4046 car.
+olmocr-multi_column-04f8254ed1a74096fc98c7e069af79fc9fcf_pg1: ok 9.7s 3876 car.
+olmocr-long_tiny_text-11_pg421_pg1: ok 21.77s 4436 car.
+olmocr-long_tiny_text-13_pg475_pg1: ok 32.75s 8910 car.
+olmocr-long_tiny_text-17_pg17_pg1: ok 29.52s 5843 car.
+olmocr-long_tiny_text-17_pg2_pg1: ok 21.36s 5849 car.
+olmocr-long_tiny_text-17_pg4_pg1: ok 20.78s 5175 car.

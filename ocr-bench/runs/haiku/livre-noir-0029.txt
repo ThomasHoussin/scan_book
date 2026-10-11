@@ -1,0 +1,40 @@
+Le Livre Noir - La Kabbale Noire
+
+Celui qui arpente
+le sentier obscur
+
+FOR : 5d6
+CONS : 3d6
+DEX : 4d6
+Ka-Lune Noire : 20
+PdV : comme Ka
+Mvt : 8
+Actions : 2-5
+Entropie : 1 par heure
+Contrôle : non
+Protection : 0
+
+Attaques          % att          Dommages
+Duel spirituel    KLN/KLN        le perdant cède 1d6 points de KLN au
+                                 vainqueur
+
+Compétences : toutes les compétences intellectuelles à des scores variant entre
+30 et 50 %.
+
+Description : cette entité est une énigme, et rares sont les Selenim qui peu-
+vent se vanter de lui avoir parlé. Elle adopte une forme et, dans une certai-
+ne mesure, une personnalité différente à chaque apparition. Seule constan-
+te, le double spectral qui l'accompagne à quelques pas en arrière, dont
+l'apparence ne change jamais. C'est un petit homme à lunettes, qui à l'air ter-
+rorisé et murmure des choses comme « je dois m'éveiller ». Parfois, la créa-
+ture attaque son invocateur à vue. A d'autres moments, elle est relativement
+amicale. Généralement, elle se borne à donner des conseils, mais on l'a vue
+négocier des trêves entre ennemis jurés...
+
+Notes : la nature de cette créature pose problème. La théorie en vigueur est
+qu'il s'agisse de la création d'un Selenim particulièrement doué. Mais cer-
+tains excentriques soutiennent qu'il s'agit de la projection astrale du maître
+d'un Royaume, voire d'un Selenim qui aurait réussi la fusion ultime avec son
+simulacre, absorbant la personnalité de ce dernier avant de le quitter.
+
+30

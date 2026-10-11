@@ -1,0 +1,15 @@
+## — Création d'effets-Dragon —
+
+Utilisez la procédure de création d'entités de Kabbale Noire, présentée p. 9, en substituant un jet de Pavane au jet de Kabbale. Il s'agit exactement du même pouvoir, envisagé sous un angle différent... Il est tout de même important de se souvenir que les créatures ainsi formées ont tendance à être un peu plus étranges que les entités imaginées par les kabbalistes. Il y a cela une raison simple : le kabbaliste peut se reposer sur la vue. Pour le chanteur de Pavane, c'est l'ouïe qui est le sens dominant. Du coup, ses effets-Dragon n'ont guère de corps physique, mais se manifestent par le son...
+
+![]()**Effet :** cet effet très puissant permet au Selenim de doter pendant quelques minutes une partie de la Pavane d'une conscience rudimentaire. Selon certains mystiques, le Selenim se contente d'accéder à une conscience préexistante. La « personnalité » de la Pavane a l'air d'être plus ou moins constante, ce qui étaye cette hypothèse. Elle est lente à réagir, peu coopérative, souvent malveillante, mais disposée à rendre un service à un Selenim qui lui semble « intéressant ». Cette entité est presque omnisciente (elle « voit » par la totalité des champs de Lune Noire de la région), et peut délivrer des renseignements précieux si l'on parvient à s'en faire comprendre. Par ailleurs, elle exerce (et pour cause !) une incontestable autorité sur les effets-Dragon qui vivent en elle (qu'elle perçoit plus ou moins comme des parasites). Elle peut tout à fait en « prêter » quelques-uns au Selenim. En revanche, elle est totalement incapable d'agir physiquement. Il semble que cette manifestation ne soit jamais sans conséquence sur le monde physique. Il est impossible d'établir des statistiques précises, mais le « contrecoup » mystique de cette apparition se traduit généralement par un désastre. La dernière fois que ce chant a été entonné, c'était à Londres en 1665, au cours d'une des dernières escarmouches entre le culte et l'Arcane. L'épidémie de peste a éclaté deux jours plus tard...
+
+**Coût :** 50 points de KLN. Il est possible de répartir ce coût entre plusieurs chanteurs, pour peu qu'ils remplissent tous les conditions indiquées plus haut.
+
+**Durée :** 1d6 minutes.
+
+![]()**Effet :** ce chant permet de « dissoudre » une créature de Lune Noire. Précisons tout de suite à l'attention des joueurs vicieux qu'il ne fonctionne pas sur les Selenim (trop cohérents, et trop peu liés à la Pavane). En revanche, il est très efficace sur les créatures de Kabbale. Quant aux Sans Repos, ils y sont sujets, mais y sont beaucoup moins sensibles.
+
+**Coût :** 2 points de KLN par point de vie perdu pour une créature de kabbale. Pour les Sans Repos, comptez 5 points de Ka par point de KLN détruit. A zéro points de Ka-Lune Noire, le Sans Repos est mort.
+
+**Durée :** instantané.

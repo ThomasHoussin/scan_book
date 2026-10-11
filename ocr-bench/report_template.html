@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banc OCR</title>
+<style>
+:root {
+  --bg: #f7f7f5; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #e2e1dc;
+  --accent: #2f5d8a; --good: #1f7a4d; --mid: #b7791f; --bad: #b42318;
+  --del-bg: #fde3e1; --del-ink: #8f1d14; --ins-bg: #dff3e6; --ins-ink: #14532d;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --panel: #1f1f1d; --ink: #ecebe6; --muted: #9b9a93; --line: #34332f;
+    --accent: #7fb0e0; --good: #5cc28d; --mid: #e0a84f; --bad: #f07a6e;
+    --del-bg: #4a1f1c; --del-ink: #ffc9c3; --ins-bg: #173826; --ins-ink: #bff0d1;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161615; --panel: #1f1f1d; --ink: #ecebe6; --muted: #9b9a93; --line: #34332f;
+  --accent: #7fb0e0; --good: #5cc28d; --mid: #e0a84f; --bad: #f07a6e;
+  --del-bg: #4a1f1c; --del-ink: #ffc9c3; --ins-bg: #173826; --ins-ink: #bff0d1;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { padding: 16px 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
+h1 { font-size: 18px; margin: 0 0 12px; }
+.summary { overflow-x: auto; }
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { padding: 4px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { color: var(--muted); font-weight: 500; font-size: 12px; }
+.layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 160px); }
+nav { border-right: 1px solid var(--line); padding: 12px; overflow-y: auto; max-height: calc(100vh - 20px); position: sticky; top: 0; background: var(--panel); }
+nav h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 14px 0 6px; }
+nav a { display: flex; justify-content: space-between; gap: 6px; padding: 5px 8px; border-radius: 6px; color: inherit; text-decoration: none; font-size: 13px; }
+nav a:hover { background: var(--bg); }
+nav a.active { background: var(--accent); color: var(--panel); }
+nav a .chips { display: flex; gap: 3px; }
+.chip { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-top: 5px; }
+main { padding: 16px 20px; min-width: 0; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.toolbar h2 { font-size: 16px; margin: 0 12px 0 0; }
+button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+button[aria-pressed="true"] { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+.grid { display: grid; grid-template-columns: minmax(260px, 1fr) repeat(var(--n, 3), minmax(0, 1fr)); gap: 12px; align-items: start; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px; min-width: 0; }
+.card h3 { font-size: 13px; margin: 0 0 6px; display: flex; justify-content: space-between; gap: 8px; }
+.metrics { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.image-card img { width: 100%; display: block; border-radius: 4px; cursor: zoom-in; }
+.text { white-space: pre-wrap; font: 12.5px/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace; max-height: 75vh; overflow: auto; margin: 0; overflow-wrap: anywhere; }
+.diff del { background: var(--del-bg); color: var(--del-ink); text-decoration: line-through; }
+.diff ins { background: var(--ins-bg); color: var(--ins-ink); text-decoration: none; }
+.tests { list-style: none; padding: 0; margin: 0 0 8px; font-size: 12px; max-height: 30vh; overflow: auto; }
+.tests li { padding: 2px 0; border-bottom: 1px dashed var(--line); }
+.ok { color: var(--good); } .ko { color: var(--bad); }
+.legend { font-size: 12px; color: var(--muted); }
+.ref-card { margin-top: 12px; }
+.furniture { font-size: 12px; color: var(--muted); }
+@media (max-width: 1100px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) {
+  .layout { grid-template-columns: 1fr; }
+  nav { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--line); }
+  .grid { grid-template-columns: 1fr; }
+  header, main { padding: 12px 16px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Banc OCR : Marker 2 / Claude Haiku 5.5 / GPT-6 Luna</h1>
+  <div class="summary"><table id="summary"></table></div>
+  <p class="legend">CER/WER : taux d'erreur caractères/mots contre la référence (en-têtes courants et numéros de page exclus). olmOCR : part de tests officiels réussis (moyenne des catégories). Pastilles : vert &lt; 2 % / 90 %, orange &lt; 5 % / 70 %, rouge au-delà.</p>
+</header>
+<div class="layout">
+  <nav id="nav"></nav>
+  <main id="main"></main>
+</div>
+<script>
+const DATA = /*__DATA__*/null;
+const LABELS = { marker2: "Marker 2", "marker2-force": "Marker 2 force_ocr", haiku: "Haiku 5.5", luna: "GPT-6 Luna" };
+const GROUPS = { "Les veilleurs": "Les Veilleurs", "Le Lion Vert": "Le Lion Vert", "Le Livre Noir": "Le Livre Noir",
+  old_scans: "olmOCR · vieux scans", table_tests: "olmOCR · tableaux", multi_column: "olmOCR · multi-colonnes", long_tiny_text: "olmOCR · petits caractères" };
+let mode = "diff";
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pct = v => v == null ? "—" : (v * 100).toFixed(1) + " %";
+function grade(page, e) {
+  const r = page.engines[e];
+  if (page.set === "scans") return r.cer < 0.02 ? "good" : r.cer < 0.05 ? "mid" : "bad";
+  const rate = r.tests ? r.passed / r.tests : 0;
+  return rate >= 0.9 ? "good" : rate >= 0.7 ? "mid" : "bad";
+}
+
+function renderSummary() {
+  const cats = ["old_scans", "table_tests", "multi_column", "long_tiny_text"];
+  let h = "<thead><tr><th></th><th>CER scans</th><th>WER méd.</th><th>accents</th><th>mots ajoutés</th><th>blocs omis</th><th>olmOCR</th>"
+    + cats.map(c => `<th>${esc(GROUPS[c].replace("olmOCR · ", ""))}</th>`).join("") + "<th>s/page méd.</th><th>échecs</th></tr></thead><tbody>";
+  for (const e of DATA.engines) {
+    const s = DATA.summary[e];
+    h += `<tr><td><b>${LABELS[e]}</b></td><td>${pct(s.scans.cer_global)}</td><td>${pct(s.scans.wer_median)}</td>`
+      + `<td>${s.scans.accent_edits}</td><td>${s.scans.inserted_words}</td><td>${s.scans.omitted_blocks}</td><td><b>${pct(s.olmocr.score)}</b></td>`
+      + cats.map(c => `<td>${pct(s.olmocr.by_category[c])}</td>`).join("")
+      + `<td>${s.seconds_median ?? "—"}</td><td>${s.failures}</td></tr>`;
+  }
+  document.getElementById("summary").innerHTML = h + "</tbody>";
+}
+
+function renderNav(current) {
+  let h = "", group = null;
+  for (const p of DATA.pages) {
+    if (p.group !== group) { group = p.group; h += `<h2>${esc(GROUPS[group] || group)}</h2>`; }
+    const label = p.set === "scans" ? p.id.replace(/^.*-0*/, "p. ") : p.id.replace(/^olmocr-[a-z_]+-/, "").slice(0, 22);
+    const chips = DATA.engines.map(e => `<span class="chip" style="background:var(--${grade(p, e)})" title="${LABELS[e]}"></span>`).join("");
+    h += `<a href="#${esc(p.id)}" class="${p.id === current ? "active" : ""}"><span>${esc(label)}</span><span class="chips">${chips}</span></a>`;
+  }
+  document.getElementById("nav").innerHTML = h;
+  document.querySelector("nav a.active")?.scrollIntoView({ block: "nearest" });
+}
+
+function engineCard(p, e) {
+  const r = p.engines[e];
+  let metrics, body;
+  if (p.set === "scans") {
+    metrics = `CER ${pct(r.cer)} · WER ${pct(r.wer)} · accents ${r.accent_edits} · +${r.inserted_words}/−${r.deleted_words} mots · ${r.seconds ?? "—"} s`;
+    body = mode === "diff" ? `<div class="text diff">${r.diff}</div>` : `<pre class="text">${esc(r.raw ?? "(aucune sortie)")}</pre>`;
+  } else {
+    metrics = `${r.passed}/${r.tests} tests réussis · ${r.seconds ?? "—"} s`;
+    const tests = r.results.map(t => `<li class="${t.passed ? "ok" : "ko"}">${t.passed ? "✓" : "✗"} ${esc(t.type)}${t.passed ? "" : " : " + esc(t.explanation)}</li>`).join("");
+    body = `<ul class="tests">${tests}</ul><pre class="text">${esc(r.raw ?? "(aucune sortie)")}</pre>`;
+  }
+  return `<div class="card"><h3><span>${LABELS[e]}</span><span class="chip" style="background:var(--${grade(p, e)})"></span></h3>`
+    + `<div class="metrics">${metrics}${r.status && r.status !== "ok" ? ` · <span class="ko">${esc(r.status)}</span>` : ""}</div>${body}</div>`;
+}
+
+function renderPage(id) {
+  const p = DATA.pages.find(x => x.id === id) || DATA.pages[0];
+  renderNav(p.id);
+  const toggle = p.set === "scans"
+    ? `<button data-mode="diff" aria-pressed="${mode === "diff"}">Diff avec la référence</button><button data-mode="raw" aria-pressed="${mode === "raw"}">Texte brut</button>`
+    : "";
+  let ref = "";
+  if (p.set === "scans") {
+    ref = `<div class="card ref-card"><h3>Référence</h3>`
+      + (p.furniture?.length ? `<div class="furniture">Exclu du score : ${p.furniture.map(esc).join(" · ")}</div>` : "")
+      + `<pre class="text">${esc(p.reference)}</pre></div>`;
+  }
+  document.getElementById("main").innerHTML =
+    `<div class="toolbar"><h2>${esc(p.id)}</h2>${toggle}<button data-step="-1">← Préc.</button><button data-step="1">Suiv. →</button>`
+    + (p.set === "scans" ? `<span class="legend"><del style="background:var(--del-bg)">manquant / faux</del> <ins style="background:var(--ins-bg);text-decoration:none">ajouté</ins></span>` : "")
+    + `</div><div class="grid" style="--n:${DATA.engines.length}"><div><div class="card image-card"><a href="${esc(p.full_image)}" target="_blank" rel="noopener"><img src="${esc(p.image)}" alt="Page ${esc(p.id)}"></a></div>${ref}</div>`
+    + DATA.engines.map(e => engineCard(p, e)).join("") + "</div>";
+}
+
+function current() { return decodeURIComponent(location.hash.slice(1)) || DATA.pages[0].id; }
+function step(n) {
+  const i = DATA.pages.findIndex(p => p.id === current());
+  location.hash = DATA.pages[(i + n + DATA.pages.length) % DATA.pages.length].id;
+}
+document.addEventListener("click", ev => {
+  const b = ev.target.closest("button");
+  if (!b) return;
+  if (b.dataset.mode) { mode = b.dataset.mode; renderPage(current()); }
+  if (b.dataset.step) step(Number(b.dataset.step));
+});
+document.addEventListener("keydown", ev => {
+  if (ev.key === "ArrowRight") step(1);
+  if (ev.key === "ArrowLeft") step(-1);
+});
+window.addEventListener("hashchange", () => renderPage(current()));
+renderSummary();
+renderPage(current());
+</script>
+</body>
+</html>

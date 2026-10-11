@@ -1,0 +1,72 @@
+LES VEILLEURS
+
+Les lutins
+
+Il existe une dizaine de ces petites créatures
+dans le parc de la propriété des Saint-
+Yliades.
+
+RAKAJAJAJAJAJA
+
+FOR 08 Age 3 semaines
+CONS 18
+INT 07 Mod dommages 0
+DEX 18 Actions 4
+CHA 02 PDV 18
+KA-élément terre 11 Protection 3
+
+Compétences
+
+Fouiner 70%, observer 80%, se cacher 40%,
+murmurer comme des feuilles dans le vent
+90%, tirer au lance-pierre 65%, esquiver
+40%
+
+Armes att dom portée
+Lance-pierre 65% 1d6 10m
+
+Description
+
+Rakajajajaja est une horrible petite créature
+humanoïde, haute de 30 cm, vêtue de
+haillons de terre et d’argile caillés. Ses yeux
+placés devant derrière lui permettent de
+n’être jamais surpris.
+
+En regardant bien la chose, on peut recon-
+naître sous les aiguilles de pierres et les arti-
+culations de silex une forme de belette. Elle
+est une sorte de chef parmi le petit peuple
+d'Altamaros.
+
+DODIDIDIDI
+
+FOR 15 Age 1 semaine
+CONS 15 Mod dommages +1d4
+INT 03 Actions 3
+DEX 12 PDV 15
+CHA 01 Protection 5
+KA-élément terre 15
+
+Compétences
+
+Courir 70%, grimper 80%, se cacher 90%,
+rester parfaitement immobile 80%, esqui-
+ver 30%
+
+Armes att dom
+Bec de pierre 70% 1d6+1d4
+
+Description
+
+Dodidididi a l'apparence d'un croisement
+de marabout et de pélican. Son bec est fait
+de pierre. Il est translucide, se fondant dans
+les ombres et lumières du parc de la proprié-
+té. Il peut apparaître aux Nephilim comme
+un fantôme ou un spectre. Il a la faculté de
+rester parfaitement immobile, à l'image
+d'une statue, puis d'attaquer ceux qui s'in-
+téressent à lui d'un peu trop près.
+
+38

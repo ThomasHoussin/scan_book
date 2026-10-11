@@ -7,3 +7,4 @@ __pycache__/
 output/
 tmp/
 backups/
+ocr-bench/inputs/

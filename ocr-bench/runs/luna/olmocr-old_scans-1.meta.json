@@ -1,0 +1,17 @@
+{
+  "engine": "luna",
+  "model": "us.openai.gpt-6-luna",
+  "seconds": 14.91,
+  "latency_ms": 14698,
+  "usage": {
+    "inputTokens": 144,
+    "outputTokens": 1605,
+    "totalTokens": 4986,
+    "cacheReadInputTokens": 3237,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "temperature": null,
+  "chars": 697,
+  "status": "ok"
+}

@@ -1,0 +1,42 @@
+2026-10-11 13:10:16,087 [INFO] marker: Table processing stats: {'tables_ocr': 4, 'tables_total': 4}
+2026-10-11 13:10:29,416 [INFO] marker: Table processing stats: {'tables_ocr': 8, 'tables_total': 4}
+veilleurs-0037: ok 13.33s 2021 car.
+veilleurs-0045: ok 19.0s 3054 car.
+veilleurs-0046: ok 19.42s 3162 car.
+veilleurs-0064: ok 19.21s 3024 car.
+veilleurs-0065: ok 20.45s 2859 car.
+lion-vert-0007: ok 28.91s 4342 car.
+lion-vert-0008: ok 24.58s 3932 car.
+lion-vert-0010: ok 24.26s 4232 car.
+lion-vert-0050: ok 24.93s 4538 car.
+lion-vert-0066: ok 20.84s 3280 car.
+livre-noir-0003: ok 8.53s 378 car.
+livre-noir-0018: ok 12.67s 1590 car.
+livre-noir-0029: ok 13.0s 1419 car.
+livre-noir-0046: ok 18.96s 2818 car.
+livre-noir-0062: ok 13.75s 1979 car.
+olmocr-old_scans-1: ok 8.8s 741 car.
+olmocr-old_scans-12: ok 65.07s 546 car.
+olmocr-old_scans-27: ok 7.57s 339 car.
+2026-10-11 13:16:34,839 [INFO] marker: Table processing stats: {'tables_ocr': 10, 'tables_total': 2}
+olmocr-old_scans-36: ok 15.0s 3918 car.
+olmocr-old_scans-37: ok 7.52s 363 car.
+2026-10-11 13:17:04,322 [INFO] marker: Table processing stats: {'tables_ocr': 11, 'tables_total': 1}
+olmocr-table_tests-426498e3ff09ea806b6ec1c32a693344ebdc_pg2: ok 21.73s 5950 car.
+2026-10-11 13:17:21,076 [INFO] marker: Table processing stats: {'tables_ocr': 12, 'tables_total': 1}
+olmocr-table_tests-7e850300cc7a63925214ffea6856992511f5_pg7_pg1: ok 16.71s 3952 car.
+2026-10-11 13:17:36,526 [INFO] marker: Table processing stats: {'tables_ocr': 13, 'tables_total': 1}
+olmocr-table_tests-d22cfda9b7cf678a7996008fb8faa82209fe_pg10: ok 15.43s 3135 car.
+2026-10-11 13:17:53,462 [INFO] marker: Table processing stats: {'tables_ocr': 14, 'tables_total': 1}
+olmocr-table_tests-f86995c31dc26c1805d2ba57b3695f4730df_pg3_pg1: ok 16.9s 2360 car.
+olmocr-multi_column-0083fb2109e58be50aec2eca07fcbfe1230b_page_5_pg1: ok 32.35s 6269 car.
+olmocr-multi_column-01566a951fd40f8c1a4b8190cc3d0f93c393_page_4_pg1: ok 33.16s 5966 car.
+olmocr-multi_column-028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4_pg1: ok 25.5s 3878 car.
+2026-10-11 13:19:46,918 [INFO] marker: Table processing stats: {'tables_ocr': 15, 'tables_total': 1}
+olmocr-multi_column-02a3e23da54b82c414d272051b0b5d8f44d8_page_12_pg1: ok 22.29s 4591 car.
+olmocr-multi_column-04f8254ed1a74096fc98c7e069af79fc9fcf_pg1: ok 23.31s 3849 car.
+olmocr-long_tiny_text-11_pg421_pg1: ok 28.26s 4528 car.
+olmocr-long_tiny_text-13_pg475_pg1: ok 43.38s 9039 car.
+olmocr-long_tiny_text-17_pg17_pg1: ok 24.26s 5875 car.
+olmocr-long_tiny_text-17_pg2_pg1: ok 25.91s 5847 car.
+olmocr-long_tiny_text-17_pg4_pg1: ok 23.66s 5185 car.

@@ -1,0 +1,6092 @@
+{
+  "summary": {
+    "marker2": {
+      "scans": {
+        "pages": 16,
+        "cer_global": 0.14936349029786183,
+        "cer_median": 0.0013795025826563814,
+        "cer_max": 1.0,
+        "wer_median": 0.007814397435274689,
+        "accent_edits": 0,
+        "inserted_words": 7,
+        "omitted_blocks": 1,
+        "by_book": {
+          "Les veilleurs": 0.003037712084166852,
+          "Le Lion Vert": 0.00508702807840008,
+          "Le Livre Noir": 0.00704757110495847,
+          "Les Figures": 1.0
+        }
+      },
+      "olmocr": {
+        "by_category": {
+          "old_scans": 0.14285714285714285,
+          "table_tests": 0.9,
+          "multi_column": 0.8333333333333334,
+          "long_tiny_text": 0.9855072463768116
+        },
+        "tests_by_category": {
+          "old_scans": 21,
+          "table_tests": 20,
+          "multi_column": 18,
+          "long_tiny_text": 69
+        },
+        "score": 0.7154244306418219
+      },
+      "seconds_median": 20.645,
+      "failures": 1,
+      "missing": 0
+    },
+    "marker2-force": {
+      "scans": {
+        "pages": 16,
+        "cer_global": 0.004984962715774729,
+        "cer_median": 0.0013795025826563814,
+        "cer_max": 0.025606469002695417,
+        "wer_median": 0.007814397435274689,
+        "accent_edits": 15,
+        "inserted_words": 7,
+        "omitted_blocks": 0,
+        "by_book": {
+          "Les veilleurs": 0.003037712084166852,
+          "Le Lion Vert": 0.00518677372699616,
+          "Le Livre Noir": 0.006921721620941354,
+          "Les Figures": 0.005955757231990925
+        }
+      },
+      "olmocr": {
+        "by_category": {
+          "old_scans": 0.14285714285714285,
+          "table_tests": 0.9,
+          "multi_column": 0.8333333333333334,
+          "long_tiny_text": 0.9855072463768116
+        },
+        "tests_by_category": {
+          "old_scans": 21,
+          "table_tests": 20,
+          "multi_column": 18,
+          "long_tiny_text": 69
+        },
+        "score": 0.7154244306418219
+      },
+      "seconds_median": 18.045,
+      "failures": 0,
+      "missing": 0
+    },
+    "haiku": {
+      "scans": {
+        "pages": 16,
+        "cer_global": 0.0025336793968607093,
+        "cer_median": 0.00013007284079084288,
+        "cer_max": 0.0091273374888691,
+        "wer_median": 0.0008183306055646482,
+        "accent_edits": 14,
+        "inserted_words": 16,
+        "omitted_blocks": 0,
+        "by_book": {
+          "Les veilleurs": 0.001555901311402534,
+          "Le Lion Vert": 0.00244376839060396,
+          "Le Livre Noir": 0.0,
+          "Les Figures": 0.007515598411798071
+        }
+      },
+      "olmocr": {
+        "by_category": {
+          "old_scans": 0.47619047619047616,
+          "table_tests": 1.0,
+          "multi_column": 0.8333333333333334,
+          "long_tiny_text": 0.9855072463768116
+        },
+        "tests_by_category": {
+          "old_scans": 21,
+          "table_tests": 20,
+          "multi_column": 18,
+          "long_tiny_text": 69
+        },
+        "score": 0.8237577639751553
+      },
+      "seconds_median": 37.815,
+      "failures": 0,
+      "missing": 0
+    },
+    "luna": {
+      "scans": {
+        "pages": 16,
+        "cer_global": 0.005046759774234746,
+        "cer_median": 0.0010158506749774797,
+        "cer_max": 0.01954177897574124,
+        "wer_median": 0.004140539803707742,
+        "accent_edits": 22,
+        "inserted_words": 7,
+        "omitted_blocks": 0,
+        "by_book": {
+          "Les veilleurs": 0.002815440468252204,
+          "Le Lion Vert": 0.00463817265971772,
+          "Le Livre Noir": 0.0003775484520513465,
+          "Les Figures": 0.015740215541690302
+        }
+      },
+      "olmocr": {
+        "by_category": {
+          "old_scans": 0.38095238095238093,
+          "table_tests": 0.9,
+          "multi_column": 0.8333333333333334,
+          "long_tiny_text": 0.9565217391304348
+        },
+        "tests_by_category": {
+          "old_scans": 21,
+          "table_tests": 20,
+          "multi_column": 18,
+          "long_tiny_text": 69
+        },
+        "score": 0.7677018633540373
+      },
+      "seconds_median": 17.335,
+      "failures": 0,
+      "missing": 0
+    }
+  },
+  "scans": {
+    "veilleurs-0037": {
+      "marker2": {
+        "ref_chars": 1484,
+        "ref_words": 252,
+        "hyp_words": 249,
+        "cer": 0.025606469002695417,
+        "wer": 0.01984126984126984,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 3,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 13.33,
+          "gpu_memory_used_mb": 15745,
+          "chars": 2021,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 1484,
+        "ref_words": 252,
+        "hyp_words": 249,
+        "cer": 0.025606469002695417,
+        "wer": 0.01984126984126984,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 3,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 9.74,
+          "gpu_memory_used_mb": 15815,
+          "chars": 2021,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 1484,
+        "ref_words": 252,
+        "hyp_words": 252,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 27.28,
+          "agent_tokens": 36108,
+          "chars": 1778,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 1484,
+        "ref_words": 252,
+        "hyp_words": 252,
+        "cer": 0.01954177897574124,
+        "wer": 0.01984126984126984,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 23.54,
+          "latency_ms": 21085,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2717,
+            "totalTokens": 5986,
+            "cacheReadInputTokens": 0,
+            "cacheWriteInputTokens": 3125
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 1528,
+          "status": "ok"
+        }
+      }
+    },
+    "veilleurs-0045": {
+      "marker2": {
+        "ref_chars": 3043,
+        "ref_words": 500,
+        "hyp_words": 500,
+        "cer": 0.0006572461386789353,
+        "wer": 0.004,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 19.0,
+          "gpu_memory_used_mb": 15817,
+          "chars": 3054,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 3043,
+        "ref_words": 500,
+        "hyp_words": 500,
+        "cer": 0.0006572461386789353,
+        "wer": 0.004,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 15.03,
+          "gpu_memory_used_mb": 15835,
+          "chars": 3054,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 3043,
+        "ref_words": 500,
+        "hyp_words": 504,
+        "cer": 0.0052579691094314825,
+        "wer": 0.008,
+        "accent_edits": 0,
+        "inserted_words": 4,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 37.26,
+          "agent_tokens": 36458,
+          "chars": 3094,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 3043,
+        "ref_words": 500,
+        "hyp_words": 500,
+        "cer": 0.001971738416036806,
+        "wer": 0.012,
+        "accent_edits": 0,
+        "inserted_words": 1,
+        "deleted_words": 1,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 18.51,
+          "latency_ms": 18146,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2698,
+            "totalTokens": 5967,
+            "cacheReadInputTokens": 3125,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3089,
+          "status": "ok"
+        }
+      }
+    },
+    "veilleurs-0046": {
+      "marker2": {
+        "ref_chars": 3143,
+        "ref_words": 524,
+        "hyp_words": 524,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 19.42,
+          "gpu_memory_used_mb": 15860,
+          "chars": 3162,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 3143,
+        "ref_words": 524,
+        "hyp_words": 524,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 15.29,
+          "gpu_memory_used_mb": 15838,
+          "chars": 3162,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 3143,
+        "ref_words": 524,
+        "hyp_words": 524,
+        "cer": 0.001590836780146357,
+        "wer": 0.007633587786259542,
+        "accent_edits": 2,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 49.13,
+          "agent_tokens": 37633,
+          "chars": 3191,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 3143,
+        "ref_words": 524,
+        "hyp_words": 524,
+        "cer": 0.0009545020680878142,
+        "wer": 0.003816793893129771,
+        "accent_edits": 2,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 15.26,
+          "latency_ms": 14806,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2325,
+            "totalTokens": 5594,
+            "cacheReadInputTokens": 3125,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3193,
+          "status": "ok"
+        }
+      }
+    },
+    "veilleurs-0064": {
+      "marker2": {
+        "ref_chars": 3000,
+        "ref_words": 491,
+        "hyp_words": 491,
+        "cer": 0.0003333333333333333,
+        "wer": 0.002036659877800407,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 19.21,
+          "gpu_memory_used_mb": 15811,
+          "chars": 3024,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 3000,
+        "ref_words": 491,
+        "hyp_words": 491,
+        "cer": 0.0003333333333333333,
+        "wer": 0.002036659877800407,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 15.14,
+          "gpu_memory_used_mb": 15838,
+          "chars": 3024,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 3000,
+        "ref_words": 491,
+        "hyp_words": 491,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 48.36,
+          "agent_tokens": 37594,
+          "chars": 3043,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 3000,
+        "ref_words": 491,
+        "hyp_words": 491,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 21.99,
+          "latency_ms": 21628,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 3306,
+            "totalTokens": 6575,
+            "cacheReadInputTokens": 3125,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3056,
+          "status": "ok"
+        }
+      }
+    },
+    "veilleurs-0065": {
+      "marker2": {
+        "ref_chars": 2827,
+        "ref_words": 458,
+        "hyp_words": 458,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 20.45,
+          "gpu_memory_used_mb": 15797,
+          "chars": 2859,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 2827,
+        "ref_words": 458,
+        "hyp_words": 458,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 14.52,
+          "gpu_memory_used_mb": 15838,
+          "chars": 2859,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 2827,
+        "ref_words": 458,
+        "hyp_words": 458,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 35.12,
+          "agent_tokens": 36419,
+          "chars": 2883,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 2827,
+        "ref_words": 458,
+        "hyp_words": 458,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 17.74,
+          "latency_ms": 17331,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2204,
+            "totalTokens": 5473,
+            "cacheReadInputTokens": 3125,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 2881,
+          "status": "ok"
+        }
+      }
+    },
+    "lion-vert-0007": {
+      "marker2": {
+        "ref_chars": 4285,
+        "ref_words": 692,
+        "hyp_words": 692,
+        "cer": 0.0011668611435239206,
+        "wer": 0.0072254335260115606,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 28.91,
+          "gpu_memory_used_mb": 15808,
+          "chars": 4342,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 4285,
+        "ref_words": 692,
+        "hyp_words": 692,
+        "cer": 0.0011668611435239206,
+        "wer": 0.0072254335260115606,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 20.83,
+          "gpu_memory_used_mb": 15823,
+          "chars": 4342,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 4285,
+        "ref_words": 692,
+        "hyp_words": 692,
+        "cer": 0.0007001166861143524,
+        "wer": 0.004335260115606936,
+        "accent_edits": 2,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 47.99,
+          "agent_tokens": 36944,
+          "chars": 4333,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 4285,
+        "ref_words": 692,
+        "hyp_words": 692,
+        "cer": 0.002333722287047841,
+        "wer": 0.011560693641618497,
+        "accent_edits": 3,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 24.18,
+          "latency_ms": 23851,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 3658,
+            "totalTokens": 6990,
+            "cacheReadInputTokens": 3188,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 4355,
+          "status": "ok"
+        }
+      }
+    },
+    "lion-vert-0008": {
+      "marker2": {
+        "ref_chars": 3844,
+        "ref_words": 611,
+        "hyp_words": 616,
+        "cer": 0.014568158168574402,
+        "wer": 0.01800327332242226,
+        "accent_edits": 0,
+        "inserted_words": 5,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 24.58,
+          "gpu_memory_used_mb": 15825,
+          "chars": 3932,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 3844,
+        "ref_words": 611,
+        "hyp_words": 616,
+        "cer": 0.014568158168574402,
+        "wer": 0.01800327332242226,
+        "accent_edits": 0,
+        "inserted_words": 5,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 19.61,
+          "gpu_memory_used_mb": 15823,
+          "chars": 3932,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 3844,
+        "ref_words": 611,
+        "hyp_words": 611,
+        "cer": 0.00026014568158168577,
+        "wer": 0.0016366612111292963,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 47.2,
+          "agent_tokens": 36829,
+          "chars": 3939,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 3844,
+        "ref_words": 611,
+        "hyp_words": 614,
+        "cer": 0.009365244536940686,
+        "wer": 0.019639934533551555,
+        "accent_edits": 2,
+        "inserted_words": 3,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 25.48,
+          "latency_ms": 25114,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 3504,
+            "totalTokens": 6836,
+            "cacheReadInputTokens": 3188,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3970,
+          "status": "ok"
+        }
+      }
+    },
+    "lion-vert-0010": {
+      "marker2": {
+        "ref_chars": 4171,
+        "ref_words": 657,
+        "hyp_words": 658,
+        "cer": 0.006713018460800768,
+        "wer": 0.0091324200913242,
+        "accent_edits": 0,
+        "inserted_words": 2,
+        "deleted_words": 1,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 24.26,
+          "gpu_memory_used_mb": 15798,
+          "chars": 4232,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 4171,
+        "ref_words": 657,
+        "hyp_words": 658,
+        "cer": 0.006713018460800768,
+        "wer": 0.0091324200913242,
+        "accent_edits": 0,
+        "inserted_words": 2,
+        "deleted_words": 1,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 22.17,
+          "gpu_memory_used_mb": 15890,
+          "chars": 4232,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 4171,
+        "ref_words": 657,
+        "hyp_words": 657,
+        "cer": 0.0004795013186286262,
+        "wer": 0.0030441400304414,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 169.47,
+          "agent_tokens": 45972,
+          "chars": 4236,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 4171,
+        "ref_words": 657,
+        "hyp_words": 658,
+        "cer": 0.004795013186286262,
+        "wer": 0.0076103500761035,
+        "accent_edits": 2,
+        "inserted_words": 1,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 37.38,
+          "latency_ms": 36863,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 4714,
+            "totalTokens": 8046,
+            "cacheReadInputTokens": 3188,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 4269,
+          "status": "ok"
+        }
+      }
+    },
+    "lion-vert-0050": {
+      "marker2": {
+        "ref_chars": 4492,
+        "ref_words": 708,
+        "hyp_words": 708,
+        "cer": 0.0026714158504007124,
+        "wer": 0.015536723163841809,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 24.93,
+          "gpu_memory_used_mb": 15789,
+          "chars": 4538,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 4492,
+        "ref_words": 708,
+        "hyp_words": 708,
+        "cer": 0.003116651825467498,
+        "wer": 0.018361581920903956,
+        "accent_edits": 2,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 25.73,
+          "gpu_memory_used_mb": 15869,
+          "chars": 4538,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 4492,
+        "ref_words": 708,
+        "hyp_words": 718,
+        "cer": 0.0091273374888691,
+        "wer": 0.038135593220338986,
+        "accent_edits": 5,
+        "inserted_words": 11,
+        "deleted_words": 1,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 174.38,
+          "agent_tokens": 46360,
+          "chars": 4580,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 4492,
+        "ref_words": 708,
+        "hyp_words": 708,
+        "cer": 0.005565449688334817,
+        "wer": 0.029661016949152543,
+        "accent_edits": 6,
+        "inserted_words": 1,
+        "deleted_words": 1,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 32.36,
+          "latency_ms": 31842,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 4412,
+            "totalTokens": 7744,
+            "cacheReadInputTokens": 3188,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 4569,
+          "status": "ok"
+        }
+      }
+    },
+    "lion-vert-0066": {
+      "marker2": {
+        "ref_chars": 3259,
+        "ref_words": 542,
+        "hyp_words": 542,
+        "cer": 0.0003068425897514575,
+        "wer": 0.0018450184501845018,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 20.84,
+          "gpu_memory_used_mb": 15792,
+          "chars": 3280,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 3259,
+        "ref_words": 542,
+        "hyp_words": 542,
+        "cer": 0.0003068425897514575,
+        "wer": 0.0018450184501845018,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 19.28,
+          "gpu_memory_used_mb": 15869,
+          "chars": 3280,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 3259,
+        "ref_words": 542,
+        "hyp_words": 542,
+        "cer": 0.000613685179502915,
+        "wer": 0.0036900369003690036,
+        "accent_edits": 1,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 78.17,
+          "agent_tokens": 39899,
+          "chars": 3317,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 3259,
+        "ref_words": 542,
+        "hyp_words": 542,
+        "cer": 0.000613685179502915,
+        "wer": 0.0036900369003690036,
+        "accent_edits": 1,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 21.68,
+          "latency_ms": 21485,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 3091,
+            "totalTokens": 6360,
+            "cacheReadInputTokens": 3125,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3316,
+          "status": "ok"
+        }
+      }
+    },
+    "livre-noir-0003": {
+      "marker2": {
+        "ref_chars": 329,
+        "ref_words": 64,
+        "hyp_words": 64,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 8.53,
+          "gpu_memory_used_mb": 15789,
+          "chars": 378,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 329,
+        "ref_words": 64,
+        "hyp_words": 64,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 5.41,
+          "gpu_memory_used_mb": 15868,
+          "chars": 378,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 329,
+        "ref_words": 64,
+        "hyp_words": 64,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 17.34,
+          "agent_tokens": 35775,
+          "chars": 575,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 329,
+        "ref_words": 64,
+        "hyp_words": 64,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 5.33,
+          "latency_ms": 5161,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 585,
+            "totalTokens": 3413,
+            "cacheReadInputTokens": 2684,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 336,
+          "status": "ok"
+        }
+      }
+    },
+    "livre-noir-0018": {
+      "marker2": {
+        "ref_chars": 1542,
+        "ref_words": 238,
+        "hyp_words": 238,
+        "cer": 0.0012970168612191958,
+        "wer": 0.008403361344537815,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 12.67,
+          "gpu_memory_used_mb": 15788,
+          "chars": 1590,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 1542,
+        "ref_words": 238,
+        "hyp_words": 238,
+        "cer": 0.0012970168612191958,
+        "wer": 0.008403361344537815,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 11.33,
+          "gpu_memory_used_mb": 15883,
+          "chars": 1590,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 1542,
+        "ref_words": 238,
+        "hyp_words": 238,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 32.42,
+          "agent_tokens": 36587,
+          "chars": 1619,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 1542,
+        "ref_words": 238,
+        "hyp_words": 238,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 12.62,
+          "latency_ms": 12251,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 1691,
+            "totalTokens": 4456,
+            "cacheReadInputTokens": 2621,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 1621,
+          "status": "ok"
+        }
+      }
+    },
+    "livre-noir-0029": {
+      "marker2": {
+        "ref_chars": 1368,
+        "ref_words": 219,
+        "hyp_words": 219,
+        "cer": 0.0014619883040935672,
+        "wer": 0.0091324200913242,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 13.0,
+          "gpu_memory_used_mb": 15788,
+          "chars": 1419,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 1368,
+        "ref_words": 219,
+        "hyp_words": 219,
+        "cer": 0.0014619883040935672,
+        "wer": 0.0091324200913242,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 11.33,
+          "gpu_memory_used_mb": 15882,
+          "chars": 1419,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 1368,
+        "ref_words": 219,
+        "hyp_words": 219,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 26.05,
+          "agent_tokens": 35909,
+          "chars": 1502,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 1368,
+        "ref_words": 219,
+        "hyp_words": 219,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 13.02,
+          "latency_ms": 12685,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 1898,
+            "totalTokens": 4663,
+            "cacheReadInputTokens": 2621,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 1520,
+          "status": "ok"
+        }
+      }
+    },
+    "livre-noir-0046": {
+      "marker2": {
+        "ref_chars": 2785,
+        "ref_words": 448,
+        "hyp_words": 441,
+        "cer": 0.015439856373429085,
+        "wer": 0.017857142857142856,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 7,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 18.96,
+          "gpu_memory_used_mb": 15794,
+          "chars": 2818,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 2785,
+        "ref_words": 448,
+        "hyp_words": 442,
+        "cer": 0.015080789946140035,
+        "wer": 0.013392857142857142,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 6,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 16.81,
+          "gpu_memory_used_mb": 15882,
+          "chars": 2823,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 2785,
+        "ref_words": 448,
+        "hyp_words": 448,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 34.96,
+          "agent_tokens": 36332,
+          "chars": 2864,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 2785,
+        "ref_words": 448,
+        "hyp_words": 449,
+        "cer": 0.0010771992818671453,
+        "wer": 0.004464285714285714,
+        "accent_edits": 1,
+        "inserted_words": 1,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 26.02,
+          "latency_ms": 25675,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 3512,
+            "totalTokens": 6340,
+            "cacheReadInputTokens": 2684,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 2869,
+          "status": "ok"
+        }
+      }
+    },
+    "livre-noir-0062": {
+      "marker2": {
+        "ref_chars": 1922,
+        "ref_words": 305,
+        "hyp_words": 305,
+        "cer": 0.004682622268470343,
+        "wer": 0.006557377049180328,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 13.75,
+          "gpu_memory_used_mb": 15794,
+          "chars": 1979,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 1922,
+        "ref_words": 305,
+        "hyp_words": 305,
+        "cer": 0.004682622268470343,
+        "wer": 0.006557377049180328,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 12.84,
+          "gpu_memory_used_mb": 15882,
+          "chars": 1979,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 1922,
+        "ref_words": 305,
+        "hyp_words": 305,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 28.81,
+          "agent_tokens": 36105,
+          "chars": 1993,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 1922,
+        "ref_words": 305,
+        "hyp_words": 305,
+        "cer": 0.0,
+        "wer": 0.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 0,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 13.99,
+          "latency_ms": 13496,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2136,
+            "totalTokens": 4964,
+            "cacheReadInputTokens": 2684,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 1991,
+          "status": "ok"
+        }
+      }
+    },
+    "figures-0098": {
+      "marker2": {
+        "ref_chars": 7052,
+        "ref_words": 1161,
+        "hyp_words": 0,
+        "cer": 1.0,
+        "wer": 1.0,
+        "accent_edits": 0,
+        "inserted_words": 0,
+        "deleted_words": 1161,
+        "omitted_blocks": 1,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2",
+          "seconds": 124.3,
+          "gpu_memory_used_mb": 2064,
+          "chars": 0,
+          "status": "empty"
+        }
+      },
+      "marker2-force": {
+        "ref_chars": 7052,
+        "ref_words": 1161,
+        "hyp_words": 1160,
+        "cer": 0.005955757231990925,
+        "wer": 0.03273040482342808,
+        "accent_edits": 13,
+        "inserted_words": 0,
+        "deleted_words": 1,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 40.46,
+          "gpu_memory_used_mb": 15911,
+          "chars": 7086,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "ref_chars": 7052,
+        "ref_words": 1161,
+        "hyp_words": 1159,
+        "cer": 0.007515598411798071,
+        "wer": 0.025839793281653745,
+        "accent_edits": 4,
+        "inserted_words": 1,
+        "deleted_words": 3,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 72.22,
+          "agent_tokens": 37894,
+          "chars": 7164,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "ref_chars": 7052,
+        "ref_words": 1161,
+        "hyp_words": 1160,
+        "cer": 0.015740215541690302,
+        "wer": 0.04995693367786391,
+        "accent_edits": 5,
+        "inserted_words": 0,
+        "deleted_words": 1,
+        "omitted_blocks": 0,
+        "illisible": 0,
+        "missing": false,
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 48.74,
+          "latency_ms": 48351,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 7953,
+            "totalTokens": 11285,
+            "cacheReadInputTokens": 3188,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 7154,
+          "status": "ok"
+        }
+      }
+    }
+  },
+  "olmocr": {
+    "olmocr-old_scans-1": {
+      "marker2": {
+        "missing": false,
+        "tests": 5,
+        "passed": 1,
+        "results": [
+          {
+            "id": "1_787572",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
+          },
+          {
+            "id": "1_298389",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'During your trip to S.A....' not found with max_l_dist 0"
+          },
+          {
+            "id": "1_36225",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'one Law Here must Be Repealed. as we are...' with threshold 0.9661016949152542 but best match ratio was 0.898"
+          },
+          {
+            "id": "1_680487",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'as we are deprived of Voting for whoever...' with threshold 1.0 but best match ratio was 0.926"
+          },
+          {
+            "id": "1_126739",
+            "type": "absent",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 8.8,
+          "gpu_memory_used_mb": 15794,
+          "chars": 741,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 5,
+        "passed": 1,
+        "results": [
+          {
+            "id": "1_787572",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
+          },
+          {
+            "id": "1_298389",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'During your trip to S.A....' not found with max_l_dist 0"
+          },
+          {
+            "id": "1_36225",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'one Law Here must Be Repealed. as we are...' with threshold 0.9661016949152542 but best match ratio was 0.898"
+          },
+          {
+            "id": "1_680487",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'as we are deprived of Voting for whoever...' with threshold 1.0 but best match ratio was 0.926"
+          },
+          {
+            "id": "1_126739",
+            "type": "absent",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 8.35,
+          "gpu_memory_used_mb": 15888,
+          "chars": 741,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 5,
+        "passed": 2,
+        "results": [
+          {
+            "id": "1_787572",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
+          },
+          {
+            "id": "1_298389",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'During your trip to S.A....' not found with max_l_dist 0"
+          },
+          {
+            "id": "1_36225",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "1_680487",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'as we are deprived of Voting for whoever...' with threshold 1.0 but best match ratio was 0.956"
+          },
+          {
+            "id": "1_126739",
+            "type": "absent",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 16.83,
+          "agent_tokens": 35474,
+          "chars": 694,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 5,
+        "passed": 2,
+        "results": [
+          {
+            "id": "1_787572",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Sickles old Regt & Brigade I served thro...' not found with max_l_dist 0"
+          },
+          {
+            "id": "1_298389",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'to Eastern or Bangor Pa I would Like to ...' not found with max_l_dist 0"
+          },
+          {
+            "id": "1_36225",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "1_680487",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'as we are deprived of Voting for whoever...' with threshold 1.0 but best match ratio was 0.971"
+          },
+          {
+            "id": "1_126739",
+            "type": "absent",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 14.91,
+          "latency_ms": 14698,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 1605,
+            "totalTokens": 4986,
+            "cacheReadInputTokens": 3237,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 697,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-old_scans-12": {
+      "marker2": {
+        "missing": false,
+        "tests": 4,
+        "passed": 0,
+        "results": [
+          {
+            "id": "12_643052",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.950"
+          },
+          {
+            "id": "12_898662",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.973"
+          },
+          {
+            "id": "12_370663",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Am simply a railroad man, a locomotive e...' not found with max_l_dist 0"
+          },
+          {
+            "id": "12_287370",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'connected with the sale of it and have n...' not found with max_l_dist 0"
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 65.07,
+          "gpu_memory_used_mb": 15732,
+          "chars": 546,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 4,
+        "passed": 0,
+        "results": [
+          {
+            "id": "12_643052",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.950"
+          },
+          {
+            "id": "12_898662",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'I know you will forgive the liberty I am...' with threshold 1.0 but best match ratio was 0.945"
+          },
+          {
+            "id": "12_370663",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Am simply a railroad man, a locomotive e...' not found with max_l_dist 0"
+          },
+          {
+            "id": "12_287370",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'connected with the sale of it and have n...' not found with max_l_dist 0"
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 84.67,
+          "gpu_memory_used_mb": 15890,
+          "chars": 552,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 4,
+        "passed": 2,
+        "results": [
+          {
+            "id": "12_643052",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "12_898662",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "12_370663",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'I am not in any way connected with the s...' not found with max_l_dist 0"
+          },
+          {
+            "id": "12_287370",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'connected with the sale of it and have n...' not found with max_l_dist 0"
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 14.18,
+          "agent_tokens": 35391,
+          "chars": 493,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 4,
+        "passed": 2,
+        "results": [
+          {
+            "id": "12_643052",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "12_898662",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "12_370663",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Am simply a railroad man, a locomotive e...' not found with max_l_dist 0"
+          },
+          {
+            "id": "12_287370",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'connected with the sale of it and have n...' not found with max_l_dist 0"
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 14.51,
+          "latency_ms": 14245,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 1717,
+            "totalTokens": 4594,
+            "cacheReadInputTokens": 2733,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 503,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-old_scans-27": {
+      "marker2": {
+        "missing": false,
+        "tests": 4,
+        "passed": 0,
+        "results": [
+          {
+            "id": "27_250174",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Clsip L.l....' with threshold 1.0 but best match ratio was 0.700"
+          },
+          {
+            "id": "27_871722",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Willow Brook Park...' with threshold 1.0 but best match ratio was 0.765"
+          },
+          {
+            "id": "27_68655",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'FRANK J. Dion...' not found with max_l_dist 1"
+          },
+          {
+            "id": "27_823694",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Willow Brook Running and Driving Park...' with threshold 0.972972972972973 but best match ratio was 0.946"
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 7.57,
+          "gpu_memory_used_mb": 15743,
+          "chars": 339,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 4,
+        "passed": 0,
+        "results": [
+          {
+            "id": "27_250174",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Clsip L.l....' with threshold 1.0 but best match ratio was 0.700"
+          },
+          {
+            "id": "27_871722",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Willow Brook Park...' with threshold 1.0 but best match ratio was 0.765"
+          },
+          {
+            "id": "27_68655",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'FRANK J. Dion...' not found with max_l_dist 1"
+          },
+          {
+            "id": "27_823694",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Willow Brook Running and Driving Park...' with threshold 0.972972972972973 but best match ratio was 0.892"
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 5.91,
+          "gpu_memory_used_mb": 15890,
+          "chars": 340,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 4,
+        "passed": 1,
+        "results": [
+          {
+            "id": "27_250174",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Clsip L.l....' with threshold 1.0 but best match ratio was 0.700"
+          },
+          {
+            "id": "27_871722",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Willow Brook Park...' with threshold 1.0 but best match ratio was 0.941"
+          },
+          {
+            "id": "27_68655",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'FRANK J. Dion...' not found with max_l_dist 1"
+          },
+          {
+            "id": "27_823694",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 12.96,
+          "agent_tokens": 35433,
+          "chars": 354,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 4,
+        "passed": 2,
+        "results": [
+          {
+            "id": "27_250174",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Clsip L.l....' with threshold 1.0 but best match ratio was 0.700"
+          },
+          {
+            "id": "27_871722",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "27_68655",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'FRANK J. Dion...' not found with max_l_dist 1"
+          },
+          {
+            "id": "27_823694",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 6.74,
+          "latency_ms": 6548,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 628,
+            "totalTokens": 3946,
+            "cacheReadInputTokens": 3174,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 375,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-old_scans-36": {
+      "marker2": {
+        "missing": false,
+        "tests": 2,
+        "passed": 1,
+        "results": [
+          {
+            "id": "36_76613",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "36_635380",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected '1,393,083.68 Circulation....' with threshold 1.0 but best match ratio was 0.840"
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 15.0,
+          "gpu_memory_used_mb": 15740,
+          "chars": 3918,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 2,
+        "passed": 1,
+        "results": [
+          {
+            "id": "36_76613",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "36_635380",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected '1,393,083.68 Circulation....' with threshold 1.0 but best match ratio was 0.840"
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 15.13,
+          "gpu_memory_used_mb": 15890,
+          "chars": 3918,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 2,
+        "passed": 1,
+        "results": [
+          {
+            "id": "36_76613",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "36_635380",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected '1,393,083.68 Circulation....' with threshold 1.0 but best match ratio was 0.960"
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 28.89,
+          "agent_tokens": 35979,
+          "chars": 2411,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 2,
+        "passed": 1,
+        "results": [
+          {
+            "id": "36_76613",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "36_635380",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected '1,393,083.68 Circulation....' with threshold 1.0 but best match ratio was 0.840"
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 16.56,
+          "latency_ms": 16300,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2203,
+            "totalTokens": 5647,
+            "cacheReadInputTokens": 3300,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 2266,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-old_scans-37": {
+      "marker2": {
+        "missing": false,
+        "tests": 6,
+        "passed": 1,
+        "results": [
+          {
+            "id": "37_500785",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_564816",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_410156",
+            "type": "order",
+            "passed": false,
+            "explanation": "Could not find a location where 'I have been looking for that promised vi...' appears before 'Holt is very much pleased and is, I hope...'."
+          },
+          {
+            "id": "37_273626",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_413457",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Dear friend The second session of Mr Hun...' with threshold 0.9876543209876543 but best match ratio was 0.840"
+          },
+          {
+            "id": "37_634834",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Hunt's school begins on the 15th of Janu...' with threshold 0.9838709677419355 but best match ratio was 0.823"
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 7.52,
+          "gpu_memory_used_mb": 15732,
+          "chars": 363,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 6,
+        "passed": 1,
+        "results": [
+          {
+            "id": "37_500785",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_564816",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_410156",
+            "type": "order",
+            "passed": false,
+            "explanation": "Could not find a location where 'I have been looking for that promised vi...' appears before 'Holt is very much pleased and is, I hope...'."
+          },
+          {
+            "id": "37_273626",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_413457",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Dear friend The second session of Mr Hun...' with threshold 0.9876543209876543 but best match ratio was 0.840"
+          },
+          {
+            "id": "37_634834",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Hunt's school begins on the 15th of Janu...' with threshold 0.9838709677419355 but best match ratio was 0.823"
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 5.82,
+          "gpu_memory_used_mb": 15890,
+          "chars": 363,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 6,
+        "passed": 4,
+        "results": [
+          {
+            "id": "37_500785",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The family are well with the exception o...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_564816",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_410156",
+            "type": "order",
+            "passed": false,
+            "explanation": "Could not find a location where 'I have been looking for that promised vi...' appears before 'Holt is very much pleased and is, I hope...'."
+          },
+          {
+            "id": "37_273626",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_413457",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_634834",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 12.01,
+          "agent_tokens": 35343,
+          "chars": 325,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 6,
+        "passed": 1,
+        "results": [
+          {
+            "id": "37_500785",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'we have had such beautiful weather this ...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_564816",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'looking for that promised visit we have ...' not found with max_l_dist 1"
+          },
+          {
+            "id": "37_410156",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'I have been looking for that promised vi...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_273626",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Mr Hunt's school begins on the 15th...' not found with max_l_dist 0"
+          },
+          {
+            "id": "37_413457",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "37_634834",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'Hunt's school begins on the 15th of Janu...' with threshold 0.9838709677419355 but best match ratio was 0.952"
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 24.37,
+          "latency_ms": 24071,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2667,
+            "totalTokens": 5481,
+            "cacheReadInputTokens": 2670,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 325,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-table_tests-426498e3ff09ea806b6ec1c32a693344ebdc_pg2": {
+      "marker2": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 21.73,
+          "gpu_memory_used_mb": 15754,
+          "chars": 5950,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 23.56,
+          "gpu_memory_used_mb": 15890,
+          "chars": 5950,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 47.77,
+          "agent_tokens": 37199,
+          "chars": 3851,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "426498e3ff09ea806b6ec1c32a693344ebdc_pg2_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 16.93,
+          "latency_ms": 16660,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2475,
+            "totalTokens": 5730,
+            "cacheReadInputTokens": 3111,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3849,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-table_tests-7e850300cc7a63925214ffea6856992511f5_pg7_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 3,
+        "passed": 3,
+        "results": [
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 16.71,
+          "gpu_memory_used_mb": 15759,
+          "chars": 3952,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 3,
+        "passed": 3,
+        "results": [
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 16.38,
+          "gpu_memory_used_mb": 15890,
+          "chars": 3952,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 3,
+        "passed": 3,
+        "results": [
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 33.77,
+          "agent_tokens": 36386,
+          "chars": 2768,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 3,
+        "passed": 3,
+        "results": [
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "7e850300cc7a63925214ffea6856992511f5_pg7_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 11.82,
+          "latency_ms": 11681,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 1659,
+            "totalTokens": 4914,
+            "cacheReadInputTokens": 3111,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3065,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-table_tests-9c38972000c33231df815ece46cba559b5b4_pg17": {
+      "marker2": {
+        "missing": false,
+        "tests": 5,
+        "passed": 3,
+        "results": [
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_03",
+            "type": "table",
+            "passed": false,
+            "explanation": "Found cells matching '1 (67; 10.2%)' but relationships were not satisfied: No left heading found for cell at (7, 1)"
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
+            "type": "table",
+            "passed": false,
+            "explanation": "Found cells matching '18-29 (464; 70.6%)' but relationships were not satisfied: No left heading found for cell at (5, 1)"
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 5.6,
+          "vram_peak_mb": 0,
+          "chars": 1141,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 5,
+        "passed": 3,
+        "results": [
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_03",
+            "type": "table",
+            "passed": false,
+            "explanation": "Found cells matching '1 (67; 10.2%)' but relationships were not satisfied: No left heading found for cell at (7, 1)"
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
+            "type": "table",
+            "passed": false,
+            "explanation": "Found cells matching '18-29 (464; 70.6%)' but relationships were not satisfied: No left heading found for cell at (5, 1)"
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 5.16,
+          "gpu_memory_used_mb": 15890,
+          "chars": 1141,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 18.47,
+          "agent_tokens": 35860,
+          "chars": 968,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 5,
+        "passed": 3,
+        "results": [
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_03",
+            "type": "table",
+            "passed": false,
+            "explanation": "No cell matching '1 (67; 10.2%)' found in any table with threshold 1.0"
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_02",
+            "type": "table",
+            "passed": false,
+            "explanation": "No cell matching '18-29 (464; 70.6%)' found in any table with threshold 1.0"
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "9c38972000c33231df815ece46cba559b5b4_pg17_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 4.1,
+          "latency_ms": 3895,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 479,
+            "totalTokens": 3860,
+            "cacheReadInputTokens": 0,
+            "cacheWriteInputTokens": 3237
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 577,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-table_tests-d22cfda9b7cf678a7996008fb8faa82209fe_pg10": {
+      "marker2": {
+        "missing": false,
+        "tests": 2,
+        "passed": 2,
+        "results": [
+          {
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 15.43,
+          "gpu_memory_used_mb": 15802,
+          "chars": 3135,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 2,
+        "passed": 2,
+        "results": [
+          {
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 15.06,
+          "gpu_memory_used_mb": 15890,
+          "chars": 3135,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 2,
+        "passed": 2,
+        "results": [
+          {
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 35.89,
+          "agent_tokens": 36557,
+          "chars": 2685,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 2,
+        "passed": 2,
+        "results": [
+          {
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "d22cfda9b7cf678a7996008fb8faa82209fe_pg10_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 13.96,
+          "latency_ms": 13809,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2106,
+            "totalTokens": 5235,
+            "cacheReadInputTokens": 2985,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 2687,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-table_tests-f86995c31dc26c1805d2ba57b3695f4730df_pg3_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 16.9,
+          "gpu_memory_used_mb": 15769,
+          "chars": 2360,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 14.47,
+          "gpu_memory_used_mb": 15890,
+          "chars": 2360,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 27.79,
+          "agent_tokens": 36183,
+          "chars": 2080,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 5,
+        "passed": 5,
+        "results": [
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_00",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_03",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_01",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_02",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "f86995c31dc26c1805d2ba57b3695f4730df_pg3_table_04",
+            "type": "table",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 11.39,
+          "latency_ms": 11251,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 1588,
+            "totalTokens": 4969,
+            "cacheReadInputTokens": 3237,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 2249,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-multi_column-0083fb2109e58be50aec2eca07fcbfe1230b_page_5_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 4,
+        "passed": 3,
+        "results": [
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_5f6bfd65",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_a43e65b1",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_7ff26593",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The other $8,000 ($20,000 â€\" $12,000) o...' not found with max_l_dist 1"
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 32.35,
+          "gpu_memory_used_mb": 15738,
+          "chars": 6269,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 4,
+        "passed": 3,
+        "results": [
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_5f6bfd65",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_a43e65b1",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_7ff26593",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The other $8,000 ($20,000 â€\" $12,000) o...' not found with max_l_dist 1"
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 32.58,
+          "gpu_memory_used_mb": 15890,
+          "chars": 6269,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 4,
+        "passed": 3,
+        "results": [
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_5f6bfd65",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_a43e65b1",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_7ff26593",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The other $8,000 ($20,000 â€\" $12,000) o...' not found with max_l_dist 1"
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 49.27,
+          "agent_tokens": 36991,
+          "chars": 6388,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 4,
+        "passed": 3,
+        "results": [
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_f450a3ae",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_5f6bfd65",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_a43e65b1",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "0083fb2109e58be50aec2eca07fcbfe1230b_page_5.pdf_order_7ff26593",
+            "type": "order",
+            "passed": false,
+            "explanation": "'after' text 'The other $8,000 ($20,000 â€\" $12,000) o...' not found with max_l_dist 1"
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 16.47,
+          "latency_ms": 16269,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2255,
+            "totalTokens": 5636,
+            "cacheReadInputTokens": 3237,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 6317,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-multi_column-01566a951fd40f8c1a4b8190cc3d0f93c393_page_4_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3a1d12ca",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3d6676d4",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_cf00b343",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 33.16,
+          "gpu_memory_used_mb": 15743,
+          "chars": 5966,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3a1d12ca",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3d6676d4",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_cf00b343",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 31.26,
+          "gpu_memory_used_mb": 15890,
+          "chars": 5966,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3a1d12ca",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3d6676d4",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_cf00b343",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 38.37,
+          "agent_tokens": 36625,
+          "chars": 5947,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3f7b5199",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3a1d12ca",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_3d6676d4",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "01566a951fd40f8c1a4b8190cc3d0f93c393_page_4.pdf_order_cf00b343",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 13.21,
+          "latency_ms": 13020,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2500,
+            "totalTokens": 5881,
+            "cacheReadInputTokens": 3237,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 5903,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-multi_column-028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 2,
+        "passed": 0,
+        "results": [
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
+          },
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_2975ba06",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Die abfallpolitische Einordnung wurde vo...' not found with max_l_dist 1"
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 25.5,
+          "gpu_memory_used_mb": 15763,
+          "chars": 3878,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 2,
+        "passed": 0,
+        "results": [
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
+          },
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_2975ba06",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Die abfallpolitische Einordnung wurde vo...' not found with max_l_dist 1"
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 25.16,
+          "gpu_memory_used_mb": 15890,
+          "chars": 3878,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 2,
+        "passed": 0,
+        "results": [
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
+          },
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_2975ba06",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Die abfallpolitische Einordnung wurde vo...' not found with max_l_dist 1"
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 44.0,
+          "agent_tokens": 36924,
+          "chars": 3656,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 2,
+        "passed": 0,
+        "results": [
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_4eca9a64",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Ehemalige Kohle-ExportlÃ¤nder wie China ...' not found with max_l_dist 1"
+          },
+          {
+            "id": "028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4.pdf_order_2975ba06",
+            "type": "order",
+            "passed": false,
+            "explanation": "'before' text 'Die abfallpolitische Einordnung wurde vo...' not found with max_l_dist 1"
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 19.59,
+          "latency_ms": 19242,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2568,
+            "totalTokens": 5697,
+            "cacheReadInputTokens": 2985,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3912,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-multi_column-02a3e23da54b82c414d272051b0b5d8f44d8_page_12_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_b9f4fa82",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_29e9ce7e",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 22.29,
+          "gpu_memory_used_mb": 15780,
+          "chars": 4591,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_b9f4fa82",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_29e9ce7e",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 23.4,
+          "gpu_memory_used_mb": 15890,
+          "chars": 4591,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_b9f4fa82",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_29e9ce7e",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 44.69,
+          "agent_tokens": 36850,
+          "chars": 4095,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_55823ac0",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_b9f4fa82",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_6e8a0319",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "02a3e23da54b82c414d272051b0b5d8f44d8_page_12.pdf_order_29e9ce7e",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 16.7,
+          "latency_ms": 16427,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 2583,
+            "totalTokens": 5712,
+            "cacheReadInputTokens": 2985,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 4046,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-multi_column-04f8254ed1a74096fc98c7e069af79fc9fcf_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_ac0dddde",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 23.31,
+          "gpu_memory_used_mb": 15786,
+          "chars": 3849,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_ac0dddde",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 22.42,
+          "gpu_memory_used_mb": 15890,
+          "chars": 3849,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_ac0dddde",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 28.03,
+          "agent_tokens": 36251,
+          "chars": 3868,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 4,
+        "passed": 4,
+        "results": [
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_99678129",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_23e55e91",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_ac0dddde",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "04f8254ed1a74096fc98c7e069af79fc9fcf.pdf_order_59e298be",
+            "type": "order",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 9.7,
+          "latency_ms": 9522,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 1620,
+            "totalTokens": 5001,
+            "cacheReadInputTokens": 3237,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 3876,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-long_tiny_text-11_pg421_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 2,
+        "passed": 2,
+        "results": [
+          {
+            "id": "11_pg421_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "11_pg421_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 28.26,
+          "gpu_memory_used_mb": 15751,
+          "chars": 4528,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 2,
+        "passed": 2,
+        "results": [
+          {
+            "id": "11_pg421_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "11_pg421_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 23.77,
+          "gpu_memory_used_mb": 15890,
+          "chars": 4528,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 2,
+        "passed": 2,
+        "results": [
+          {
+            "id": "11_pg421_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "11_pg421_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 54.94,
+          "agent_tokens": 37031,
+          "chars": 4426,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 2,
+        "passed": 1,
+        "results": [
+          {
+            "id": "11_pg421_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "11_pg421_pg1_text_06",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'To truss up, to tuck up the gown, &c....' with threshold 1.0 but best match ratio was 0.973"
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 21.77,
+          "latency_ms": 21246,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 3668,
+            "totalTokens": 6419,
+            "cacheReadInputTokens": 2607,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 4436,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-long_tiny_text-13_pg475_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 12,
+        "passed": 12,
+        "results": [
+          {
+            "id": "13_pg475_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_05",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 43.38,
+          "gpu_memory_used_mb": 15778,
+          "chars": 9039,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 12,
+        "passed": 12,
+        "results": [
+          {
+            "id": "13_pg475_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_05",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 47.87,
+          "gpu_memory_used_mb": 15911,
+          "chars": 9043,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 12,
+        "passed": 12,
+        "results": [
+          {
+            "id": "13_pg475_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_05",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 73.33,
+          "agent_tokens": 37682,
+          "chars": 8915,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 12,
+        "passed": 12,
+        "results": [
+          {
+            "id": "13_pg475_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_05",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "13_pg475_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 32.75,
+          "latency_ms": 32395,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 5428,
+            "totalTokens": 8557,
+            "cacheReadInputTokens": 2985,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 8910,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-long_tiny_text-17_pg17_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 9,
+        "passed": 9,
+        "results": [
+          {
+            "id": "17_pg17_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_05",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 24.26,
+          "gpu_memory_used_mb": 15804,
+          "chars": 5875,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 9,
+        "passed": 9,
+        "results": [
+          {
+            "id": "17_pg17_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_05",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 27.49,
+          "gpu_memory_used_mb": 15911,
+          "chars": 5874,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 9,
+        "passed": 9,
+        "results": [
+          {
+            "id": "17_pg17_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_05",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 46.77,
+          "agent_tokens": 36484,
+          "chars": 5844,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 9,
+        "passed": 8,
+        "results": [
+          {
+            "id": "17_pg17_pg1_text_06",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'In 1851 the Governor-General insists tha...' with threshold 0.9917695473251029 but best match ratio was 0.971"
+          },
+          {
+            "id": "17_pg17_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_05",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg17_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 29.52,
+          "latency_ms": 29299,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 4312,
+            "totalTokens": 5672,
+            "cacheReadInputTokens": 1216,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 5843,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-long_tiny_text-17_pg2_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 39,
+        "passed": 38,
+        "results": [
+          {
+            "id": "17_pg2_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_86",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_17",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
+          },
+          {
+            "id": "17_pg2_pg1_text_28",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_88",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_43",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_65",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_16",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_27",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_41",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_61",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_20",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_95",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_30",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_80",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_45",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_69",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_24",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_51",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_34",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_97",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_23",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_31",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_49",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_83",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_74",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_25",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_13",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_37",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_56",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 25.91,
+          "gpu_memory_used_mb": 15916,
+          "chars": 5847,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 39,
+        "passed": 38,
+        "results": [
+          {
+            "id": "17_pg2_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_86",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_17",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
+          },
+          {
+            "id": "17_pg2_pg1_text_28",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_88",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_43",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_65",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_16",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_27",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_41",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_61",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_20",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_95",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_30",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_80",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_45",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_69",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_24",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_51",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_34",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_97",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_23",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_31",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_49",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_83",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_74",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_25",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_13",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_37",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_56",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 27.93,
+          "gpu_memory_used_mb": 15911,
+          "chars": 5848,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 39,
+        "passed": 38,
+        "results": [
+          {
+            "id": "17_pg2_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_86",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_17",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.985"
+          },
+          {
+            "id": "17_pg2_pg1_text_28",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_88",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_43",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_65",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_16",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_27",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_41",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_61",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_20",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_95",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_30",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_80",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_45",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_69",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_24",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_51",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_34",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_97",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_23",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_31",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_49",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_83",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_74",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_25",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_13",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_37",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_56",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 45.18,
+          "agent_tokens": 36531,
+          "chars": 5847,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 39,
+        "passed": 38,
+        "results": [
+          {
+            "id": "17_pg2_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_86",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_17",
+            "type": "present",
+            "passed": false,
+            "explanation": "Expected 'who ask, \"Who is Sir Salar Jung?,, And t...' with threshold 1.0 but best match ratio was 0.970"
+          },
+          {
+            "id": "17_pg2_pg1_text_28",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_88",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_43",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_65",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_16",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_27",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_41",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_61",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_01",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_20",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_95",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_30",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_80",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_45",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_69",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_03",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_24",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_12",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_51",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_34",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_97",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_23",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_31",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_49",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_83",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_74",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_04",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_25",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_13",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_02",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_37",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg2_pg1_text_56",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 21.36,
+          "latency_ms": 20859,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 3353,
+            "totalTokens": 4754,
+            "cacheReadInputTokens": 1257,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 5849,
+          "status": "ok"
+        }
+      }
+    },
+    "olmocr-long_tiny_text-17_pg4_pg1": {
+      "marker2": {
+        "missing": false,
+        "tests": 7,
+        "passed": 7,
+        "results": [
+          {
+            "id": "17_pg4_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2",
+          "seconds": 23.66,
+          "gpu_memory_used_mb": 15645,
+          "chars": 5185,
+          "status": "ok"
+        }
+      },
+      "marker2-force": {
+        "missing": false,
+        "tests": 7,
+        "passed": 7,
+        "results": [
+          {
+            "id": "17_pg4_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "marker2-force",
+          "seconds": 25.26,
+          "gpu_memory_used_mb": 15911,
+          "chars": 5185,
+          "status": "ok"
+        }
+      },
+      "haiku": {
+        "missing": false,
+        "tests": 7,
+        "passed": 7,
+        "results": [
+          {
+            "id": "17_pg4_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "haiku",
+          "model": "claude-haiku-5-5 (sous-agent Claude Code)",
+          "seconds": 42.41,
+          "agent_tokens": 36403,
+          "chars": 5189,
+          "status": "ok"
+        }
+      },
+      "luna": {
+        "missing": false,
+        "tests": 7,
+        "passed": 7,
+        "results": [
+          {
+            "id": "17_pg4_pg1_text_00",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_10",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_06",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_07",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_08",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_11",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          },
+          {
+            "id": "17_pg4_pg1_text_09",
+            "type": "present",
+            "passed": true,
+            "explanation": ""
+          }
+        ],
+        "meta": {
+          "engine": "luna",
+          "model": "us.openai.gpt-6-luna",
+          "seconds": 20.78,
+          "latency_ms": 20535,
+          "usage": {
+            "inputTokens": 144,
+            "outputTokens": 3008,
+            "totalTokens": 4368,
+            "cacheReadInputTokens": 1216,
+            "cacheWriteInputTokens": 0
+          },
+          "stop_reason": "end_turn",
+          "temperature": null,
+          "chars": 5175,
+          "status": "ok"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,785 @@
+{
+  "seed": 20261011,
+  "llm_long_edge": 2000,
+  "render_dpi": 300,
+  "render_max_edge": 3508,
+  "items": [
+    {
+      "id": "veilleurs-0037",
+      "set": "scans",
+      "image": "inputs/images/veilleurs-0037.png",
+      "llm_image": "inputs/images/veilleurs-0037.llm.png",
+      "size": [
+        2550,
+        3488
+      ],
+      "mode": "L",
+      "llm_size": [
+        1462,
+        2000
+      ],
+      "sha256": "fead7eeb114286db6e7e629b5fe31c8333cffa63e43a4839fcba83263411e450",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Les veilleurs",
+      "page": 37,
+      "source": "scans/Les veilleurs/pages/0037.png"
+    },
+    {
+      "id": "veilleurs-0045",
+      "set": "scans",
+      "image": "inputs/images/veilleurs-0045.png",
+      "llm_image": "inputs/images/veilleurs-0045.llm.png",
+      "size": [
+        2580,
+        3532
+      ],
+      "mode": "L",
+      "llm_size": [
+        1461,
+        2000
+      ],
+      "sha256": "8b0ff93a2b8807da7362e836088ee2e8b007e37d8d4d1dbdc8d628091303af78",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Les veilleurs",
+      "page": 45,
+      "source": "scans/Les veilleurs/pages/0045.png"
+    },
+    {
+      "id": "veilleurs-0046",
+      "set": "scans",
+      "image": "inputs/images/veilleurs-0046.png",
+      "llm_image": "inputs/images/veilleurs-0046.llm.png",
+      "size": [
+        2536,
+        3467
+      ],
+      "mode": "L",
+      "llm_size": [
+        1463,
+        2000
+      ],
+      "sha256": "c620e50d94c0fb46b3fac378633928d434c455956d0cba00328f10394541ddf4",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Les veilleurs",
+      "page": 46,
+      "source": "scans/Les veilleurs/pages/0046.png"
+    },
+    {
+      "id": "veilleurs-0064",
+      "set": "scans",
+      "image": "inputs/images/veilleurs-0064.png",
+      "llm_image": "inputs/images/veilleurs-0064.llm.png",
+      "size": [
+        2550,
+        3510
+      ],
+      "mode": "L",
+      "llm_size": [
+        1453,
+        2000
+      ],
+      "sha256": "a25b1e29921ab4f97ff6d486653d25fd6fa1a771aa4c28a090e30366bfb0f586",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Les veilleurs",
+      "page": 64,
+      "source": "scans/Les veilleurs/pages/0064.png"
+    },
+    {
+      "id": "veilleurs-0065",
+      "set": "scans",
+      "image": "inputs/images/veilleurs-0065.png",
+      "llm_image": "inputs/images/veilleurs-0065.llm.png",
+      "size": [
+        2550,
+        3510
+      ],
+      "mode": "L",
+      "llm_size": [
+        1453,
+        2000
+      ],
+      "sha256": "c8c0ae8c483d1aec3cb20cf2bf59133618100a106af53a065ff1c5f1fb1a2878",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Les veilleurs",
+      "page": 65,
+      "source": "scans/Les veilleurs/pages/0065.png"
+    },
+    {
+      "id": "lion-vert-0007",
+      "set": "scans",
+      "image": "inputs/images/lion-vert-0007.png",
+      "llm_image": "inputs/images/lion-vert-0007.llm.png",
+      "size": [
+        2430,
+        3246
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1497,
+        2000
+      ],
+      "sha256": "683b15417e2a7f3ee40ac7b52751a3401a605a7480fcf8b85ba2cdc84ed03d6d",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Lion Vert",
+      "page": 7,
+      "source": "scans/Le Lion Vert/pages/0007.png"
+    },
+    {
+      "id": "lion-vert-0008",
+      "set": "scans",
+      "image": "inputs/images/lion-vert-0008.png",
+      "llm_image": "inputs/images/lion-vert-0008.llm.png",
+      "size": [
+        2506,
+        3370
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1487,
+        2000
+      ],
+      "sha256": "73bf108419814587b3be3c3a972e016952278f070a538faad10bc4d2de6e0d01",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Lion Vert",
+      "page": 8,
+      "source": "scans/Le Lion Vert/pages/0008.png"
+    },
+    {
+      "id": "lion-vert-0010",
+      "set": "scans",
+      "image": "inputs/images/lion-vert-0010.png",
+      "llm_image": "inputs/images/lion-vert-0010.llm.png",
+      "size": [
+        2472,
+        3331
+      ],
+      "mode": "L",
+      "llm_size": [
+        1484,
+        2000
+      ],
+      "sha256": "4f75a5f603f5ffdd0a7787b2faa015fb7cc07bbce8b48b1c405eb1bd4b4d1b31",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Lion Vert",
+      "page": 10,
+      "source": "scans/Le Lion Vert/pages/0010.png"
+    },
+    {
+      "id": "lion-vert-0050",
+      "set": "scans",
+      "image": "inputs/images/lion-vert-0050.png",
+      "llm_image": "inputs/images/lion-vert-0050.llm.png",
+      "size": [
+        2479,
+        3360
+      ],
+      "mode": "L",
+      "llm_size": [
+        1476,
+        2000
+      ],
+      "sha256": "211f46104e838bab6d0b1d34f9caab51a03cbfb934b3c081a9e8fe94c65f4737",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Lion Vert",
+      "page": 50,
+      "source": "scans/Le Lion Vert/pages/0050.png"
+    },
+    {
+      "id": "lion-vert-0066",
+      "set": "scans",
+      "image": "inputs/images/lion-vert-0066.png",
+      "llm_image": "inputs/images/lion-vert-0066.llm.png",
+      "size": [
+        2420,
+        3338
+      ],
+      "mode": "L",
+      "llm_size": [
+        1450,
+        2000
+      ],
+      "sha256": "5f1ddbf24edf2b9fe9465bd1c38031d6bf611a58aae4d345f41f6b25f57cc093",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Lion Vert",
+      "page": 66,
+      "source": "scans/Le Lion Vert/pages/0066.png"
+    },
+    {
+      "id": "livre-noir-0003",
+      "set": "scans",
+      "image": "inputs/images/livre-noir-0003.png",
+      "llm_image": "inputs/images/livre-noir-0003.llm.png",
+      "size": [
+        1749,
+        2806
+      ],
+      "mode": "L",
+      "llm_size": [
+        1247,
+        2000
+      ],
+      "sha256": "2ebb022b32b68c98fff4569beebcb2db4d5e4dda8890e5c0424a504295c6d3c3",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Livre Noir",
+      "page": 3,
+      "source": "scans/Le Livre Noir/pages/0003.png"
+    },
+    {
+      "id": "livre-noir-0018",
+      "set": "scans",
+      "image": "inputs/images/livre-noir-0018.png",
+      "llm_image": "inputs/images/livre-noir-0018.llm.png",
+      "size": [
+        1704,
+        2810
+      ],
+      "mode": "L",
+      "llm_size": [
+        1213,
+        2000
+      ],
+      "sha256": "52d3044f508ceaedd69e754068811ffad65dab6dba5fe6150a8eda38862e56ad",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Livre Noir",
+      "page": 18,
+      "source": "scans/Le Livre Noir/pages/0018.png"
+    },
+    {
+      "id": "livre-noir-0029",
+      "set": "scans",
+      "image": "inputs/images/livre-noir-0029.png",
+      "llm_image": "inputs/images/livre-noir-0029.llm.png",
+      "size": [
+        1672,
+        2805
+      ],
+      "mode": "L",
+      "llm_size": [
+        1192,
+        2000
+      ],
+      "sha256": "97cbd31fb348e5e08ad051af09b5897e6545287564f035ed7f8b7e83ba840451",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Livre Noir",
+      "page": 29,
+      "source": "scans/Le Livre Noir/pages/0029.png"
+    },
+    {
+      "id": "livre-noir-0046",
+      "set": "scans",
+      "image": "inputs/images/livre-noir-0046.png",
+      "llm_image": "inputs/images/livre-noir-0046.llm.png",
+      "size": [
+        1739,
+        2808
+      ],
+      "mode": "L",
+      "llm_size": [
+        1239,
+        2000
+      ],
+      "sha256": "a25f45708ca8b6ddf29f635642fec6dfe434fc662daaa128b22c0203292638a7",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Livre Noir",
+      "page": 46,
+      "source": "scans/Le Livre Noir/pages/0046.png"
+    },
+    {
+      "id": "livre-noir-0062",
+      "set": "scans",
+      "image": "inputs/images/livre-noir-0062.png",
+      "llm_image": "inputs/images/livre-noir-0062.llm.png",
+      "size": [
+        1722,
+        2801
+      ],
+      "mode": "L",
+      "llm_size": [
+        1230,
+        2000
+      ],
+      "sha256": "65a20ebb7c6406f1a058b0627a57c8e19c8be78afc170dc748ba8bba2b70eac1",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Le Livre Noir",
+      "page": 62,
+      "source": "scans/Le Livre Noir/pages/0062.png"
+    },
+    {
+      "id": "olmocr-old_scans-1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-old_scans-1.png",
+      "llm_image": "inputs/images/olmocr-old_scans-1.llm.png",
+      "size": [
+        2712,
+        3507
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1547,
+        2000
+      ],
+      "sha256": "c8ae655f555904c810e093dd681c26dac526fe8b6c5818136a6ae5505c09cd86",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "old_scans",
+      "pdf": "old_scans/1.pdf",
+      "page": 1,
+      "tests": 5
+    },
+    {
+      "id": "olmocr-old_scans-12",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-old_scans-12.png",
+      "llm_image": "inputs/images/olmocr-old_scans-12.llm.png",
+      "size": [
+        2248,
+        3500
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1285,
+        2000
+      ],
+      "sha256": "3ab57f9619cd75a0e5d0a4706f007af0f936f50f1a3c1ae63b063622b413726e",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "old_scans",
+      "pdf": "old_scans/12.pdf",
+      "page": 1,
+      "tests": 4
+    },
+    {
+      "id": "olmocr-old_scans-27",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-old_scans-27.png",
+      "llm_image": "inputs/images/olmocr-old_scans-27.llm.png",
+      "size": [
+        2650,
+        3516
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1507,
+        2000
+      ],
+      "sha256": "3e6a66102b96ef23d8ebc8ca4b39f444237824c73331342dc60f7161b5a77ffc",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "old_scans",
+      "pdf": "old_scans/27.pdf",
+      "page": 1,
+      "tests": 4
+    },
+    {
+      "id": "olmocr-old_scans-36",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-old_scans-36.png",
+      "llm_image": "inputs/images/olmocr-old_scans-36.llm.png",
+      "size": [
+        2794,
+        3501
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1596,
+        2000
+      ],
+      "sha256": "5f5fa6f5ce2b877483848f7e76804d571615a4a0ac1fee27cb7968cc70a17916",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "old_scans",
+      "pdf": "old_scans/36.pdf",
+      "page": 1,
+      "tests": 2
+    },
+    {
+      "id": "olmocr-old_scans-37",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-old_scans-37.png",
+      "llm_image": "inputs/images/olmocr-old_scans-37.llm.png",
+      "size": [
+        2226,
+        3492
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1275,
+        2000
+      ],
+      "sha256": "29770181291e38b97e78a10008020c03f2ffbda154d98eb9d972bee6225ae498",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "old_scans",
+      "pdf": "old_scans/37.pdf",
+      "page": 1,
+      "tests": 6
+    },
+    {
+      "id": "olmocr-table_tests-426498e3ff09ea806b6ec1c32a693344ebdc_pg2",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-table_tests-426498e3ff09ea806b6ec1c32a693344ebdc_pg2.png",
+      "llm_image": "inputs/images/olmocr-table_tests-426498e3ff09ea806b6ec1c32a693344ebdc_pg2.llm.png",
+      "size": [
+        2438,
+        3263
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1494,
+        2000
+      ],
+      "sha256": "4334460d9e0782fd0d7175fdb2d3293b88fd6bc32551b825ec99756df2926645",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "table_tests",
+      "pdf": "tables/426498e3ff09ea806b6ec1c32a693344ebdc_pg2.pdf",
+      "page": 1,
+      "tests": 5
+    },
+    {
+      "id": "olmocr-table_tests-7e850300cc7a63925214ffea6856992511f5_pg7_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-table_tests-7e850300cc7a63925214ffea6856992511f5_pg7_pg1.png",
+      "llm_image": "inputs/images/olmocr-table_tests-7e850300cc7a63925214ffea6856992511f5_pg7_pg1.llm.png",
+      "size": [
+        2481,
+        3308
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1500,
+        2000
+      ],
+      "sha256": "01d2ae02cd1be7cfbed1d39d96d5276b68b317a19df58af65b42d6fcbcc84b6b",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "table_tests",
+      "pdf": "tables/7e850300cc7a63925214ffea6856992511f5_pg7_pg1.pdf",
+      "page": 1,
+      "tests": 3
+    },
+    {
+      "id": "olmocr-table_tests-9c38972000c33231df815ece46cba559b5b4_pg17",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-table_tests-9c38972000c33231df815ece46cba559b5b4_pg17.png",
+      "llm_image": "inputs/images/olmocr-table_tests-9c38972000c33231df815ece46cba559b5b4_pg17.llm.png",
+      "size": [
+        2550,
+        3300
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1545,
+        2000
+      ],
+      "sha256": "6308cd8973083cf9efae73fe18f425609e7a45285e3ad8d356bd6e258f228420",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "table_tests",
+      "pdf": "tables/9c38972000c33231df815ece46cba559b5b4_pg17.pdf",
+      "page": 1,
+      "tests": 5
+    },
+    {
+      "id": "olmocr-table_tests-d22cfda9b7cf678a7996008fb8faa82209fe_pg10",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-table_tests-d22cfda9b7cf678a7996008fb8faa82209fe_pg10.png",
+      "llm_image": "inputs/images/olmocr-table_tests-d22cfda9b7cf678a7996008fb8faa82209fe_pg10.llm.png",
+      "size": [
+        2481,
+        3508
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1414,
+        2000
+      ],
+      "sha256": "b16ea9e3f157a4462fc9ffa5b00d7cb66541e153c9db7c5fc32dba818e9b6593",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "table_tests",
+      "pdf": "tables/d22cfda9b7cf678a7996008fb8faa82209fe_pg10.pdf",
+      "page": 1,
+      "tests": 2
+    },
+    {
+      "id": "olmocr-table_tests-f86995c31dc26c1805d2ba57b3695f4730df_pg3_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-table_tests-f86995c31dc26c1805d2ba57b3695f4730df_pg3_pg1.png",
+      "llm_image": "inputs/images/olmocr-table_tests-f86995c31dc26c1805d2ba57b3695f4730df_pg3_pg1.llm.png",
+      "size": [
+        2550,
+        3300
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1545,
+        2000
+      ],
+      "sha256": "84b079a961f79d87f620cedd89ffe606141fcf18fac12fa41ab1de2d02312e83",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "table_tests",
+      "pdf": "tables/f86995c31dc26c1805d2ba57b3695f4730df_pg3_pg1.pdf",
+      "page": 1,
+      "tests": 5
+    },
+    {
+      "id": "olmocr-multi_column-0083fb2109e58be50aec2eca07fcbfe1230b_page_5_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-multi_column-0083fb2109e58be50aec2eca07fcbfe1230b_page_5_pg1.png",
+      "llm_image": "inputs/images/olmocr-multi_column-0083fb2109e58be50aec2eca07fcbfe1230b_page_5_pg1.llm.png",
+      "size": [
+        2550,
+        3300
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1545,
+        2000
+      ],
+      "sha256": "fe008a13fd0f4e34555c60f2504b624fae7c55a82bb87df5ff1a2d838c784c32",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "multi_column",
+      "pdf": "multi_column/0083fb2109e58be50aec2eca07fcbfe1230b_page_5_pg1.pdf",
+      "page": 1,
+      "tests": 4
+    },
+    {
+      "id": "olmocr-multi_column-01566a951fd40f8c1a4b8190cc3d0f93c393_page_4_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-multi_column-01566a951fd40f8c1a4b8190cc3d0f93c393_page_4_pg1.png",
+      "llm_image": "inputs/images/olmocr-multi_column-01566a951fd40f8c1a4b8190cc3d0f93c393_page_4_pg1.llm.png",
+      "size": [
+        2550,
+        3300
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1545,
+        2000
+      ],
+      "sha256": "d8971ec34e45457aadb467d4afe43e3480a1f490f2179c5186cdc849af8f597e",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "multi_column",
+      "pdf": "multi_column/01566a951fd40f8c1a4b8190cc3d0f93c393_page_4_pg1.pdf",
+      "page": 1,
+      "tests": 4
+    },
+    {
+      "id": "olmocr-multi_column-028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-multi_column-028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4_pg1.png",
+      "llm_image": "inputs/images/olmocr-multi_column-028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4_pg1.llm.png",
+      "size": [
+        2481,
+        3508
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1414,
+        2000
+      ],
+      "sha256": "242301379c9965c411e66182b0d437cfd40926a305151511d62634b7fe46731a",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "multi_column",
+      "pdf": "multi_column/028b869f7c53f2698a66f1bc92c5dea0f2f8_page_4_pg1.pdf",
+      "page": 1,
+      "tests": 2
+    },
+    {
+      "id": "olmocr-multi_column-02a3e23da54b82c414d272051b0b5d8f44d8_page_12_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-multi_column-02a3e23da54b82c414d272051b0b5d8f44d8_page_12_pg1.png",
+      "llm_image": "inputs/images/olmocr-multi_column-02a3e23da54b82c414d272051b0b5d8f44d8_page_12_pg1.llm.png",
+      "size": [
+        2481,
+        3509
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1414,
+        2000
+      ],
+      "sha256": "ce87990b5b6bcb9f1b9ada5f153ef524edf5238bde0604d48f84c1b35343049c",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "multi_column",
+      "pdf": "multi_column/02a3e23da54b82c414d272051b0b5d8f44d8_page_12_pg1.pdf",
+      "page": 1,
+      "tests": 4
+    },
+    {
+      "id": "olmocr-multi_column-04f8254ed1a74096fc98c7e069af79fc9fcf_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-multi_column-04f8254ed1a74096fc98c7e069af79fc9fcf_pg1.png",
+      "llm_image": "inputs/images/olmocr-multi_column-04f8254ed1a74096fc98c7e069af79fc9fcf_pg1.llm.png",
+      "size": [
+        2550,
+        3300
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1545,
+        2000
+      ],
+      "sha256": "6b752742f38d1ee5d5f8f8f40492f08e8b22a448904c69fa0a44a2f7b506c1bb",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "multi_column",
+      "pdf": "multi_column/04f8254ed1a74096fc98c7e069af79fc9fcf_pg1.pdf",
+      "page": 1,
+      "tests": 4
+    },
+    {
+      "id": "olmocr-long_tiny_text-11_pg421_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-long_tiny_text-11_pg421_pg1.png",
+      "llm_image": "inputs/images/olmocr-long_tiny_text-11_pg421_pg1.llm.png",
+      "size": [
+        1480,
+        2417
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1225,
+        2000
+      ],
+      "sha256": "b3a315858ca922e8766ba52807b15fee82122dd8b65d1178d4cd5011de570da2",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "long_tiny_text",
+      "pdf": "long_tiny_text/11_pg421_pg1.pdf",
+      "page": 1,
+      "tests": 2
+    },
+    {
+      "id": "olmocr-long_tiny_text-13_pg475_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-long_tiny_text-13_pg475_pg1.png",
+      "llm_image": "inputs/images/olmocr-long_tiny_text-13_pg475_pg1.llm.png",
+      "size": [
+        1736,
+        2423
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1433,
+        2000
+      ],
+      "sha256": "ea5da1c32f0b73b27cb6c9de36c64429819156f3d0b77eb153b905da18509118",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "long_tiny_text",
+      "pdf": "long_tiny_text/13_pg475_pg1.pdf",
+      "page": 1,
+      "tests": 12
+    },
+    {
+      "id": "olmocr-long_tiny_text-17_pg17_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-long_tiny_text-17_pg17_pg1.png",
+      "llm_image": "inputs/images/olmocr-long_tiny_text-17_pg17_pg1.llm.png",
+      "size": [
+        1296,
+        812
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1296,
+        812
+      ],
+      "sha256": "282283eb5cfc3afbfacfab8b616c090378423fa7ac850b3cc0022ae55fe3a8b7",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "long_tiny_text",
+      "pdf": "long_tiny_text/17_pg17_pg1.pdf",
+      "page": 1,
+      "tests": 9
+    },
+    {
+      "id": "olmocr-long_tiny_text-17_pg2_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-long_tiny_text-17_pg2_pg1.png",
+      "llm_image": "inputs/images/olmocr-long_tiny_text-17_pg2_pg1.llm.png",
+      "size": [
+        1296,
+        852
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1296,
+        852
+      ],
+      "sha256": "f26c1655334db1a1f0c82c7abb097af76811461a61568fcb575ddc9df50d35fd",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "long_tiny_text",
+      "pdf": "long_tiny_text/17_pg2_pg1.pdf",
+      "page": 1,
+      "tests": 39
+    },
+    {
+      "id": "olmocr-long_tiny_text-17_pg4_pg1",
+      "set": "olmocr",
+      "image": "inputs/images/olmocr-long_tiny_text-17_pg4_pg1.png",
+      "llm_image": "inputs/images/olmocr-long_tiny_text-17_pg4_pg1.llm.png",
+      "size": [
+        1296,
+        806
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1296,
+        806
+      ],
+      "sha256": "4aaaad5e285293922a769b9ea65ef2ebbfb0f839e7b48a093086db5e5a78cb37",
+      "prompt": "prompt_olmocr.md",
+      "ext": ".md",
+      "category": "long_tiny_text",
+      "pdf": "long_tiny_text/17_pg4_pg1.pdf",
+      "page": 1,
+      "tests": 7
+    },
+    {
+      "id": "figures-0098",
+      "set": "scans",
+      "image": "inputs/images/figures-0098.png",
+      "llm_image": "inputs/images/figures-0098.llm.png",
+      "size": [
+        1650,
+        2210
+      ],
+      "mode": "RGB",
+      "llm_size": [
+        1493,
+        2000
+      ],
+      "sha256": "e0ecacf9a8337320ac7f5629b7981014da4c9e42e55694a75b33c9cad4a04d4c",
+      "prompt": "prompt.md",
+      "ext": ".txt",
+      "book": "Les Figures",
+      "page": 98,
+      "source": "D:\\code-workspace\\search_bench\\docs\\Neph\\livres\\MJ\\Les Figures - 2e édition.pdf",
+      "added_by_hand": true
+    }
+  ]
+}
