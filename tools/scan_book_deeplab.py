@@ -1,0 +1,1486 @@
+# /// script
+# requires-python = ">=3.12,<3.15"
+# dependencies = [
+#   "pywin32>=311,<312; sys_platform == 'win32'",
+#   "Pillow>=10.4,<13",
+#   "PyMuPDF>=1.27.2,<1.28",
+#   "opencv-python>=4.11,<5",
+#   "numpy>=2,<3",
+#   "rapidocr-onnxruntime==1.4.4",
+#   "torch==2.7.1",
+#   "torchvision==0.22.1",
+# ]
+# [tool.uv.sources]
+# torch = { index = "pytorch-cu128" }
+# torchvision = { index = "pytorch-cu128" }
+# [[tool.uv.index]]
+# name = "pytorch-cu128"
+# url = "https://download.pytorch.org/whl/cu128"
+# explicit = true
+# ///
+"""Numérisation de livres : uv run tools/scan_book_deeplab.py --help.
+
+WIA et Tkinter sont chargés uniquement par les commandes qui les utilisent.
+Le manifeste est la source de vérité ; ne pas modifier une session ouverte.
+"""
+from __future__ import annotations
+
+import argparse
+import copy
+from contextlib import contextmanager
+from datetime import datetime, timezone
+from functools import lru_cache
+import hashlib
+import io
+import json
+import math
+import os
+from pathlib import Path
+import queue
+import re
+import shutil
+import sys
+import threading
+import uuid
+import urllib.request
+
+from PIL import Image, ImageDraw
+
+DEFAULT_ROOT = Path(__file__).resolve().parent.parent / "scans"
+DEFAULT_SETTINGS = {"dpi": 300, "color": "color", "area": None, "scanner": None}
+DEEPLAB_NAME = "model_r50_iou_mix_2C020.pth"
+DEEPLAB_URL = "https://www.dropbox.com/s/kotc40uz6bhvpel/model_r50_iou_mix_2C020.pth?dl=1"
+DEEPLAB_SHA256 = "dd232999292a3d1bdae261ea1fe995180393b525702f778620739715d3868610"
+DEEPLAB_CACHE = Path(__file__).resolve().parent.parent / ".cache" / "deeplab"
+DEEPLAB_INPUT_SIZE = 384
+WIA_IDS = {"intent": 6146, "x_dpi": 6147, "y_dpi": 6148,
+           "x": 6149, "y": 6150, "width": 6151, "height": 6152}
+PNG_FORMAT = "{B96B3CAF-0728-11D3-9D7B-0000F81EF32E}"
+FLATBED_CATEGORY = "{FB607B1F-43F3-488B-855B-FB703EC342A6}"
+
+
+class ScanError(Exception):
+    """Erreur présentable sans trace technique à l'utilisateur."""
+
+
+def now():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def configure_utf8():
+    """Do not inherit a legacy Windows code page for redirected text streams."""
+    os.environ["PYTHONUTF8"] = "1"
+    os.environ["PYTHONIOENCODING"] = "utf-8"
+    for stream in (sys.stdin, sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="backslashreplace")
+
+
+def atomic_json(path, value):
+    path = Path(path)
+    temp = path.with_name(path.name + ".tmp")
+    with temp.open("w", encoding="utf-8") as stream:
+        json.dump(value, stream, ensure_ascii=False, indent=2, allow_nan=False)
+        stream.write("\n")
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.replace(temp, path)
+
+
+def atomic_png(path, image, dpi):
+    path = Path(path)
+    temp = path.with_name(path.name + ".tmp")
+    with temp.open("wb") as stream:
+        image.save(stream, format="PNG", dpi=tuple(dpi), compress_level=3)
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.replace(temp, path)
+
+
+def atomic_copy(source, target):
+    target = Path(target)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    temp = target.with_name(target.name + ".tmp")
+    with Path(source).open("rb") as src, temp.open("wb") as dst:
+        shutil.copyfileobj(src, dst)
+        dst.flush()
+        os.fsync(dst.fileno())
+    os.replace(temp, target)
+
+
+def read_json(path):
+    try:
+        return json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ScanError(f"Impossible de lire {path} : {exc}") from exc
+
+
+def load_image(path):
+    with Image.open(path) as image:
+        image.load()
+        return image.convert("L" if image.mode in ("1", "L", "I;16") else "RGB")
+
+
+def check_dpi(dpi):
+    if not isinstance(dpi, (list, tuple)) or len(dpi) != 2:
+        raise ScanError("Résolution de page absente ou invalide.")
+    if any(not isinstance(v, (float, int)) or not math.isfinite(v) or v <= 0 for v in dpi):
+        raise ScanError("La résolution doit contenir deux nombres positifs.")
+    return tuple(float(v) for v in dpi)
+
+
+def safe_child(root, relative):
+    candidate = (root / relative).resolve()
+    if Path(relative).is_absolute() or not candidate.is_relative_to(root.resolve()):
+        raise ScanError(f"Chemin hors de la session : {relative}")
+    return candidate
+
+
+def book_slug(value):
+    if (not value or value in (".", "..") or re.search(r'[<>:"/\\|?*\x00-\x1f]', value)
+            or value.endswith((".", " "))
+            or re.fullmatch(r"(?i)(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])(?:\..*)?", value)):
+        raise argparse.ArgumentTypeError("Nom de livre invalide : utiliser un seul nom de dossier.")
+    return value
+
+
+class Session:
+    """Verrou exclusif et transactions récupérables, images puis manifeste.
+
+    .pending/capture.json + raw.png : acquisition durable à traiter à la reprise.
+    .pending/transaction.json : décision de commit durable, rejouable après crash.
+    Les sources restent dans .pending jusqu'au commit du manifeste. En cas
+    d'erreur d'E/S interceptée, les sauvegardes permettent un retour à l'état initial.
+    """
+
+    def __init__(self, root, book, create=False):
+        book_slug(book)
+        self.path = Path(root).resolve() / book
+        self.book = book
+        self.manifest = self.path / "session.json"
+        self.pending = self.path / ".pending"
+        self.create = create
+        self.lock = None
+        self.data = None
+
+    def __enter__(self):
+        if not self.create and not self.manifest.exists():
+            raise ScanError(f"Session introuvable : {self.manifest}")
+        self.path.mkdir(parents=True, exist_ok=True)
+        self.lock = (self.path / ".session.lock").open("a+b")
+        try:
+            self.lock.seek(0, os.SEEK_END)
+            if self.lock.tell() == 0:
+                self.lock.write(b"0")
+                self.lock.flush()
+            self.lock.seek(0)
+            if sys.platform == "win32":
+                import msvcrt
+                msvcrt.locking(self.lock.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(self.lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError as exc:
+            self.lock.close()
+            self.lock = None
+            raise ScanError("Cette session est déjà ouverte dans un autre processus.") from exc
+        try:
+            for name in ("raw", "pages"):
+                (self.path / name).mkdir(exist_ok=True)
+            if not self.manifest.exists():
+                atomic_json(self.manifest, {"version": 1, "book": self.book,
+                    "created_at": now(), "settings": copy.deepcopy(DEFAULT_SETTINGS), "pages": []})
+            self.data = read_json(self.manifest)
+            self.validate()
+            self.recover()
+            if self.pending.exists():
+                raise ScanError("Le journal n'a pas pu être nettoyé. Vérifier les droits et l'espace disque, puis reprendre.")
+            self.validate()
+            return self
+        except BaseException:
+            self.__exit__(None, None, None)
+            raise
+
+    def __exit__(self, *_):
+        if self.lock:
+            self.lock.seek(0)
+            if sys.platform == "win32":
+                import msvcrt
+                msvcrt.locking(self.lock.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(self.lock.fileno(), fcntl.LOCK_UN)
+            self.lock.close()
+            self.lock = None
+
+    def validate(self):
+        if not isinstance(self.data, dict) or self.data.get("version") != 1:
+            raise ScanError("Version de manifeste non prise en charge.")
+        if not isinstance(self.data.get("pages"), list) or not isinstance(self.data.get("settings"), dict):
+            raise ScanError("Manifeste incomplet.")
+        numbers = set()
+        try:
+            for page in self.data["pages"]:
+                number = page["number"]
+                if not isinstance(number, int) or number < 1 or number in numbers:
+                    raise ScanError("Numéros de pages invalides ou dupliqués.")
+                numbers.add(number)
+                for key in ("raw", "image"):
+                    safe_child(self.path, page[key])
+                check_dpi(page["dpi"])
+                check_dpi(page["raw_dpi"])
+        except (KeyError, TypeError) as exc:
+            raise ScanError("Entrée de page incomplète dans le manifeste.") from exc
+
+    def page(self, number):
+        for page in self.data["pages"]:
+            if page["number"] == number:
+                return page
+        raise ScanError(f"Page {number} introuvable.")
+
+    def save_settings(self, settings):
+        data = copy.deepcopy(self.data)
+        data["settings"] = copy.deepcopy(settings)
+        atomic_json(self.manifest, data)
+        self.data = data
+
+    def begin_capture(self, image, dpi, settings, replace=None):
+        if self.pending.exists():
+            raise ScanError("Une acquisition attend une récupération. Fermer et reprendre la session.")
+        number = replace if replace is not None else max(
+            (p["number"] for p in self.data["pages"]), default=0) + 1
+        if replace is not None:
+            self.page(replace)
+        check_dpi(dpi)
+        self.pending.mkdir()
+        atomic_json(self.pending / "capture.json", {"number": number, "dpi": list(dpi),
+                    "settings": settings, "acquired_at": now()})
+        atomic_png(self.pending / "raw.png", image, dpi)
+        return number
+
+    def finish_capture(self):
+        meta = read_json(self.pending / "capture.json")
+        raw = load_image(self.pending / "raw.png")
+        transform = detect_transform(raw, meta["dpi"])
+        processed, dpi = apply_transform(raw, meta["dpi"], transform)
+        number = meta["number"]
+        page = {"number": number, "raw": f"raw/{number:04d}.png",
+                "image": f"pages/{number:04d}.png", "raw_dpi": meta["dpi"],
+                "dpi": list(dpi), "size": list(processed.size), "transform": transform,
+                "acquired_at": meta["acquired_at"], "updated_at": now(),
+                "settings": meta["settings"]}
+        self.commit_page(page, processed, include_raw=True)
+        return page
+
+    def correct(self, number, transform):
+        page = copy.deepcopy(self.page(number))
+        if self.pending.exists():
+            raise ScanError("Une acquisition attend une récupération. Reprendre la session.")
+        raw = load_image(safe_child(self.path, page["raw"]))
+        processed, dpi = apply_transform(raw, page["raw_dpi"], transform)
+        page.update(transform=transform, size=list(processed.size), dpi=list(dpi), updated_at=now())
+        self.pending.mkdir()
+        self.commit_page(page, processed, include_raw=False)
+        return page
+
+    def commit_page(self, page, image, include_raw):
+        atomic_png(self.pending / "page.png", image, page["dpi"])
+        data = copy.deepcopy(self.data)
+        for index, old in enumerate(data["pages"]):
+            if old["number"] == page["number"]:
+                data["pages"][index] = page
+                break
+        else:
+            data["pages"].append(page)
+        writes = [("page.png", page["image"])]
+        if include_raw:
+            writes.insert(0, ("raw.png", page["raw"]))
+        records = []
+        for index, (source, target) in enumerate(writes):
+            existing = safe_child(self.path, target)
+            backup = f"backup-{index}.png" if existing.exists() else None
+            if backup:
+                atomic_copy(existing, self.pending / backup)
+            records.append({"source": source, "target": target, "backup": backup})
+        tx = {"phase": "commit", "before": self.data, "after": data, "writes": records}
+        atomic_json(self.pending / "transaction.json", tx)
+        try:
+            self.install(tx)
+        except Exception:
+            tx["phase"] = "rollback"
+            atomic_json(self.pending / "transaction.json", tx)
+            self.rollback(tx)
+            raise
+
+    def install(self, tx):
+        for entry in tx["writes"]:
+            atomic_copy(safe_child(self.pending, entry["source"]),
+                        safe_child(self.path, entry["target"]))
+        atomic_json(self.manifest, tx["after"])
+        self.data = tx["after"]
+        # Rename before cleanup: a partial rmtree must never leave an incomplete
+        # transaction looking replayable. A failed rename leaves all sources intact.
+        garbage = self.path / f".committed-{uuid.uuid4().hex}"
+        try:
+            os.replace(self.pending, garbage)
+        except OSError:
+            return
+        shutil.rmtree(garbage, ignore_errors=True)
+
+    def rollback(self, tx):
+        for entry in tx["writes"]:
+            target = safe_child(self.path, entry["target"])
+            if entry["backup"]:
+                atomic_copy(safe_child(self.pending, entry["backup"]), target)
+            else:
+                target.unlink(missing_ok=True)
+        atomic_json(self.manifest, tx["before"])
+        self.data = tx["before"]
+        recovery = self.path / "recovery"
+        recovery.mkdir(exist_ok=True)
+        os.replace(self.pending, recovery / uuid.uuid4().hex)
+
+    def recover(self):
+        if not self.pending.exists():
+            return
+        transaction = self.pending / "transaction.json"
+        if transaction.exists():
+            tx = read_json(transaction)
+            if tx["phase"] == "rollback":
+                self.rollback(tx)
+            elif tx["phase"] == "commit":
+                self.install(tx)
+            else:
+                raise ScanError("Journal de récupération invalide.")
+        elif (self.pending / "capture.json").exists() and (self.pending / "raw.png").exists():
+            print("Récupération du scan brut sauvegardé avant l'interruption…", flush=True)
+            self.finish_capture()
+        else:
+            # No complete capture and no durable commit: existing pages are intact.
+            shutil.rmtree(self.pending)
+
+
+def identity_transform(review=True):
+    return {"quarter_turns": 0, "angle": 0.0, "crop": None,
+            "method": "unchanged", "review": review}
+
+
+def rotate_image(image, quarter_turns, angle):
+    if quarter_turns % 4:
+        image = image.transpose({1: Image.Transpose.ROTATE_90,
+                                 2: Image.Transpose.ROTATE_180,
+                                 3: Image.Transpose.ROTATE_270}[quarter_turns % 4])
+    if abs(angle) > 0.001:
+        image = image.rotate(angle, Image.Resampling.BICUBIC, expand=True,
+                             fillcolor=255 if image.mode == "L" else (255, 255, 255))
+    return image
+
+
+def apply_transform(raw, dpi, transform):
+    dpi = check_dpi(dpi)
+    turns = int(transform.get("quarter_turns", 0)) % 4
+    angle = float(transform.get("angle", 0))
+    if not math.isfinite(angle) or abs(angle) > 15:
+        raise ScanError("L'angle de redressement doit être compris entre -15 et 15°.")
+    # Rotation at non-square pixel resolution would shear physical geometry.
+    # Resample to square pixels before an arbitrary-angle rotation.
+    if abs(angle) > 0.001 and abs(dpi[0] - dpi[1]) > 0.01:
+        resolution = max(dpi)
+        raw = raw.resize((round(raw.width * resolution / dpi[0]),
+                          round(raw.height * resolution / dpi[1])), Image.Resampling.BICUBIC)
+        dpi = (resolution, resolution)
+    image = rotate_image(raw, turns, angle)
+    if turns % 2:
+        dpi = dpi[::-1]
+    crop = transform.get("crop")
+    if crop is not None:
+        if len(crop) != 4:
+            raise ScanError("Rectangle de recadrage invalide.")
+        left, top, right, bottom = map(int, crop)
+        if not (0 <= left < right <= image.width and 0 <= top < bottom <= image.height):
+            raise ScanError("Le rectangle de recadrage sort de l'image.")
+        image = image.crop((left, top, right, bottom))
+    return image, dpi
+
+
+@lru_cache(maxsize=1)
+def orientation_engine():
+    # Models are bundled in the wheel; inference stays local. Load once, only
+    # when processing a scan (devices/export/manual correction do not need it).
+    from rapidocr_onnxruntime import RapidOCR
+
+    return RapidOCR(use_rec=False, intra_op_num_threads=2, inter_op_num_threads=1)
+
+
+def orientation_consensus(results):
+    """Require three strong votes, majority coverage, and 80% agreement."""
+    confident = [str(label) for label, score in results if float(score) >= .9]
+    if len(confident) < 3 or len(confident) < len(results) * .5:
+        return None
+    for degrees in (0, 180):
+        votes = confident.count(str(degrees))
+        if votes >= 3 and votes / len(confident) >= .8:
+            return degrees
+    return None
+
+
+def detect_half_turn(raw):
+    """Classify horizontal text lines as upright/upside-down, without OCR."""
+    import cv2
+    import numpy as np
+
+    preview = raw.convert("RGB")
+    preview.thumbnail((1600, 1600))
+    pixels = np.asarray(preview)
+    if min(preview.size) < 80 or float(pixels.std()) < 5:
+        return None
+    engine = orientation_engine()
+    pixels = cv2.cvtColor(pixels, cv2.COLOR_RGB2BGR)
+    boxes, _ = engine(pixels, use_det=True, use_cls=False, use_rec=False)
+    if boxes is None:
+        return None
+    horizontal = []
+    for box in boxes:
+        points = np.asarray(box, dtype=np.float32)
+        top, side = points[1] - points[0], points[3] - points[0]
+        # Reject vertical/short fragments: their classification must not turn
+        # a sideways page or a page number into a whole-page 180-degree vote.
+        if (np.linalg.norm(top) >= 3 * max(np.linalg.norm(side), 1)
+                and abs(float(top[1])) <= .25 * abs(float(top[0]))):
+            horizontal.append(points)
+    if len(horizontal) < 3:
+        return None
+    # Bound classification work and sample across the page, not just its title.
+    horizontal.sort(key=lambda box: float(box[:, 1].mean()))
+    indices = np.linspace(0, len(horizontal) - 1, min(24, len(horizontal)), dtype=int)
+    crops = engine.get_crop_img_list(pixels, [horizontal[i] for i in indices])
+    _, results, _ = engine.text_cls(crops)
+    return orientation_consensus(results)
+
+
+def detect_transform(raw, dpi):
+    check_dpi(dpi)
+    orientation_error = None
+    try:
+        degrees = detect_half_turn(raw)
+    except Exception as exc:
+        # A model/runtime failure must not prevent durable capture or recovery.
+        degrees = None
+        orientation_error = str(exc)
+        print(f"Orientation automatique indisponible : {exc}", file=sys.stderr, flush=True)
+    oriented = raw.transpose(Image.Transpose.ROTATE_180) if degrees == 180 else raw
+    # Keep the existing angle estimator; its crop is deliberately discarded.
+    transform = detect_geometry(oriented, dpi)
+    transform.update(crop=None, method="deeplabv3",
+                     crop_model=DEEPLAB_NAME, crop_model_sha256=DEEPLAB_SHA256)
+    if degrees is not None:
+        transform["quarter_turns"] = degrees // 90
+        transform["orientation"] = "text-lines"
+    else:
+        transform["review"] = True
+    if orientation_error is not None:
+        transform["orientation_error"] = orientation_error
+    try:
+        # Use the same transform path as saving/manual correction, including DPI.
+        straight, output_dpi = apply_transform(raw, dpi, transform)
+        probabilities, device = deeplab_probabilities(straight)
+        transform["crop_device"] = device
+        crop, reason = crop_from_probabilities(probabilities, straight.size, output_dpi)
+        if crop is None:
+            transform.update(review=True, crop_warning=reason)
+        elif crop_cuts_text(straight, crop):
+            transform.update(review=True, crop_warning="La découpe empiète sur du texte détecté.")
+        else:
+            transform["crop"] = crop
+    except Exception as exc:
+        transform.update(crop=None, review=True, crop_error=str(exc))
+        print(f"Recadrage DeepLabV3 indisponible : {exc}", file=sys.stderr, flush=True)
+    return transform
+
+
+def deeplab_checkpoint():
+    """Download once, atomically, and validate the published document weights."""
+    path = DEEPLAB_CACHE / DEEPLAB_NAME
+
+    def valid(candidate):
+        with candidate.open("rb") as stream:
+            return hashlib.file_digest(stream, "sha256").hexdigest() == DEEPLAB_SHA256
+
+    if path.exists():
+        if not valid(path):
+            raise ScanError(f"Poids DeepLabV3 invalides : {path}. Retirer ce fichier et relancer.")
+        return path
+    DEEPLAB_CACHE.mkdir(parents=True, exist_ok=True)
+    temp = path.with_name(path.name + f".{uuid.uuid4().hex}.part")
+    print("Téléchargement du modèle DeepLabV3 (161 Mio)…", flush=True)
+    try:
+        request = urllib.request.Request(DEEPLAB_URL, headers={"User-Agent": "ScanBook/1"})
+        with urllib.request.urlopen(request, timeout=30) as response, temp.open("wb") as stream:
+            total = 0
+            while chunk := response.read(1024 * 1024):
+                total += len(chunk)
+                if total > 200 * 1024 * 1024:
+                    raise ScanError("Téléchargement DeepLabV3 trop volumineux.")
+                stream.write(chunk)
+        if not valid(temp):
+            raise ScanError("Le téléchargement DeepLabV3 ne correspond pas aux poids attendus.")
+        os.replace(temp, path)
+    finally:
+        temp.unlink(missing_ok=True)
+    return path
+
+
+@lru_cache(maxsize=1)
+def deeplab_engine():
+    """Lazy process-local model; cache failures to avoid retrying every page."""
+    try:
+        import torch
+        from torchvision.models.segmentation import deeplabv3_resnet50
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        path = deeplab_checkpoint()
+        model = deeplabv3_resnet50(weights=None, weights_backbone=None,
+                                  num_classes=2, aux_loss=True)
+        state = torch.load(path, map_location="cpu", weights_only=True)
+        model.load_state_dict(state, strict=True)
+        model.eval().to(device)
+        label = torch.cuda.get_device_name(0) if device == "cuda" else "CPU"
+        print(f"Recadrage DeepLabV3 : {label}", flush=True)
+        return model, device, None
+    except Exception as exc:
+        return None, None, str(exc)
+
+
+def deeplab_probabilities(image):
+    """Document probability map; RGB and normalization match training."""
+    import cv2
+    import numpy as np
+    import torch
+
+    model, device, error = deeplab_engine()
+    if error is not None:
+        raise ScanError(error)
+    rgb = cv2.resize(np.asarray(image.convert("RGB")),
+                     (DEEPLAB_INPUT_SIZE, DEEPLAB_INPUT_SIZE),
+                     interpolation=cv2.INTER_NEAREST).astype(np.float32) / 255.0
+    rgb = (rgb - np.array([.4611, .4359, .3905], dtype=np.float32)) / np.array(
+        [.2193, .2150, .2109], dtype=np.float32)
+    tensor = torch.from_numpy(rgb.transpose(2, 0, 1).copy()).unsqueeze(0).to(device)
+    with torch.inference_mode():
+        logits = model(tensor)["out"]
+        probabilities = logits.softmax(dim=1)[0, 1].cpu().numpy()
+    return probabilities, device
+
+
+def crop_from_probabilities(probabilities, size, dpi):
+    """Conservative enclosing rectangle, including holes and clipped edges.
+
+    Probabilities are model scores, not a calibrated guarantee of correctness.
+    Never replace uncertain segmentation with the old brightness heuristics.
+    """
+    import cv2
+    import numpy as np
+
+    dx, dy = check_dpi(dpi)
+    p = np.asarray(probabilities)
+    if (p.ndim != 2 or min(p.shape, default=0) < 2
+            or not np.isfinite(p).all() or (p < 0).any() or (p > 1).any()):
+        return None, "Masque DeepLabV3 invalide."
+    mask = (p > .5).astype(np.uint8)
+    count, labels, stats, _ = cv2.connectedComponentsWithStats(mask, connectivity=8)
+    if count < 2:
+        return None, "Aucune page détectée."
+    areas = stats[1:, cv2.CC_STAT_AREA]
+    largest = int(areas.argmax()) + 1
+    area = int(areas[largest - 1])
+    if int(areas.sum()) - area > area * .05:
+        return None, "Plusieurs zones de page : recadrage incertain."
+    component = (labels == largest).astype(np.uint8)
+    contours, _ = cv2.findContours(component, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    filled = np.zeros_like(component)
+    cv2.drawContours(filled, contours, -1, 1, cv2.FILLED)
+    x, y, width, height = cv2.boundingRect(filled)
+    if (filled.mean() < .2 or filled.sum() / (width * height) < .8
+            or float(p[component > 0].mean()) < .85):
+        return None, "Limites de page insuffisamment fiables."
+    sx, sy = size[0] / p.shape[1], size[1] / p.shape[0]
+    mx, my = math.ceil(dx * .5 / 25.4), math.ceil(dy * .5 / 25.4)
+    crop = [max(0, math.floor(x * sx) - mx),
+            max(0, math.floor(y * sy) - my),
+            min(size[0], math.ceil((x + width) * sx) + mx),
+            min(size[1], math.ceil((y + height) * sy) + my)]
+    return crop, None
+
+
+def crop_cuts_text(image, crop):
+    """Veto cuts through text using the detector already used for orientation."""
+    import cv2
+    import numpy as np
+
+    if crop == [0, 0, image.width, image.height]:
+        return False
+    preview = image.convert("RGB")
+    preview.thumbnail((1600, 1600))
+    pixels = cv2.cvtColor(np.asarray(preview), cv2.COLOR_RGB2BGR)
+    boxes, _ = orientation_engine()(pixels, use_det=True, use_cls=False, use_rec=False)
+    if boxes is None:
+        return False
+    sx, sy = preview.width / image.width, preview.height / image.height
+    bounds = np.array(crop, dtype=np.float64) * (sx, sy, sx, sy)
+    for box in boxes:
+        points = np.asarray(box, dtype=np.float64)
+        # Ignore tiny detector speckles; retain horizontal AND vertical labels.
+        if points.shape != (4, 2) or not np.isfinite(points).all():
+            raise ScanError("Résultat du détecteur de texte invalide.")
+        x0, y0 = points.min(axis=0)
+        x1, y1 = points.max(axis=0)
+        if max(x1 - x0, y1 - y0) < 12 or min(x1 - x0, y1 - y0) < 3:
+            continue
+        # Two preview pixels tolerate OCR box padding at an actual page edge.
+        if (x0 < bounds[0] - 2 or y0 < bounds[1] - 2
+                or x1 > bounds[2] + 2 or y1 > bounds[3] + 2):
+            return True
+    return False
+
+
+def detect_geometry(raw, dpi):
+    """Contours de papier très contrastés, sinon consensus de lignes de texte.
+
+    Sans contour fiable, ne retire aucune marge. Aucune tentative de déformation
+    de reliure. Les bruts restent toujours disponibles.
+    """
+    import cv2
+    import numpy as np
+
+    dpi = check_dpi(dpi)
+    # Detection and application must share the same coordinate system.
+    if abs(dpi[0] - dpi[1]) > 0.01:
+        return identity_transform()
+    preview = raw.convert("RGB")
+    preview.thumbnail((1400, 1400))
+    gray = cv2.cvtColor(np.asarray(preview), cv2.COLOR_RGB2GRAY)
+    height, width = gray.shape
+    if min(width, height) < 80 or float(gray.std()) < 5:
+        return identity_transform()
+    _, mask = cv2.threshold(cv2.GaussianBlur(gray, (5, 5), 0), 0, 255,
+                            cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    for contour in sorted(contours, key=cv2.contourArea, reverse=True)[:3]:
+        area = cv2.contourArea(contour)
+        fraction = area / (width * height)
+        polygon = cv2.approxPolyDP(contour, .015 * cv2.arcLength(contour, True), True)
+        if not (.25 < fraction < .96 and len(polygon) == 4 and cv2.isContourConvex(polygon)):
+            continue
+        x, y, w, h = cv2.boundingRect(polygon)
+        if x <= 2 or y <= 2 or x + w >= width - 2 or y + h >= height - 2:
+            continue
+        rect = cv2.minAreaRect(contour)
+        if area / max(rect[1][0] * rect[1][1], 1) < .94:
+            continue
+        inside = np.zeros_like(gray)
+        cv2.drawContours(inside, [polygon], -1, 255, -1)
+        if float(np.median(gray[inside > 0])) - float(np.median(gray[inside == 0])) < 30:
+            continue
+        box = cv2.boxPoints(rect)
+        angles = []
+        for i in range(4):
+            dx, dy = box[(i + 1) % 4] - box[i]
+            theta = (math.degrees(math.atan2(float(dy), float(dx))) + 45) % 90 - 45
+            angles.append(theta)
+        angle = float(np.median(angles))
+        if abs(angle) > 12:
+            continue
+        angle = 0.0 if abs(angle) < .15 else round(angle, 3)
+        page_mask = Image.new("L", raw.size)
+        points = [(round(float(p[0]) * raw.width / width),
+                   round(float(p[1]) * raw.height / height)) for p in polygon[:, 0, :]]
+        ImageDraw.Draw(page_mask).polygon(points, fill=255)
+        if angle:
+            page_mask = page_mask.rotate(angle, Image.Resampling.NEAREST, expand=True, fillcolor=0)
+        left, top, right, bottom = page_mask.getbbox()
+        mx, my = (math.ceil(v * 3 / 25.4) for v in dpi)
+        crop = [max(0, left - mx), max(0, top - my),
+                min(page_mask.width, right + mx), min(page_mask.height, bottom + my)]
+        return {"quarter_turns": 0, "angle": angle, "crop": crop,
+                "method": "paper", "review": False}
+
+    # Only straighten text-like pages with many agreeing horizontal segments.
+    _, ink = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+    joined = cv2.morphologyEx(ink, cv2.MORPH_CLOSE,
+                             np.ones((1, max(3, width // 70)), dtype=np.uint8))
+    edges = cv2.Canny(joined, 60, 160)
+    lines = cv2.HoughLinesP(edges, 1, np.pi / 1800, threshold=60,
+                           minLineLength=max(40, width // 7), maxLineGap=width // 60)
+    candidates = []
+    if lines is not None:
+        for x1, y1, x2, y2 in lines[:, 0]:
+            angle = math.degrees(math.atan2(int(y2 - y1), int(x2 - x1)))
+            if abs(angle) <= 10:
+                candidates.append((angle, (y1 + y2) / 2))
+    ink_fraction = float((gray < 150).mean())
+    if len(candidates) >= 8 and .005 < ink_fraction < .25:
+        angles, ys = np.array(candidates).T
+        median = float(np.median(angles))
+        agreement = np.abs(angles - median) < .75
+        if agreement.mean() >= .85 and np.ptp(ys[agreement]) > height * .3 and .2 < abs(median) < 9.5:
+            result = identity_transform()
+            result.update(angle=round(median, 3), method="text-lines")
+            return result
+    return identity_transform()
+
+
+def export_pdf(session):
+    import pymupdf
+
+    if session.pending.exists():
+        raise ScanError("Une transaction attend une récupération. Fermer puis reprendre la session avant l'export.")
+    pages = session.data["pages"]
+    if not pages:
+        raise ScanError("Session vide : aucune page à exporter.")
+    # Validate every source before touching even the temporary PDF.
+    for page in pages:
+        image_path = safe_child(session.path, page["image"])
+        if not image_path.is_file():
+            raise ScanError(f"Image manquante : {image_path}")
+        check_dpi(page["dpi"])
+        with Image.open(image_path) as image:
+            image.verify()
+    target = session.path / f"{session.book}.pdf"
+    temp = target.with_name(target.name + ".tmp")
+    try:
+        with pymupdf.open() as document:
+            for entry in pages:
+                image_path = safe_child(session.path, entry["image"])
+                with Image.open(image_path) as image:
+                    width, height = image.size
+                dx, dy = check_dpi(entry["dpi"])
+                page = document.new_page(width=width * 72 / dx, height=height * 72 / dy)
+                page.insert_image(page.rect, filename=str(image_path), keep_proportion=False)
+            document.set_metadata({"title": session.book, "creator": "scan_book"})
+            document.save(temp, deflate=True, garbage=3)
+        with temp.open("r+b") as stream:
+            os.fsync(stream.fileno())
+        os.replace(temp, target)
+    finally:
+        temp.unlink(missing_ok=True)
+    return target
+
+
+@contextmanager
+def com_context():
+    if sys.platform != "win32":
+        raise ScanError("L'acquisition WIA nécessite Windows.")
+    import pythoncom
+    pythoncom.CoInitialize()
+    try:
+        yield
+    finally:
+        pythoncom.CoUninitialize()
+
+
+def property_map(item):
+    return {int(prop.PropertyID): prop for prop in item.Properties}
+
+
+def property_description(prop):
+    result = {"name": str(prop.Name), "value": prop.Value, "readonly": bool(prop.IsReadOnly)}
+    kind = int(prop.SubType)
+    if kind == 1:
+        result.update(min=prop.SubTypeMin, max=prop.SubTypeMax, step=prop.SubTypeStep)
+    elif kind in (2, 3):
+        result["values"] = list(prop.SubTypeValues)
+    return result
+
+
+def set_wia_property(props, key, value):
+    prop = props.get(WIA_IDS.get(key, key))
+    if prop is None:
+        raise ScanError(f"Le pilote WIA n'expose pas le réglage {key}.")
+    info = property_description(prop)
+    current = info["value"]
+    if current == value:
+        return
+    if info["readonly"]:
+        raise ScanError(f"{info['name']} est en lecture seule (valeur : {current}).")
+    kind = int(prop.SubType)
+    if kind == 1:
+        step = info["step"]
+        if not info["min"] <= value <= info["max"] or (step and (value - info["min"]) % step):
+            raise ScanError(f"{info['name']} : {value} refusé ; plage {info['min']}–{info['max']}, pas {step}.")
+    elif kind == 2 and value not in info["values"]:
+        raise ScanError(f"{info['name']} : {value} refusé ; valeurs possibles : {info['values']}.")
+    elif kind == 3:
+        mask = 0
+        for flag in info["values"]:
+            mask |= int(flag)
+        if value & ~mask:
+            raise ScanError(f"{info['name']} : option {value} non prise en charge.")
+    try:
+        prop.Value = value
+    except Exception as exc:
+        raise ScanError(f"Le pilote refuse {info['name']} = {value} : {exc}") from exc
+    if prop.Value != value:
+        raise ScanError(f"Le pilote a appliqué {info['name']} = {prop.Value}, au lieu de {value}.")
+
+
+def maximum_extent(prop):
+    info = property_description(prop)
+    if "max" in info:
+        return int(info["max"])
+    if info.get("values"):
+        return int(max(info["values"]))
+    return int(info["value"])
+
+
+class WiaScanner:
+    """Toutes les méthodes et références COM restent dans le même thread."""
+
+    def __init__(self, selector=None):
+        import win32com.client
+        self.manager = win32com.client.Dispatch("WIA.DeviceManager")
+        infos = [info for info in self.manager.DeviceInfos if info.Type == 1]
+        if not infos:
+            raise ScanError("Aucun scanner WIA détecté. Vérifier alimentation, USB, pilote Epson et service WIA (stisvc).")
+        if selector:
+            matches = [info for info in infos if info.DeviceID == selector]
+            if not matches:
+                matches = [info for info in infos if selector.casefold() in self.name(info).casefold()]
+            infos = matches
+        if len(infos) != 1:
+            choices = "; ".join(f"{self.name(info)} [{info.DeviceID}]" for info in infos)
+            raise ScanError(f"Choisir un scanner avec --scanner IDENTIFIANT. {choices or 'Aucun appareil correspondant.'}")
+        self.info = infos[0]
+        self.id = self.info.DeviceID
+        self.label = self.name(self.info)
+        self.device = self.info.Connect()
+        items = list(self.device.Items)
+        flatbeds = [item for item in items if 4125 in property_map(item)
+                    and str(property_map(item)[4125].Value).upper() == FLATBED_CATEGORY]
+        if flatbeds:
+            self.item = flatbeds[0]
+        else:
+            candidates = [item for item in items if WIA_IDS["x_dpi"] in property_map(item)]
+            if len(candidates) != 1:
+                raise ScanError("Impossible de sélectionner la vitre WIA sans ambiguïté.")
+            self.item = candidates[0]
+        self.props = property_map(self.item)
+        self.effective = None
+
+    @staticmethod
+    def name(info):
+        props = property_map(info)
+        return str(props[7].Value) if 7 in props else str(info.DeviceID)
+
+    def configure(self, settings):
+        props = self.props
+        # WIA 1.0 devices may expose a source selector on the root device.
+        root_props = property_map(self.device)
+        if 3088 in root_props:
+            set_wia_property(root_props, 3088, 2)  # FLATBED
+        set_wia_property(props, "intent", 1 if settings["color"] == "color" else 2)
+        set_wia_property(props, "x_dpi", settings["dpi"])
+        set_wia_property(props, "y_dpi", settings["dpi"])
+        dx, dy = (int(props[WIA_IDS[key]].Value) for key in ("x_dpi", "y_dpi"))
+        set_wia_property(props, "x", 0)
+        set_wia_property(props, "y", 0)
+        max_width = maximum_extent(props[WIA_IDS["width"]])
+        max_height = maximum_extent(props[WIA_IDS["height"]])
+        area = settings.get("area")
+        if area:
+            x, y, width, height = [round(value * resolution / 25.4)
+                                  for value, resolution in zip(area, (dx, dy, dx, dy))]
+            if x + width > max_width or y + height > max_height or min(width, height) <= 0:
+                raise ScanError("La zone demandée dépasse la vitre ou devient vide à cette résolution.")
+        else:
+            x, y, width, height = 0, 0, max_width, max_height
+        # Shrink extents before moving the origin to avoid temporarily exceeding the bed.
+        set_wia_property(props, "width", width)
+        set_wia_property(props, "height", height)
+        set_wia_property(props, "x", x)
+        set_wia_property(props, "y", y)
+        expected = {"x_dpi": settings["dpi"], "y_dpi": settings["dpi"],
+                    "x": x, "y": y, "width": width, "height": height}
+        actual = {key: int(props[WIA_IDS[key]].Value) for key in expected}
+        if actual != expected:
+            raise ScanError(f"Le pilote a modifié les réglages : demandé {expected}, obtenu {actual}.")
+        if 4103 in props and int(props[4103].Value) != (3 if settings["color"] == "color" else 2):
+            raise ScanError("Le pilote n'a pas appliqué le mode couleur/gris demandé.")
+        self.effective = {**actual, "scanner": self.id, "name": self.label, "color": settings["color"]}
+        return copy.deepcopy(self.effective)
+
+    def acquire(self):
+        if self.effective is None:
+            raise ScanError("Le scanner doit être configuré avant acquisition.")
+        result = self.item.Transfer(PNG_FORMAT)
+        # Transfer may return the driver's preferred format. Decode the bytes,
+        # never assume PNG simply because PNG was requested.
+        with Image.open(io.BytesIO(bytes(result.FileData.BinaryData))) as source:
+            source.load()
+            image = source.convert("RGB" if self.effective["color"] == "color" else "L")
+        self.effective["received_size"] = list(image.size)
+        return image, (self.effective["x_dpi"], self.effective["y_dpi"])
+
+
+def list_devices():
+    import win32com.client
+    with com_context():
+        manager = win32com.client.Dispatch("WIA.DeviceManager")
+        found = False
+        for info in manager.DeviceInfos:
+            if info.Type != 1:
+                continue
+            found = True
+            print(f"\n{WiaScanner.name(info)}\n  Identifiant : {info.DeviceID}")
+            try:
+                device = info.Connect()
+                for index, item in enumerate(device.Items, 1):
+                    props = property_map(item)
+                    print(f"  Source {index} :")
+                    for key, identifier in WIA_IDS.items():
+                        if identifier in props:
+                            print(f"    {key}: {json.dumps(property_description(props[identifier]), ensure_ascii=False)}")
+            except Exception as exc:
+                print(f"  Capacités indisponibles : {exc}")
+        if not found:
+            raise ScanError("Aucun scanner WIA détecté. Vérifier USB, alimentation, pilote et service stisvc.")
+
+
+class ScanWorker(threading.Thread):
+    def __init__(self, session, settings, acquisition):
+        super().__init__(name="scan-book-worker", daemon=False)
+        self.session, self.settings, self.acquisition = session, settings, acquisition
+        self.jobs, self.results = queue.Queue(), queue.Queue()
+
+    def run(self):
+        scanner = None
+        context = com_context() if self.acquisition else None
+        try:
+            if context:
+                context.__enter__()
+            while True:
+                job = self.jobs.get()
+                if job is None:
+                    break
+                action, payload = job
+                try:
+                    if action == "connect":
+                        scanner = WiaScanner(self.settings.get("scanner"))
+                        effective = scanner.configure(self.settings)
+                        self.settings["scanner"] = scanner.id
+                        self.session.save_settings(self.settings)
+                        result = effective
+                    elif action == "mode":
+                        if scanner is None:
+                            raise ScanError("Scanner non connecté.")
+                        settings = {**self.settings, "color":
+                                    "gray" if self.settings["color"] == "color" else "color"}
+                        try:
+                            result = scanner.configure(settings)
+                            self.session.save_settings(settings)
+                        except Exception as exc:
+                            # A driver can partially apply settings before failing.
+                            try:
+                                scanner.configure(self.settings)
+                            except Exception as rollback_error:
+                                self.results.put(("fatal", None,
+                                    f"Changement de mode impossible : {exc}. "
+                                    f"Restauration impossible : {rollback_error}. Relancer la session."))
+                                break
+                            raise ScanError(f"Changement de mode impossible : {exc}. Mode précédent conservé.") from exc
+                        self.settings = settings
+                    elif action == "scan":
+                        if scanner is None:
+                            raise ScanError("Scanner non connecté.")
+                        image, dpi = scanner.acquire()
+                        metadata = {**self.settings, "effective": scanner.effective}
+                        self.session.begin_capture(image, dpi, metadata, replace=payload)
+                        result = self.session.finish_capture()
+                    elif action == "correct":
+                        result = self.session.correct(payload[0], payload[1])
+                    elif action == "export":
+                        result = export_pdf(self.session)
+                    else:
+                        raise ScanError(f"Commande inconnue : {action}")
+                    self.results.put((action, result, None))
+                except Exception as exc:
+                    self.results.put((action, None, str(exc)))
+        except Exception as exc:
+            self.results.put(("fatal", None, str(exc)))
+        finally:
+            # Release COM proxies before CoUninitialize on this same thread.
+            scanner = None
+            if context:
+                context.__exit__(None, None, None)
+
+
+class Preview:
+    """Tk dans le thread principal ; disque, WIA et export dans un worker unique."""
+
+    def __init__(self, session, settings, edit_page=None):
+        import tkinter as tk
+        from tkinter import ttk
+        from PIL import ImageTk
+
+        self.tk, self.ttk, self.ImageTk = tk, ttk, ImageTk
+        self.session, self.edit_page = session, edit_page
+        self.root = tk.Tk()
+        self.root.title(f"Scan Book — {session.book}")
+        self.root.geometry("1100x850")
+        self.busy = False
+        self.connected = False
+        self.editing = False
+        self.closed = False
+        self.exit_code = 0
+        self.current = None
+        self.display_image = None
+        self.photo = None
+        self.scale = 1.0
+        self.preview_margin = 16
+        self.crop = None
+        self.drag_start = None
+        self.updating = False
+        self.redraw_job = None
+        self.status = tk.StringVar(value="Prêt")
+        self.mode_text = tk.StringVar(value="Mode du prochain scan : connexion…")
+        self.angle = tk.DoubleVar(value=0)
+        self.zoom = tk.StringVar(value="Ajuster")
+        self.turns = 0
+        self.worker = ScanWorker(session, settings, acquisition=edit_page is None)
+
+        toolbar = ttk.Frame(self.root, padding=8)
+        toolbar.pack(fill="x")
+        self.buttons = {}
+        for key, label in (("scan", "Entrée · Scanner"), ("correct", "C · Corriger"),
+                           ("retake", "R · Refaire"), ("export", "F · PDF et fin"), ("quit", "Q · Quitter")):
+            button = ttk.Button(toolbar, text=label, command=lambda k=key: self.command(k))
+            button.pack(side="left", padx=3)
+            self.buttons[key] = button
+        ttk.Label(toolbar, text="Zoom").pack(side="left", padx=(16, 4))
+        zoom = ttk.Combobox(toolbar, textvariable=self.zoom,
+                            values=("Ajuster", "25%", "50%", "100%", "150%", "200%"), width=8, state="readonly")
+        zoom.pack(side="left")
+        zoom.bind("<<ComboboxSelected>>", lambda _: self.render())
+
+        if edit_page is None:
+            modebar = ttk.Frame(self.root, padding=(11, 0, 8, 8))
+            modebar.pack(fill="x")
+            ttk.Label(modebar, textvariable=self.mode_text).pack(side="left")
+            self.buttons["mode"] = ttk.Button(modebar, text="M · Couleur / N&B",
+                                               command=lambda: self.command("mode"))
+            self.buttons["mode"].pack(side="left", padx=12)
+
+        self.editor = ttk.Frame(self.root, padding=8)
+        ttk.Label(self.editor, text="Angle (°)").pack(side="left")
+        self.angle_control = ttk.Scale(self.editor, from_=-15, to=15, variable=self.angle,
+                                      command=self.angle_changed, length=230)
+        self.angle_control.pack(side="left", padx=5)
+        self.angle_text = tk.StringVar(value="0.00°")
+        ttk.Label(self.editor, textvariable=self.angle_text, width=9).pack(side="left")
+        for label, callback in (("↶ 90°", self.turn), ("Brut / réinitialiser", self.reset),
+                                ("Valider", self.accept), ("Annuler", self.cancel)):
+            ttk.Button(self.editor, text=label, command=callback).pack(side="left", padx=4)
+
+        ttk.Label(self.root, text="Hachures : hors image · En correction, le cadre vert délimite la zone conservée.",
+                  padding=(11, 0, 8, 6)).pack(fill="x")
+        self.canvas_frame = ttk.Frame(self.root)
+        self.canvas_frame.pack(fill="both", expand=True)
+        self.canvas = tk.Canvas(self.canvas_frame, background="white", highlightthickness=0)
+        hbar = ttk.Scrollbar(self.canvas_frame, orient="horizontal", command=self.canvas.xview)
+        vbar = ttk.Scrollbar(self.canvas_frame, orient="vertical", command=self.canvas.yview)
+        self.canvas.configure(xscrollcommand=hbar.set, yscrollcommand=vbar.set)
+        self.canvas.grid(row=0, column=0, sticky="nsew")
+        vbar.grid(row=0, column=1, sticky="ns")
+        hbar.grid(row=1, column=0, sticky="ew")
+        self.canvas_frame.rowconfigure(0, weight=1)
+        self.canvas_frame.columnconfigure(0, weight=1)
+        ttk.Label(self.root, textvariable=self.status, padding=10, wraplength=1050).pack(fill="x")
+        self.canvas.bind("<Configure>", lambda _: self.schedule_render())
+        self.canvas.bind("<ButtonPress-1>", self.drag_begin)
+        self.canvas.bind("<B1-Motion>", self.drag_move)
+        self.canvas.bind("<ButtonRelease-1>", self.drag_end)
+        self.canvas.bind("<MouseWheel>", lambda e: self.canvas.yview_scroll(-int(e.delta / 120), "units"))
+        self.root.bind("<KeyPress>", self.key)
+        self.root.protocol("WM_DELETE_WINDOW", lambda: self.command("quit"))
+        try:
+            if edit_page is None:
+                if session.data["pages"]:
+                    self.show_page(session.data["pages"][-1], announce=False)
+            else:
+                self.show_page(session.page(edit_page))
+                self.start_edit()
+        except BaseException:
+            self.root.destroy()
+            raise
+        self.worker.start()
+        if edit_page is None:
+            self.submit("connect", None, "Connexion et vérification des réglages WIA…")
+        self.root.after(80, self.poll)
+        self.update_buttons()
+
+    def say(self, message):
+        self.status.set(message)
+        print(message, flush=True)
+
+    def update_buttons(self):
+        for name, button in self.buttons.items():
+            allowed = not self.busy and not self.editing
+            if name in ("scan", "retake", "mode"):
+                allowed = allowed and self.connected and self.edit_page is None
+            if name in ("correct", "retake"):
+                allowed = allowed and self.current is not None
+            if name == "export":
+                allowed = allowed and bool(self.session.data["pages"]) and self.edit_page is None
+            if name == "quit":
+                allowed = not self.busy
+            button.configure(state="normal" if allowed else "disabled")
+
+    def submit(self, action, payload, message):
+        self.busy = True
+        self.say(message)
+        self.update_buttons()
+        self.worker.jobs.put((action, payload))
+
+    def key(self, event):
+        # Editor widgets keep normal keyboard behavior; global shortcuts apply
+        # only outside the correction form, except Escape to cancel editing.
+        if self.editing:
+            if event.keysym == "Escape":
+                self.cancel()
+            return
+        if self.root.focus_get() is not None and self.root.focus_get().winfo_class() == "TCombobox":
+            return
+        mapping = {"Return": "scan", "c": "correct", "r": "retake", "m": "mode", "f": "export", "q": "quit"}
+        action = mapping.get(event.keysym, mapping.get(event.keysym.lower()))
+        if action:
+            self.command(action)
+            return "break"
+
+    def command(self, action):
+        try:
+            self.dispatch_command(action)
+        except Exception as exc:
+            self.say(f"Erreur : {exc}")
+
+    def dispatch_command(self, action):
+        if self.busy:
+            return
+        if action == "quit":
+            self.shutdown()
+        elif self.editing:
+            return
+        elif action == "mode" and self.connected and self.edit_page is None:
+            self.submit("mode", None, "Changement du mode couleur/N&B…")
+        elif action == "scan" and self.connected:
+            self.submit("scan", None, "Acquisition en cours…")
+        elif action == "retake" and self.connected and self.current:
+            self.submit("scan", self.current["number"], f"Nouvelle acquisition de la page {self.current['number']}…")
+        elif action == "correct" and self.current:
+            self.start_edit()
+        elif action == "export" and self.session.data["pages"]:
+            self.submit("export", None, "Assemblage du PDF…")
+
+    def poll(self):
+        try:
+            self.poll_events()
+        except Exception as exc:
+            self.busy = False
+            self.say(f"Erreur d'aperçu : {exc}")
+            self.update_buttons()
+            if not self.closed:
+                self.root.after(80, self.poll)
+
+    def poll_events(self):
+        if self.closed:
+            return
+        # Read console keys without blocking Tk; drain keys pressed while busy
+        # so they cannot unexpectedly start another acquisition after completion.
+        if sys.platform == "win32" and sys.stdin.isatty():
+            import msvcrt
+            while msvcrt.kbhit():
+                char = msvcrt.getwch()
+                if char in ("\x00", "\xe0"):
+                    msvcrt.getwch()
+                    continue
+                if char == "\x03":
+                    self.command("quit")
+                elif not self.editing:
+                    action = {"\r": "scan", "c": "correct", "r": "retake",
+                              "m": "mode", "f": "export", "q": "quit"}.get(char.lower())
+                    if action:
+                        self.command(action)
+                if self.closed:
+                    return
+        while not self.worker.results.empty():
+            action, result, error = self.worker.results.get_nowait()
+            self.busy = False
+            if error:
+                self.say(f"Erreur : {error}")
+                if action in ("connect", "fatal"):
+                    self.exit_code = 1
+                    self.shutdown()
+                    return
+                if self.session.pending.exists():
+                    self.say(f"Erreur : {error} — brut/journal conservé ; fermer puis reprendre cette session.")
+                    self.connected = False
+            elif action in ("connect", "mode"):
+                self.connected = True
+                mode = "Couleur" if result["color"] == "color" else "N&B (niveaux de gris)"
+                self.mode_text.set(f"Mode du prochain scan : {mode}")
+                self.say(f"{result['name']} · {result['x_dpi']} ppp · {mode} — M : changer de mode ; Entrée : scanner ; F : PDF et fin.")
+            elif action in ("scan", "correct"):
+                self.show_page(result)
+                if action == "correct" and self.edit_page is not None:
+                    self.shutdown()
+                    return
+            elif action == "export":
+                self.say(f"PDF créé : {result}")
+                self.shutdown()
+                return
+            self.update_buttons()
+        self.root.after(80, self.poll)
+
+    def show_page(self, page, announce=True):
+        self.current = copy.deepcopy(page)
+        self.display_image = load_image(safe_child(self.session.path, page["image"]))
+        self.crop = None
+        self.canvas.xview_moveto(0)
+        self.canvas.yview_moveto(0)
+        self.render()
+        if announce:
+            review = " · À VÉRIFIER (C pour corriger)" if page["transform"].get("review") else ""
+            rotation = " · Rotation auto 180°" if (page["transform"].get("orientation")
+                       and page["transform"].get("quarter_turns") == 2) else ""
+            warning = " · Orientation auto indisponible" if page["transform"].get("orientation_error") else ""
+            if page["transform"].get("crop_error"):
+                warning += " · Recadrage DeepLabV3 indisponible"
+            elif page["transform"].get("crop_warning"):
+                warning += " · Recadrage DeepLabV3 incertain"
+            self.say(f"Page {page['number']:04d} sauvegardée · {page['size'][0]} × {page['size'][1]} px{rotation}{warning}{review}")
+
+    def start_edit(self):
+        self.raw = load_image(safe_child(self.session.path, self.current["raw"]))
+        self.editing = True
+        self.updating = True
+        transform = self.current["transform"]
+        self.turns = transform.get("quarter_turns", 0)
+        self.angle.set(transform.get("angle", 0))
+        self.crop = copy.deepcopy(transform.get("crop"))
+        self.updating = False
+        self.editor.pack(before=self.canvas_frame, fill="x")
+        self.refresh_edit()
+        self.say("Correction : tracer le rectangle à conserver ; régler l'angle avant de recadrer. Valider ou Annuler.")
+        self.update_buttons()
+
+    def refresh_edit(self):
+        if not self.editing or self.busy:
+            return
+        transform = {"quarter_turns": self.turns, "angle": round(self.angle.get(), 3), "crop": None}
+        self.display_image, _ = apply_transform(self.raw, self.current["raw_dpi"], transform)
+        self.angle_text.set(f"{self.angle.get():.2f}°")
+        self.render()
+
+    def angle_changed(self, _=None):
+        if self.updating or not self.editing or self.busy:
+            return
+        self.crop = None
+        self.refresh_edit()
+
+    def turn(self):
+        if not self.editing or self.busy:
+            return
+        self.turns = (self.turns + 1) % 4
+        self.crop = None
+        self.refresh_edit()
+
+    def reset(self):
+        if not self.editing or self.busy:
+            return
+        self.updating = True
+        self.turns = 0
+        self.angle.set(0)
+        self.crop = None
+        self.updating = False
+        self.refresh_edit()
+
+    def accept(self):
+        if not self.editing or self.busy:
+            return
+        transform = {"quarter_turns": self.turns, "angle": round(self.angle.get(), 3),
+                     "crop": self.crop, "method": "manual", "review": False}
+        self.editing = False
+        self.editor.pack_forget()
+        self.submit("correct", (self.current["number"], transform), "Sauvegarde de la correction…")
+
+    def cancel(self):
+        if not self.editing or self.busy:
+            return
+        self.editing = False
+        self.editor.pack_forget()
+        if self.edit_page is not None:
+            self.shutdown()
+        else:
+            self.show_page(self.current)
+            self.update_buttons()
+
+    def schedule_render(self):
+        if self.redraw_job:
+            self.root.after_cancel(self.redraw_job)
+        self.redraw_job = self.root.after(100, self.render)
+
+    def render(self):
+        if self.closed:
+            return
+        self.redraw_job = None
+        self.canvas.delete("all")
+        if self.display_image is None:
+            self.draw_background(self.canvas.winfo_width(), self.canvas.winfo_height())
+            return
+        image = self.display_image
+        margin = self.preview_margin
+        if self.zoom.get() == "Ajuster":
+            self.scale = min(max(1, self.canvas.winfo_width() - 2 * margin) / image.width,
+                             max(1, self.canvas.winfo_height() - 2 * margin) / image.height, 1)
+        else:
+            self.scale = float(self.zoom.get().rstrip("%")) / 100
+        width, height = max(1, round(image.width * self.scale)), max(1, round(image.height * self.scale))
+        self.photo = self.ImageTk.PhotoImage(image.resize((width, height), Image.Resampling.BILINEAR))
+        area_width = max(self.canvas.winfo_width(), width + 2 * margin)
+        area_height = max(self.canvas.winfo_height(), height + 2 * margin)
+        self.draw_background(area_width, area_height)
+        self.canvas.create_image(margin, margin, image=self.photo, anchor="nw")
+        self.canvas.create_rectangle(margin - 1, margin - 1, margin + width, margin + height,
+                                     outline="#8c8c8c", tags="page-border")
+        self.canvas.configure(scrollregion=(0, 0, area_width, area_height))
+        self.draw_crop()
+
+    def draw_background(self, width, height):
+        # Canvas-only decoration: never changes the scanned image or PDF.
+        for offset in range(-height, width, 14):
+            self.canvas.create_line(offset, 0, offset + height, height,
+                                    fill="#d5d5d5", tags="background")
+
+    def point(self, event):
+        return (min(self.display_image.width, max(0, round((self.canvas.canvasx(event.x) - self.preview_margin) / self.scale))),
+                min(self.display_image.height, max(0, round((self.canvas.canvasy(event.y) - self.preview_margin) / self.scale))))
+
+    def drag_begin(self, event):
+        if self.editing and not self.busy:
+            self.drag_start = self.point(event)
+
+    def drag_move(self, event):
+        if self.drag_start is None or not self.editing or self.busy:
+            return
+        x, y = self.point(event)
+        sx, sy = self.drag_start
+        self.crop = [min(x, sx), min(y, sy), max(x, sx), max(y, sy)]
+        self.draw_crop()
+
+    def drag_end(self, event):
+        self.drag_move(event)
+        self.drag_start = None
+        if self.crop and (self.crop[2] - self.crop[0] < 5 or self.crop[3] - self.crop[1] < 5):
+            self.crop = None
+        self.draw_crop()
+
+    def draw_crop(self):
+        self.canvas.delete("crop")
+        if self.editing and self.crop:
+            self.canvas.create_rectangle(*(self.preview_margin + v * self.scale for v in self.crop),
+                                         outline="#32e0b7", width=2, tags="crop")
+
+    def shutdown(self):
+        if self.busy or self.closed:
+            return
+        self.closed = True
+        for job in self.root.tk.call("after", "info"):
+            self.root.after_cancel(job)
+        self.worker.jobs.put(None)
+        self.worker.join(timeout=5)
+        self.root.destroy()
+
+    def run(self):
+        try:
+            self.root.mainloop()
+        finally:
+            # Ctrl+C cannot cancel an in-flight WIA Transfer. Finish its durable
+            # save before releasing the session lock, even if Tk has exited.
+            self.worker.jobs.put(None)
+            self.worker.join()
+            if not self.closed:
+                self.root.destroy()
+                self.closed = True
+        return self.exit_code
+
+
+def area_argument(value):
+    if value.lower() == "full":
+        return None
+    try:
+        parts = [float(v) for v in value.split(",")]
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("Zone attendue : x,y,largeur,hauteur en mm, ou full.") from exc
+    if len(parts) != 4 or any(not math.isfinite(v) for v in parts) or min(parts[:2]) < 0 or min(parts[2:]) <= 0:
+        raise argparse.ArgumentTypeError("Zone invalide : origine positive ou nulle, dimensions positives.")
+    return parts
+
+
+def positive_int(value):
+    try:
+        number = int(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("Un entier positif est requis.") from exc
+    if number < 1:
+        raise argparse.ArgumentTypeError("Un entier positif est requis.")
+    return number
+
+
+def make_parser():
+    parser = argparse.ArgumentParser(description="Scan de livres WIA, sessions reprenables et PDF.")
+    sub = parser.add_subparsers(dest="command", required=True)
+    sub.add_parser("devices", help="Lister les scanners WIA et leurs capacités.")
+    for command, help_text in (("scan", "Créer ou reprendre une session."),
+                                ("export", "Assembler le PDF sans scanner."),
+                                ("correct", "Corriger une page depuis son scan brut.")):
+        child = sub.add_parser(command, help=help_text)
+        child.add_argument("book", type=book_slug, help="Nom du dossier du livre.")
+        child.add_argument("--root", type=Path, default=DEFAULT_ROOT, help="Dossier contenant les livres (défaut : scans près du script).")
+        if command == "scan":
+            child.add_argument("--scanner", help="Identifiant WIA ou partie unique du nom.")
+            child.add_argument("--dpi", type=positive_int, help="Résolution (défaut nouvelle session : 300).")
+            child.add_argument("--color", choices=("color", "gray"), help="Couleur ou gris (défaut : color).")
+            child.add_argument("--area", type=area_argument, default=argparse.SUPPRESS,
+                               help="x,y,largeur,hauteur en mm, ou full pour toute la vitre.")
+        if command == "correct":
+            child.add_argument("--page", required=True, type=positive_int, help="Numéro de la page à corriger.")
+    return parser
+
+
+def main(argv=None):
+    configure_utf8()
+    args = make_parser().parse_args(argv)
+    try:
+        if args.command == "devices":
+            list_devices()
+            return 0
+        with Session(args.root, args.book, create=args.command == "scan") as session:
+            if args.command == "export":
+                print(f"PDF créé : {export_pdf(session)}")
+                return 0
+            settings = {**DEFAULT_SETTINGS, **session.data["settings"]}
+            if args.command == "scan":
+                for key in ("scanner", "dpi", "color", "area"):
+                    if hasattr(args, key) and (getattr(args, key) is not None or key == "area"):
+                        settings[key] = getattr(args, key)
+            else:
+                session.page(args.page)
+            return Preview(session, settings, edit_page=getattr(args, "page", None)).run()
+    except KeyboardInterrupt:
+        print("\nSession conservée. Reprendre avec la même commande.", file=sys.stderr)
+        return 130
+    except Exception as exc:
+        print(f"Erreur : {exc}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

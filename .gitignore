@@ -1,0 +1,9 @@
+scans/
+__pycache__/
+*.pyc
+.venv/
+.ruff_cache/
+.cache/
+output/
+tmp/
+backups/
