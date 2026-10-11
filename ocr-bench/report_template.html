@@ -71,7 +71,7 @@ button[aria-pressed="true"] { background: var(--accent); color: var(--panel); bo
 <header>
   <h1>Banc OCR : Marker 2 / Claude Haiku 5.5 / GPT-6 Luna</h1>
   <div class="summary"><table id="summary"></table></div>
-  <p class="legend">CER/WER : taux d'erreur caractères/mots contre la référence (en-têtes courants et numéros de page exclus). olmOCR : part de tests officiels réussis (moyenne des catégories). Pastilles : vert &lt; 2 % / 90 %, orange &lt; 5 % / 70 %, rouge au-delà.</p>
+  <p class="legend">CER/WER : taux d'erreur caractères/mots contre la référence (titre du livre en en-tête et numéros de page exclus). CER olmOCR : même calcul, limité aux extraits que fournit olmOCR (≈ 15 % du texte des pages ; moyenne des catégories). Tests officiels : notation stricte réussi/échoué d'olmOCR-bench, pour mémoire. Pastilles : CER vert &lt; 2 %, orange &lt; 5 %, rouge au-delà.</p>
 </header>
 <div class="layout">
   <nav id="nav"></nav>
@@ -88,21 +88,19 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "
 const pct = v => v == null ? "—" : (v * 100).toFixed(1) + " %";
 function grade(page, e) {
   const r = page.engines[e];
-  if (page.set === "scans") return r.cer < 0.02 ? "good" : r.cer < 0.05 ? "mid" : "bad";
-  const rate = r.tests ? r.passed / r.tests : 0;
-  return rate >= 0.9 ? "good" : rate >= 0.7 ? "mid" : "bad";
+  return r.cer == null ? "bad" : r.cer < 0.02 ? "good" : r.cer < 0.05 ? "mid" : "bad";
 }
 
 function renderSummary() {
   const cats = ["old_scans", "table_tests", "multi_column", "long_tiny_text"];
-  let h = "<thead><tr><th></th><th>CER scans</th><th>WER méd.</th><th>accents</th><th>mots ajoutés</th><th>blocs omis</th><th>olmOCR</th>"
-    + cats.map(c => `<th>${esc(GROUPS[c].replace("olmOCR · ", ""))}</th>`).join("") + "<th>s/page méd.</th><th>échecs</th></tr></thead><tbody>";
+  let h = "<thead><tr><th></th><th>CER scans</th><th>WER méd.</th><th>accents</th><th>mots ajoutés</th><th>blocs omis</th><th>CER olmOCR</th>"
+    + cats.map(c => `<th>${esc(GROUPS[c].replace("olmOCR · ", ""))}</th>`).join("") + "<th>tests officiels</th><th>s/page méd.</th><th>échecs</th></tr></thead><tbody>";
   for (const e of DATA.engines) {
     const s = DATA.summary[e];
     h += `<tr><td><b>${LABELS[e]}</b></td><td>${pct(s.scans.cer_global)}</td><td>${pct(s.scans.wer_median)}</td>`
-      + `<td>${s.scans.accent_edits}</td><td>${s.scans.inserted_words}</td><td>${s.scans.omitted_blocks}</td><td><b>${pct(s.olmocr.score)}</b></td>`
-      + cats.map(c => `<td>${pct(s.olmocr.by_category[c])}</td>`).join("")
-      + `<td>${s.seconds_median ?? "—"}</td><td>${s.failures}</td></tr>`;
+      + `<td>${s.scans.accent_edits}</td><td>${s.scans.inserted_words}</td><td>${s.scans.omitted_blocks}</td><td><b>${pct(s.olmocr.cer)}</b></td>`
+      + cats.map(c => `<td>${pct(s.olmocr.cer_by_category[c])}</td>`).join("")
+      + `<td>${pct(s.olmocr.score)}</td><td>${s.seconds_median ?? "—"}</td><td>${s.failures}</td></tr>`;
   }
   document.getElementById("summary").innerHTML = h + "</tbody>";
 }
@@ -126,9 +124,9 @@ function engineCard(p, e) {
     metrics = `CER ${pct(r.cer)} · WER ${pct(r.wer)} · accents ${r.accent_edits} · +${r.inserted_words}/−${r.deleted_words} mots · ${r.seconds ?? "—"} s`;
     body = mode === "diff" ? `<div class="text diff">${r.diff}</div>` : `<pre class="text">${esc(r.raw ?? "(aucune sortie)")}</pre>`;
   } else {
-    metrics = `${r.passed}/${r.tests} tests réussis · ${r.seconds ?? "—"} s`;
-    const tests = r.results.map(t => `<li class="${t.passed ? "ok" : "ko"}">${t.passed ? "✓" : "✗"} ${esc(t.type)}${t.passed ? "" : " : " + esc(t.explanation)}</li>`).join("");
-    body = `<ul class="tests">${tests}</ul><pre class="text">${esc(r.raw ?? "(aucune sortie)")}</pre>`;
+    metrics = `CER extraits ${pct(r.cer)} · ${r.snippets.length} extraits · tests officiels ${r.passed}/${r.tests} · ${r.seconds ?? "—"} s`;
+    const snippets = r.snippets.map(x => `<li><span class="${x.cer < 0.02 ? "ok" : "ko"}">${pct(x.cer)}</span> <span class="diff">${x.diff}</span></li>`).join("");
+    body = `<ul class="tests">${snippets}</ul><pre class="text">${esc(r.raw ?? "(aucune sortie)")}</pre>`;
   }
   return `<div class="card"><h3><span>${LABELS[e]}</span><span class="chip" style="background:var(--${grade(p, e)})"></span></h3>`
     + `<div class="metrics">${metrics}${r.status && r.status !== "ok" ? ` · <span class="ko">${esc(r.status)}</span>` : ""}</div>${body}</div>`;
@@ -148,7 +146,7 @@ function renderPage(id) {
   }
   document.getElementById("main").innerHTML =
     `<div class="toolbar"><h2>${esc(p.id)}</h2>${toggle}<button data-step="-1">← Préc.</button><button data-step="1">Suiv. →</button>`
-    + (p.set === "scans" ? `<span class="legend"><del style="background:var(--del-bg)">manquant / faux</del> <ins style="background:var(--ins-bg);text-decoration:none">ajouté</ins></span>` : "")
+    + `<span class="legend"><del style="background:var(--del-bg)">manquant / faux</del> <ins style="background:var(--ins-bg);text-decoration:none">ajouté</ins></span>`
     + `</div><div class="grid" style="--n:${DATA.engines.length}"><div><div class="card image-card"><a href="${esc(p.full_image)}" target="_blank" rel="noopener"><img src="${esc(p.image)}" alt="Page ${esc(p.id)}"></a></div>${ref}</div>`
     + DATA.engines.map(e => engineCard(p, e)).join("") + "</div>";
 }

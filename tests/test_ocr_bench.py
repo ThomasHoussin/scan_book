@@ -525,5 +525,34 @@ class HaikuMetaTests(TempDirCase):
         self.assertEqual(meta["chars"], 0)
 
 
+class SnippetTests(unittest.TestCase):
+    def test_expected_snippets_skip_absent_and_dedupe(self):
+        tests = [{"type": "present", "text": "Bonjour à tous"}, {"type": "absent", "text": "31"},
+                 {"type": "order", "before": "Bonjour à tous", "after": "Fin."},
+                 {"type": "table", "cell": "0.569", "left_heading": "BO", "up": None}]
+        self.assertEqual(score.expected_snippets(tests), ["Bonjour à tous", "Fin.", "0.569", "BO"])
+
+    def test_exact_snippet_found(self):
+        dist, found = score.snippet_match("deprived of Voting", "as we are deprived of Voting for")
+        self.assertEqual((dist, found), (0, "deprived of Voting"))
+
+    def test_snippet_with_one_error(self):
+        dist, found = score.snippet_match("deprived of Voting", "as we are Deprived of Voting for")
+        self.assertEqual(dist, 1)
+        self.assertEqual(found, "Deprived of Voting")
+
+    def test_snippet_with_insertion_window_widened(self):
+        dist, _ = score.snippet_match("Sickles old Regt", "x Sickles very old Regt y")
+        self.assertEqual(dist, 5)
+
+    def test_empty_output_counts_every_char(self):
+        r = score.score_snippets([{"type": "present", "text": "abc"}], None)
+        self.assertEqual(r["snippet_cer"], 1.0)
+        self.assertEqual(r["snippet_chars"], 3)
+
+    def test_no_snippet_gives_none(self):
+        self.assertIsNone(score.score_snippets([{"type": "absent", "text": "x"}], "x")["snippet_cer"])
+
+
 if __name__ == "__main__":
     unittest.main()

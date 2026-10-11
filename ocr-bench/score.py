@@ -137,8 +137,63 @@ def score_scans(items: list[dict]) -> dict:
     return pages
 
 
+SNIPPET_FIELDS = ("text", "before", "after", "cell", "up", "down", "left", "right", "top_heading", "left_heading")
+
+
+def expected_snippets(raw_tests: list[dict]) -> list[str]:
+    """Textes attendus par les tests olmOCR d'une page (hors tests « absent »), sans doublon."""
+    seen: dict[str, None] = {}
+    for t in raw_tests:
+        if t.get("type") in ("absent", "baseline"):
+            continue
+        for field in SNIPPET_FIELDS:
+            value = t.get(field)
+            if isinstance(value, str) and value.strip():
+                seen.setdefault(value.strip(), None)
+    return list(seen)
+
+
+def snippet_match(snippet: str, output: str) -> tuple[int, str]:
+    """(distance d'édition, passage retenu) : passage de la sortie le plus proche de l'extrait attendu."""
+    from rapidfuzz import fuzz
+
+    if not output:
+        return len(snippet), ""
+    al = fuzz.partial_ratio_alignment(snippet, output)
+    start, end = al.dest_start, al.dest_end
+    margin = max(8, len(snippet) // 4)  # la fenêtre de partial_ratio a la longueur de l'extrait : on l'ajuste
+    best_end = min(range(max(start + 1, end - margin), min(len(output), end + margin) + 1),
+                   key=lambda e: Levenshtein.distance(snippet, output[start:e]), default=end)
+    best_start = min(range(max(0, start - margin), min(best_end, start + margin) + 1),
+                     key=lambda b: Levenshtein.distance(snippet, output[b:best_end]), default=start)
+    found = output[best_start:best_end]
+    return Levenshtein.distance(snippet, found), found
+
+
+def score_snippets(raw_tests: list[dict], output: str | None) -> dict:
+    """CER limité aux extraits que fournit olmOCR (même normalisation que le jeu A)."""
+    out = normalize(output or "")
+    snippets, edits, chars = [], 0, 0
+    for text in expected_snippets(raw_tests):
+        expected = normalize(text)
+        if not expected:
+            continue
+        dist, found = snippet_match(expected, out)
+        snippets.append({"expected": expected, "found": found, "cer": dist / len(expected)})
+        edits += dist
+        chars += len(expected)
+    return {"snippet_cer": edits / chars if chars else None, "snippet_chars": chars, "snippets": snippets}
+
+
 def score_olmocr(items: list[dict]) -> dict:
     from olmocr.bench.tests import load_tests
+
+    raw_by_pdf: dict[str, list[dict]] = {}
+    for jsonl in (BENCH / "inputs" / "olmocr").glob("*.jsonl"):
+        for line in jsonl.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                raw = json.loads(line)
+                raw_by_pdf.setdefault(raw["pdf"], []).append(raw)
 
     tests_by_pdf: dict[str, list] = {}
     for jsonl in (BENCH / "inputs" / "olmocr").glob("*.jsonl"):
@@ -166,6 +221,7 @@ def score_olmocr(items: list[dict]) -> dict:
                 "tests": len(results),
                 "passed": sum(r["passed"] for r in results),
                 "results": results,
+                **score_snippets(raw_by_pdf.get(item["pdf"], []), output),
                 "meta": read_meta(engine, item["id"]),
             }
     return pages
@@ -180,10 +236,14 @@ def summarize(manifest: dict, scans: dict, olmocr: dict) -> dict:
         for item_id, page in scans.items():
             groups.setdefault(by_id[item_id]["book"], []).append(page[engine])
         b_cat: dict[str, list[tuple[int, int]]] = {}
+        c_cat: dict[str, list[tuple[float, int]]] = {}
         for item_id, page in olmocr.items():
             r = page[engine]
             if r["tests"]:
                 b_cat.setdefault(by_id[item_id]["category"], []).append((r["passed"], r["tests"]))
+            if r.get("snippet_chars"):
+                c_cat.setdefault(by_id[item_id]["category"], []).append((r["snippet_cer"], r["snippet_chars"]))
+        cer_by_cat = {c: sum(e * n for e, n in v) / sum(n for _, n in v) for c, v in c_cat.items()}
         metas = [p[engine]["meta"] for p in [*scans.values(), *olmocr.values()]]
         seconds = [m["seconds"] for m in metas if isinstance(m.get("seconds"), (int, float))]
         ref_chars = sum(m["ref_chars"] for m in a) or 1
@@ -201,7 +261,11 @@ def summarize(manifest: dict, scans: dict, olmocr: dict) -> dict:
                             for book, ms in groups.items()},
             },
             "olmocr": {
-                # comme olmOCR-bench : moyenne des taux de réussite par catégorie
+                # CER sur les seuls extraits fournis par olmOCR (moyenne des catégories)
+                "cer": statistics.mean(cer_by_cat.values()) if cer_by_cat else None,
+                "cer_by_category": cer_by_cat,
+                "chars_by_category": {c: sum(n for _, n in v) for c, v in c_cat.items()},
+                # notation officielle olmOCR-bench (tests réussis/échoués, moyenne des catégories), pour mémoire
                 "by_category": {c: sum(p for p, _ in v) / sum(t for _, t in v) for c, v in b_cat.items()},
                 "tests_by_category": {c: sum(t for _, t in v) for c, v in b_cat.items()},
                 "score": statistics.mean(sum(p for p, _ in v) / sum(t for _, t in v) for v in b_cat.values()) if b_cat else None,
@@ -251,8 +315,9 @@ def report_data(manifest: dict, scans: dict, olmocr: dict, summary: dict) -> dic
                 e |= {k: r[k] for k in ("cer", "wer", "accent_edits", "inserted_words", "deleted_words", "omitted_blocks")}
                 e["diff"] = diff_html(entry["reference"], strip_furniture(raw or "", entry["furniture"]))
             else:
-                e |= {"passed": r["passed"], "tests": r["tests"],
-                      "results": [{k: t[k] for k in ("type", "passed", "explanation")} for t in r["results"]]}
+                e |= {"passed": r["passed"], "tests": r["tests"], "cer": r["snippet_cer"],
+                      "snippets": [{"cer": x["cer"], "diff": diff_html(x["expected"], x["found"])}
+                                   for x in r["snippets"]]}
             entry["engines"][engine] = e
         pages.append(entry)
     return {"engines": list(ENGINES), "summary": summary, "pages": pages}
@@ -278,7 +343,8 @@ def main() -> None:
                                                      ensure_ascii=False, indent=2), encoding="utf-8")
     (results / "report.html").write_text(render_report(manifest, scans, olmocr, summary), encoding="utf-8")
     for engine, s in summary.items():
-        print(f"{engine:8} CER scans {s['scans']['cer_global']:.2%}  olmOCR {s['olmocr']['score'] or 0:.1%}  "
+        print(f"{engine:8} CER scans {s['scans']['cer_global']:.2%}  CER olmOCR {s['olmocr']['cer'] or 0:.2%}  "
+              f"(tests officiels {s['olmocr']['score'] or 0:.1%})  "
               f"méd. {s['seconds_median']}s  échecs {s['failures']}  pages manquantes {s['missing']}")
 
 

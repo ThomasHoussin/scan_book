@@ -37,8 +37,10 @@ Marker tourne en mode auto (pas de `force_ocr`) : les entrées sont des images, 
   en-tête et le numéro de page (`reference/<id>.furniture.txt`) sont **exclus du score**, car ils sont inutiles pour l'index.
   Les titres de chapitre, de section ou de lettre (qui parle, quelle école de magie…) sont gardés et comptés. Indicateurs annexes : erreurs
   d'accent, mots ajoutés, blocs omis (≥ 8 mots).
-- **Jeu B** : taux de tests officiels réussis (`olmocr.bench.tests`), moyenne des catégories comme olmOCR-bench ;
-  une sortie vide échoue à tous ses tests.
+- **Jeu B** : CER calculé comme pour le jeu A, mais limité aux extraits de texte que contiennent les tests olmOCR
+  (phrases attendues, textes d'ordre de lecture, cellules de tableau ; environ 15 % du texte des pages). Pour chaque
+  extrait, on retient le passage le plus proche dans la sortie du moteur. Moyenne des catégories. Le taux de tests
+  officiels réussis (`olmocr.bench.tests`, réussi/échoué strict) est gardé pour mémoire ; une sortie vide y échoue à tout.
 
 ## Reproduire
 
