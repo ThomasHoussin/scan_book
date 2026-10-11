@@ -49,19 +49,15 @@ Each page goes through these steps, in order:
 2. deskewed;
 3. cropped to the paper edges.
 
-Doubtful cases are flagged **À VÉRIFIER** (to check), and the original stays in `raw/`.
+Doubtful pages are flagged "À VÉRIFIER" (to check), and the original scan stays in `raw/`.
 
-The script does no OCR and does not split double pages. It does not correct binding curvature either.
+There is no OCR, no splitting of double pages and no correction of binding curvature.
 
 ## Three crop variants
 
-The three scripts have the same commands and keys. They share sessions, folders, the PDF and the lock. You can
-therefore switch from one to another in the middle of a book:
-1. wait for the current acquisition to finish;
-2. quit with **Q**;
-3. relaunch the same book with the other script.
-
-They only differ in how they find the page frame. Orientation and deskew are the same in all three.
+The three scripts take the same commands and keys, and share sessions, folders, the PDF and the lock. To switch
+scripts in the middle of a book, wait for the current acquisition to finish, quit with Q and relaunch the same book
+with the other script. Only the crop step differs; orientation and deskew are the same in all three.
 
 | | `scan_book.py` (original) | `scan_book_deeplab.py` | `scan_book_qwen.py` |
 |---|---|---|---|
@@ -74,18 +70,14 @@ They only differ in how they find the page frame. Orientation and deskew are the
 
 All processing stays local: no image is sent to a remote service.
 
-Trial results, on 4 pages only:
-- **DeepLab** sometimes mistakes the page for its printed blocks. Its crops are often rejected by the safeguard,
-  which leaves the full page to crop by hand. It is not a general improvement.
-- **Qwen** crops inner pages correctly, but its coordinates remain approximate and the frame is sometimes tight
-  near titles. Check the preview.
+Both variants were only tried on 4 pages. DeepLab sometimes mistakes the page for its printed blocks, so the
+safeguard often rejects its crop and the page has to be cropped by hand; it does not beat the original. Qwen crops
+inner pages correctly, but its coordinates are approximate and the frame can be tight near titles, so check the
+preview.
 
-In the Qwen workflow:
-- **Enter** validates a page under review and **C** corrects it.
-- **F** only exports once every page is validated.
-- A page whose image was deleted from `pages/` is skipped at export.
-- **A Qwen session in progress must be resumed with the Qwen script.** The other scripts do not know about its
-  pending pages.
+In the Qwen review step, Enter validates a page and C corrects it. F exports only once every page is validated, and
+a page whose image was deleted from `pages/` is left out of the PDF. Resume an unfinished Qwen session with the Qwen
+script: the other two do not know about its pending pages.
 
 ## Files
 
@@ -102,17 +94,10 @@ recovered on the next launch: do not delete it.
 
 ## OCR benchmark
 
-The PDFs have no text layer. `ocr-bench/` compares three engines for adding one:
-- **Marker 2**, local on GPU;
-- **Claude Haiku 5.5**;
-- **GPT-6 Luna**, through AWS Bedrock.
-
-Two page sets are used:
-- **16 pages from our French scans**, scored against a reference;
-- **20 pages from [olmOCR-bench](https://huggingface.co/datasets/allenai/olmOCR-bench)**, scored on their
-  human-verified snippets.
-
-The score is the character error rate (CER), lower is better:
+The PDFs have no text layer. `ocr-bench/` compares three engines that could add one: Marker 2 (local, on GPU),
+Claude Haiku 5.5, and GPT-6 Luna through AWS Bedrock. They were run on 16 pages of our French scans, scored against
+a reference transcription, and on 20 pages of [olmOCR-bench](https://huggingface.co/datasets/allenai/olmOCR-bench),
+scored on its human-verified snippets. Scores are character error rates (CER), lower is better:
 
 | | Marker 2 (force_ocr) | Claude Haiku 5.5 | GPT-6 Luna |
 |---|---|---|---|
@@ -121,17 +106,14 @@ The score is the character error rate (CER), lower is better:
 | olmOCR snippets | 1.0% | **0.46%** | 0.80% |
 | Median time per page | 18 s | ≈ 38 s (via agent) | 17 s |
 
-Key takeaways:
-- **Haiku is the pick**: the most accurate, it keeps page and chapter titles, and needs no infrastructure.
-- **Marker 2 in auto mode can return an empty page without any error.** It also drops titles, even with
-  `force_ocr`. And it runs through a vLLM server in Docker.
-- **Luna fixes the book's typos** and does not accept `temperature=0`.
+Haiku came out ahead. It also keeps page and chapter titles and needs no local infrastructure. Marker 2 in auto
+mode returned one page empty without raising an error, drops titles even with `force_ocr`, and needs a vLLM
+server in Docker. Luna silently fixes the book's typos and rejects `temperature=0`.
 
-Benchmark documents (in French):
-- **[ocr-bench/SYNTHESE.md](ocr-bench/SYNTHESE.md)**: reusable parameters (image size, prompt, checks);
-- **[ocr-bench/RESULTATS.md](ocr-bench/RESULTATS.md)**: full analysis;
-- **[ocr-bench/README.md](ocr-bench/README.md)**: protocol;
-- **`ocr-bench/results/report.html`**: visual page-by-page comparison.
+The benchmark documents are in French: [SYNTHESE.md](ocr-bench/SYNTHESE.md) lists the parameters to reuse
+(image size, prompt, output checks), [RESULTATS.md](ocr-bench/RESULTATS.md) has the full analysis,
+[README.md](ocr-bench/README.md) the protocol, and `ocr-bench/results/report.html` shows each page next to every
+engine's output.
 
 ## Tests
 
@@ -146,9 +128,10 @@ Set `SCAN_BOOK_SKIP_GUI=1` to skip the Tkinter tests on a machine without a desk
 
 ## Troubleshooting
 
-- **No scanner found**:
-  - turn the scanner on and check the USB cable;
-  - close other scanning software;
-  - check the service with `Get-Service stisvc`.
-- **`Can't find a usable init.tcl`**: run from a regular Windows terminal, or add `--python 3.12` to `uv run`.
-- **Garbled accents in PowerShell 5**: read files with `Get-Content -Encoding UTF8`.
+If `devices` finds no scanner, turn the scanner on, check the USB cable, close other scanning software and check
+the WIA service with `Get-Service stisvc`.
+
+If Tkinter reports `Can't find a usable init.tcl`, run from a regular Windows terminal or add `--python 3.12` to
+`uv run`.
+
+If accents look garbled in PowerShell 5, read the files with `Get-Content -Encoding UTF8`.

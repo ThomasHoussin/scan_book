@@ -49,20 +49,15 @@ Chaque page est traitée dans cet ordre :
 2. redressement ;
 3. recadrage sur les bords du papier.
 
-Les cas douteux sont signalés **À VÉRIFIER**, et l'original reste dans `raw/`.
+Les pages douteuses sont signalées « À VÉRIFIER » et le scan d'origine reste dans `raw/`.
 
-Le script ne fait pas d'OCR et ne sépare pas les doubles pages. Il ne corrige pas non plus la courbure de reliure.
+Pas d'OCR, pas de séparation des doubles pages, pas de correction de la courbure de reliure.
 
 ## Trois variantes de recadrage
 
-Les trois scripts ont les mêmes commandes et les mêmes touches. Ils partagent les sessions, les dossiers, le PDF et
-le verrou. On peut donc passer de l'un à l'autre en cours de livre :
-1. attendre la fin de l'acquisition ;
-2. quitter avec **Q** ;
-3. relancer le même livre avec l'autre script.
-
-Ils ne diffèrent que par la façon de trouver le cadre de la page. La remise à l'endroit et le redressement sont
-communs.
+Les trois scripts prennent les mêmes commandes et les mêmes touches, et partagent sessions, dossiers, PDF et verrou.
+Pour changer de script en cours de livre, attendre la fin de l'acquisition, quitter avec Q et relancer le même livre
+avec l'autre script. Seul le recadrage change ; la remise à l'endroit et le redressement sont identiques.
 
 | | `scan_book.py` (original) | `scan_book_deeplab.py` | `scan_book_qwen.py` |
 |---|---|---|---|
@@ -75,18 +70,14 @@ communs.
 
 Tout le traitement reste local : aucune image n'est envoyée à un service distant.
 
-Bilan des essais, faits sur 4 pages seulement :
-- **DeepLab** confond parfois la page avec ses blocs imprimés. Ses découpes sont souvent rejetées par le garde-fou,
-  ce qui laisse la page entière à recadrer à la main. Ce n'est pas une amélioration générale.
-- **Qwen** recadre correctement les pages intérieures, mais ses coordonnées restent approximatives, et le cadre est
-  parfois serré près des titres. Vérifier l'aperçu.
+Les deux variantes n'ont été essayées que sur 4 pages. DeepLab confond parfois la page avec ses blocs imprimés :
+le garde-fou rejette alors souvent sa découpe et la page reste à recadrer à la main, si bien qu'il ne fait pas mieux
+que l'original. Qwen recadre correctement les pages intérieures, mais ses coordonnées sont approximatives et le cadre
+peut être serré près des titres : vérifier l'aperçu.
 
-Dans le parcours Qwen :
-- **Entrée** valide une page en vérification et **C** la corrige.
-- **F** n'exporte qu'une fois toutes les pages validées.
-- Une page dont l'image a été supprimée dans `pages/` est ignorée à l'export.
-- **Une session Qwen en cours doit être reprise avec le script Qwen.** Les autres scripts ne connaissent pas ses
-  pages en attente.
+Pendant la vérification Qwen, Entrée valide une page et C la corrige. F n'exporte qu'une fois toutes les pages
+validées, et une page dont l'image a été supprimée de `pages/` est laissée hors du PDF. Une session Qwen inachevée se
+reprend avec le script Qwen : les deux autres ignorent ses pages en attente.
 
 ## Fichiers
 
@@ -103,17 +94,11 @@ récupéré au lancement suivant : ne pas le supprimer.
 
 ## Banc OCR
 
-Les PDF produits n'ont pas de couche texte. `ocr-bench/` compare trois moteurs pour en ajouter une :
-- **Marker 2**, local sur GPU ;
-- **Claude Haiku 5.5** ;
-- **GPT-6 Luna**, via AWS Bedrock.
-
-Deux jeux de pages servent au test :
-- **16 pages de nos scans**, notées contre une référence ;
-- **20 pages d'[olmOCR-bench](https://huggingface.co/datasets/allenai/olmOCR-bench)**, notées sur leurs extraits
-  vérifiés par des humains.
-
-Le score est le taux d'erreur par caractère (CER), plus bas = meilleur :
+Les PDF produits n'ont pas de couche texte. `ocr-bench/` compare trois moteurs qui pourraient en ajouter une :
+Marker 2 (en local, sur GPU), Claude Haiku 5.5 et GPT-6 Luna via AWS Bedrock. Ils ont tourné sur 16 pages de nos
+scans, notées contre une transcription de référence, et sur 20 pages
+d'[olmOCR-bench](https://huggingface.co/datasets/allenai/olmOCR-bench), notées sur ses extraits vérifiés par des
+humains. Les scores sont des taux d'erreur par caractère (CER), plus bas = meilleur :
 
 | | Marker 2 (force_ocr) | Claude Haiku 5.5 | GPT-6 Luna |
 |---|---|---|---|
@@ -122,17 +107,14 @@ Le score est le taux d'erreur par caractère (CER), plus bas = meilleur :
 | olmOCR, extraits | 1,0 % | **0,46 %** | 0,80 % |
 | Temps médian par page | 18 s | ≈ 38 s (via agent) | 17 s |
 
-Ce qu'il faut retenir :
-- **Haiku est retenu** : le plus fidèle, il garde les titres de page et de chapitre, et ne demande aucune infrastructure.
-- **Marker 2 en mode auto peut rendre une page vide sans erreur.** Il supprime aussi les titres, même avec `force_ocr`.
-  Enfin, il passe par un serveur vLLM dans Docker.
-- **Luna corrige les coquilles de l'imprimé** et n'accepte pas `temperature=0`.
+Haiku arrive en tête. Il garde aussi les titres de page et de chapitre, et ne demande aucune infrastructure
+locale. En mode auto, Marker 2 a rendu une page vide sans signaler d'erreur ; il supprime les titres même avec
+`force_ocr` et a besoin d'un serveur vLLM dans Docker. Luna corrige sans prévenir les coquilles de l'imprimé et
+refuse `temperature=0`.
 
-Documents du banc :
-- **[ocr-bench/SYNTHESE.md](ocr-bench/SYNTHESE.md)** : paramètres réutilisables (taille d'image, consigne, contrôles) ;
-- **[ocr-bench/RESULTATS.md](ocr-bench/RESULTATS.md)** : analyse complète ;
-- **[ocr-bench/README.md](ocr-bench/README.md)** : protocole ;
-- **`ocr-bench/results/report.html`** : comparaison visuelle, page par page.
+[SYNTHESE.md](ocr-bench/SYNTHESE.md) reprend les paramètres à réutiliser (taille d'image, consigne, contrôles des
+sorties), [RESULTATS.md](ocr-bench/RESULTATS.md) l'analyse complète et [README.md](ocr-bench/README.md) le
+protocole. `ocr-bench/results/report.html` affiche chaque page à côté de la sortie de chaque moteur.
 
 ## Tests
 
@@ -147,9 +129,10 @@ Définir `SCAN_BOOK_SKIP_GUI=1` pour ignorer les tests Tkinter sur une machine s
 
 ## Dépannage
 
-- **Aucun scanner trouvé** :
-  - allumer le scanner et vérifier l'USB ;
-  - fermer les autres logiciels de numérisation ;
-  - vérifier le service avec `Get-Service stisvc`.
-- **`Can't find a usable init.tcl`** : lancer depuis un terminal Windows normal, ou ajouter `--python 3.12` à `uv run`.
-- **Accents illisibles dans PowerShell 5** : lire les fichiers avec `Get-Content -Encoding UTF8`.
+Si `devices` ne trouve aucun scanner : allumer le scanner, vérifier le câble USB, fermer les autres logiciels de
+numérisation et contrôler le service WIA avec `Get-Service stisvc`.
+
+Si Tkinter signale `Can't find a usable init.tcl`, lancer depuis un terminal Windows normal ou ajouter
+`--python 3.12` à `uv run`.
+
+Si les accents s'affichent mal dans PowerShell 5, lire les fichiers avec `Get-Content -Encoding UTF8`.
