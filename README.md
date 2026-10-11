@@ -1,153 +1,154 @@
 # Scan Book
 
-Numériser un livre page par page sous Windows (scanner WIA), avec redressement et recadrage automatiques,
-aperçu de correction, sessions reprenables et export PDF.
+**English** | [Français](README.fr.md)
 
-## Prérequis
+Scan a book page by page on Windows (WIA scanner), with automatic deskew and crop, a correction preview,
+resumable sessions and PDF export.
 
-- Windows et le pilote WIA du scanner (testé : Epson Perfection V330)
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) et un Python 3.12 avec Tcl/Tk
+## Requirements
 
-Les dépendances s'installent toutes seules au premier `uv run`.
+- Windows and the scanner's WIA driver (tested: Epson Perfection V330)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) and Python 3.12 with Tcl/Tk
 
-## Utilisation
+Dependencies are installed automatically on the first `uv run`.
+
+## Usage
 
 ```powershell
-uv run tools/scan_book.py devices                # lister les scanners
-uv run tools/scan_book.py scan les-veilleurs     # scanner (ou reprendre) un livre
+uv run tools/scan_book.py devices                # list scanners
+uv run tools/scan_book.py scan les-veilleurs     # scan (or resume) a book
 uv run tools/scan_book.py correct les-veilleurs --page 12
-uv run tools/scan_book.py export les-veilleurs   # (re)générer le PDF
+uv run tools/scan_book.py export les-veilleurs   # (re)build the PDF
 ```
 
-Poser une page sur la vitre, puis :
+Place one page on the glass, then:
 
-| Touche | Action |
+| Key | Action |
 |---|---|
-| Entrée | Scanner la page suivante |
-| C | Corriger la dernière page (angle, rotation, recadrage) |
-| R | Rescanner la dernière page |
-| M | Basculer couleur / niveaux de gris pour les prochains scans |
-| F | Créer le PDF et quitter |
-| Q | Quitter sans PDF (la session est conservée) |
+| Enter | Scan the next page |
+| C | Correct the last page (angle, rotation, crop) |
+| R | Rescan the last page |
+| M | Toggle color / grayscale for the next scans |
+| F | Build the PDF and quit |
+| Q | Quit without PDF (the session is kept) |
 
-Relancer la même commande reprend le livre. Options utiles :
+Running the same command again resumes the book. Useful options:
 
-| Option | Effet |
+| Option | Effect |
 |---|---|
-| `--dpi 600` | Résolution (300 par défaut) |
-| `--color gray` | Couleur de départ |
-| `--area x,y,l,h` | Zone en mm depuis le coin de la vitre (`full` pour toute la vitre) |
-| `--scanner "EPSON"` | Choix du scanner |
-| `--root "E:\Scans"` | Dossier des livres (`scans/` par défaut) |
+| `--dpi 600` | Resolution (default 300) |
+| `--color gray` | Initial color mode |
+| `--area x,y,w,h` | Area in mm from the glass corner (`full` for the whole glass) |
+| `--scanner "EPSON"` | Scanner selection |
+| `--root "E:\Scans"` | Books folder (default `scans/`) |
 
-## Traitement automatique
+## Automatic processing
 
-Chaque page est traitée dans cet ordre :
-1. remise à l'endroit si elle est à l'envers (détection locale du texte avec RapidOCR) ;
-2. redressement ;
-3. recadrage sur les bords du papier.
+Each page goes through these steps, in order:
+1. turned right side up if it is upside down (local text detection with RapidOCR);
+2. deskewed;
+3. cropped to the paper edges.
 
-Les cas douteux sont signalés **À VÉRIFIER**, et l'original reste dans `raw/`.
+Doubtful cases are flagged **À VÉRIFIER** (to check), and the original stays in `raw/`.
 
-Le script ne fait pas d'OCR et ne sépare pas les doubles pages. Il ne corrige pas non plus la courbure de reliure.
+The script does no OCR and does not split double pages. It does not correct binding curvature either.
 
-## Trois variantes de recadrage
+## Three crop variants
 
-Les trois scripts ont les mêmes commandes et les mêmes touches. Ils partagent les sessions, les dossiers, le PDF et
-le verrou. On peut donc passer de l'un à l'autre en cours de livre :
-1. attendre la fin de l'acquisition ;
-2. quitter avec **Q** ;
-3. relancer le même livre avec l'autre script.
+The three scripts have the same commands and keys. They share sessions, folders, the PDF and the lock. You can
+therefore switch from one to another in the middle of a book:
+1. wait for the current acquisition to finish;
+2. quit with **Q**;
+3. relaunch the same book with the other script.
 
-Ils ne diffèrent que par la façon de trouver le cadre de la page. La remise à l'endroit et le redressement sont
-communs.
+They only differ in how they find the page frame. Orientation and deskew are the same in all three.
 
 | | `scan_book.py` (original) | `scan_book_deeplab.py` | `scan_book_qwen.py` |
 |---|---|---|---|
-| Recadrage | Heuristiques d'image (contour du papier, ombre de bord, fond du scanner) | Segmentation DeepLabV3-ResNet50 (poids [LearnOpenCV](https://github.com/spmallick/learnopencv/tree/master/Document-Scanner-Custom-Semantic-Segmentation-using-PyTorch-DeepLabV3)) | Qwen3.5 9B en local via [Ollama](https://ollama.com), qui renvoie un rectangle |
-| Marge conservée | 3 mm | 0,5 mm | 0,5 mm |
-| Garde-fou | Limite incertaine conservée | Découpe rejetée si elle coupe du texte détecté | Réponse incertaine ou zone < 20 % rejetée |
-| Dépendances | Aucune lourde | PyTorch CUDA (~3 Go), poids de 161 Mo téléchargés dans `.cache/` | Ollama démarré, modèle `qwen3.5:9b` (~6,6 Go) |
-| Vitesse | Immédiat | Rapide sur GPU | 2,5 à 3 s par page une fois le modèle chargé |
-| Déroulé | Chaque page est traitée et affichée avant la suivante | Idem | Scan en masse, traitement en tâche de fond, puis vérification page par page avant l'export |
+| Crop | Image heuristics (paper contour, edge shadow, scanner background) | DeepLabV3-ResNet50 segmentation ([LearnOpenCV](https://github.com/spmallick/learnopencv/tree/master/Document-Scanner-Custom-Semantic-Segmentation-using-PyTorch-DeepLabV3) weights) | Qwen3.5 9B run locally through [Ollama](https://ollama.com), which returns a rectangle |
+| Margin kept | 3 mm | 0.5 mm | 0.5 mm |
+| Safeguard | Uncertain edges are kept | Crop rejected if it cuts detected text | Uncertain answer or area < 20% rejected |
+| Dependencies | Nothing heavy | PyTorch CUDA (~3 GB), 161 MB weights downloaded to `.cache/` | Ollama running, `qwen3.5:9b` model (~6.6 GB) |
+| Speed | Instant | Fast on GPU | 2.5 to 3 s per page once the model is loaded |
+| Workflow | Each page is processed and shown before the next one | Same | Bulk scan, background processing, then page-by-page review before export |
 
-Tout le traitement reste local : aucune image n'est envoyée à un service distant.
+All processing stays local: no image is sent to a remote service.
 
-Bilan des essais, faits sur 4 pages seulement :
-- **DeepLab** confond parfois la page avec ses blocs imprimés. Ses découpes sont souvent rejetées par le garde-fou,
-  ce qui laisse la page entière à recadrer à la main. Ce n'est pas une amélioration générale.
-- **Qwen** recadre correctement les pages intérieures, mais ses coordonnées restent approximatives, et le cadre est
-  parfois serré près des titres. Vérifier l'aperçu.
+Trial results, on 4 pages only:
+- **DeepLab** sometimes mistakes the page for its printed blocks. Its crops are often rejected by the safeguard,
+  which leaves the full page to crop by hand. It is not a general improvement.
+- **Qwen** crops inner pages correctly, but its coordinates remain approximate and the frame is sometimes tight
+  near titles. Check the preview.
 
-Dans le parcours Qwen :
-- **Entrée** valide une page en vérification et **C** la corrige.
-- **F** n'exporte qu'une fois toutes les pages validées.
-- Une page dont l'image a été supprimée dans `pages/` est ignorée à l'export.
-- **Une session Qwen en cours doit être reprise avec le script Qwen.** Les autres scripts ne connaissent pas ses
-  pages en attente.
+In the Qwen workflow:
+- **Enter** validates a page under review and **C** corrects it.
+- **F** only exports once every page is validated.
+- A page whose image was deleted from `pages/` is skipped at export.
+- **A Qwen session in progress must be resumed with the Qwen script.** The other scripts do not know about its
+  pending pages.
 
-## Fichiers
+## Files
 
 ```text
-scans/<livre>/
-    session.json      ordre des pages, réglages, transformations
-    raw/0001.png      acquisitions brutes
-    pages/0001.png    pages corrigées
-    <livre>.pdf
+scans/<book>/
+    session.json      page order, settings, transformations
+    raw/0001.png      raw acquisitions
+    pages/0001.png    corrected pages
+    <book>.pdf
 ```
 
-Un verrou empêche deux commandes de modifier le même livre en même temps. En cas d'interruption, `.pending` est
-récupéré au lancement suivant : ne pas le supprimer.
+A lock prevents two commands from modifying the same book at once. After an interruption, `.pending` is
+recovered on the next launch: do not delete it.
 
-## Banc OCR
+## OCR benchmark
 
-Les PDF produits n'ont pas de couche texte. `ocr-bench/` compare trois moteurs pour en ajouter une :
-- **Marker 2**, local sur GPU ;
-- **Claude Haiku 5.5** ;
-- **GPT-6 Luna**, via AWS Bedrock.
+The PDFs have no text layer. `ocr-bench/` compares three engines for adding one:
+- **Marker 2**, local on GPU;
+- **Claude Haiku 5.5**;
+- **GPT-6 Luna**, through AWS Bedrock.
 
-Deux jeux de pages servent au test :
-- **16 pages de nos scans**, notées contre une référence ;
-- **20 pages d'[olmOCR-bench](https://huggingface.co/datasets/allenai/olmOCR-bench)**, notées sur leurs extraits
-  vérifiés par des humains.
+Two page sets are used:
+- **16 pages from our French scans**, scored against a reference;
+- **20 pages from [olmOCR-bench](https://huggingface.co/datasets/allenai/olmOCR-bench)**, scored on their
+  human-verified snippets.
 
-Le score est le taux d'erreur par caractère (CER), plus bas = meilleur :
+The score is the character error rate (CER), lower is better:
 
 | | Marker 2 (force_ocr) | Claude Haiku 5.5 | GPT-6 Luna |
 |---|---|---|---|
-| Nos scans (hors page difficile) | 0,72 % | **0,35 %** | 0,37 % |
-| Page en police manuscrite stylisée | 1,1 % (vide en mode auto) | **0,75 %** | 1,6 % |
-| olmOCR, extraits | 1,0 % | **0,46 %** | 0,80 % |
-| Temps médian par page | 18 s | ≈ 38 s (via agent) | 17 s |
+| Our scans (excluding the hard page) | 0.72% | **0.35%** | 0.37% |
+| Page in a stylized handwriting font | 1.1% (empty in auto mode) | **0.75%** | 1.6% |
+| olmOCR snippets | 1.0% | **0.46%** | 0.80% |
+| Median time per page | 18 s | ≈ 38 s (via agent) | 17 s |
 
-Ce qu'il faut retenir :
-- **Haiku est retenu** : le plus fidèle, il garde les titres de page et de chapitre, et ne demande aucune infrastructure.
-- **Marker 2 en mode auto peut rendre une page vide sans erreur.** Il supprime aussi les titres, même avec `force_ocr`.
-  Enfin, il passe par un serveur vLLM dans Docker.
-- **Luna corrige les coquilles de l'imprimé** et n'accepte pas `temperature=0`.
+Key takeaways:
+- **Haiku is the pick**: the most accurate, it keeps page and chapter titles, and needs no infrastructure.
+- **Marker 2 in auto mode can return an empty page without any error.** It also drops titles, even with
+  `force_ocr`. And it runs through a vLLM server in Docker.
+- **Luna fixes the book's typos** and does not accept `temperature=0`.
 
-Documents du banc :
-- **[ocr-bench/SYNTHESE.md](ocr-bench/SYNTHESE.md)** : paramètres réutilisables (taille d'image, consigne, contrôles) ;
-- **[ocr-bench/RESULTATS.md](ocr-bench/RESULTATS.md)** : analyse complète ;
-- **[ocr-bench/README.md](ocr-bench/README.md)** : protocole ;
-- **`ocr-bench/results/report.html`** : comparaison visuelle, page par page.
+Benchmark documents (in French):
+- **[ocr-bench/SYNTHESE.md](ocr-bench/SYNTHESE.md)**: reusable parameters (image size, prompt, checks);
+- **[ocr-bench/RESULTATS.md](ocr-bench/RESULTATS.md)**: full analysis;
+- **[ocr-bench/README.md](ocr-bench/README.md)**: protocol;
+- **`ocr-bench/results/report.html`**: visual page-by-page comparison.
 
 ## Tests
 
 ```powershell
-uv run tests/test_scan_book.py          # ni scanner ni GPU requis
+uv run tests/test_scan_book.py          # no scanner or GPU needed
 uv run tests/test_scan_book_deeplab.py
 uv run tests/test_scan_book_qwen.py
 uv run tests/test_ocr_bench.py
 ```
 
-Définir `SCAN_BOOK_SKIP_GUI=1` pour ignorer les tests Tkinter sur une machine sans bureau.
+Set `SCAN_BOOK_SKIP_GUI=1` to skip the Tkinter tests on a machine without a desktop.
 
-## Dépannage
+## Troubleshooting
 
-- **Aucun scanner trouvé** :
-  - allumer le scanner et vérifier l'USB ;
-  - fermer les autres logiciels de numérisation ;
-  - vérifier le service avec `Get-Service stisvc`.
-- **`Can't find a usable init.tcl`** : lancer depuis un terminal Windows normal, ou ajouter `--python 3.12` à `uv run`.
-- **Accents illisibles dans PowerShell 5** : lire les fichiers avec `Get-Content -Encoding UTF8`.
+- **No scanner found**:
+  - turn the scanner on and check the USB cable;
+  - close other scanning software;
+  - check the service with `Get-Service stisvc`.
+- **`Can't find a usable init.tcl`**: run from a regular Windows terminal, or add `--python 3.12` to `uv run`.
+- **Garbled accents in PowerShell 5**: read files with `Get-Content -Encoding UTF8`.
